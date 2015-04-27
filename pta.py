@@ -15,7 +15,32 @@ def main():
     sents = nltk.corpus.brown.raw(categories='mystery')
 
 
-    # # Opdracht f en g:
+    # Opdracht A en B en C:
+    #
+    # tags = []
+    # for tag in br_tw:
+    #     tags.append(tag[1])
+    #
+    # tags2 = []
+    #
+    # for e in tags:
+    #     if e not in tags2:
+    #         tags2.append(e)
+    # print(tags2[99])
+    # print(len(tags2))
+
+
+    # Opdracht D en E
+    # l = []
+    #
+    # br_tw_freq = nltk.FreqDist(br_tw)
+    # for b,f in br_tw_freq.items():
+    #     tag = (b,f)
+    #     l.append(tag)
+    #     l.sort(key=lambda tup: tup[1])
+    # print(l[-9:])
+
+    # # Opdracht F en G:
     # #
     # l = []
     #
@@ -27,7 +52,7 @@ def main():
     # c = Counter(l)
     # print(c.most_common(10))
 
-
+    # Opdracht H en I
     #
     # l = []
     #
@@ -40,37 +65,8 @@ def main():
     # print(l)
     # c = Counter(l)
     # print(c.most_common())
-
-
-    # tags = []
-    # for tag in br_tw:
-    #     tags.append(tag[1])
     #
-    # tags2 = []
-    #
-    # for e in tags:
-    #     if e not in tags2:
-    #         tags2.append(e)
-    #
-    # print(len(tags2))
-
-    # l = []
-    #
-    # br_tw_freq = nltk.FreqDist(br_tw)
-    # for b,f in br_tw_freq.items():
-    #     tag = (b,f)
-    #     l.append(tag)
-    #     l.sort(key=lambda tup: tup[1])
-    # print(l[-9:])
-    #
-    # words = []
-    #
-    # t = nltk.FreqDist(words)
-    # print(t.tabulate(10))
-    # file = open("holmes.txt", 'r')
-    # file = file.read()
-    # file = file.decode('utf-8')
-    # text = nltk.word_tokenize(file)
+    # Opdracht J en K
     #
     # print(nltk.pos_tag(text))
     # tokens = []
@@ -90,6 +86,18 @@ def main():
     #     l.append(tag)
     # l.sort(key=lambda tup: tup[1], reverse=True)
     # print(l)
+    #
+    # words = []
+    #
+    # Opdracht 3
+    #
+    # t = nltk.FreqDist(words)
+    # print(t.tabulate(10))
+    # file = open("holmes.txt", 'r')
+    # file = file.read()
+    # file = file.decode('utf-8')
+    # text = nltk.word_tokenize(file)
+
 
 
 if __name__ == "__main__":
