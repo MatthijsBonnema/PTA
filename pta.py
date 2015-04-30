@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 # File: test.py
 # Author: Matthijs Bonnema
 # Date: 4/16/15
