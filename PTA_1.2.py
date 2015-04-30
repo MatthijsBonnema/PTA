@@ -17,20 +17,18 @@ def main():
 
     # print(file)
 
-    nouns = []
+    noun_lemmas = []
     lemmatizer = WordNetLemmatizer()
-
-
     pos_tags = nltk.pos_tag(text)
-    # print(pos_tags)
 
     for word in pos_tags:
         if word[1] == "NN" or word[1] == "NNP":
             print(word)
-            nouns.append(lemmatizer.lemmatize(word[0], wordnet.VERB))
+            noun_lemmas.append(lemmatizer.lemmatize(word[0], wordnet.VERB))
+
+    print(noun_lemmas)
 
 
-    print(nouns)
 
 
 if __name__ == "__main__":
