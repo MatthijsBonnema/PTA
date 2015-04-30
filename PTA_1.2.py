@@ -21,21 +21,35 @@ def main():
     illness = wordnet.synsets("illness", pos='n')
 
     noun_lemmas = []
-    noun_synsets =[]
+    noun_synsets_relative =[]
+    noun_synsets_illness =[]
+    noun_synsets_science =[]
     lemmatizer = WordNetLemmatizer()
     pos_tags = nltk.pos_tag(text)
 
     for word in pos_tags:
         if word[1] == "NN" or word[1] == "NNP":
-            print(word)
+            # print(word)
             noun_lemmas.append(lemmatizer.lemmatize(word[0], wordnet.VERB))
             # get the synsets for the noun 'honey'
             word_synset = wordnet.synsets(word[0], pos="n")
-            if len(word_synset) != 0 and len(relative) != 0:
+            if len(word_synset) != 0 and len(relative) != 0 and len(science) != 0 and len(illness) != 0:
                 if hypernymOf(word_synset[0], relative[0]):
-                    noun_synsets.append(word_synset)
-    print(noun_lemmas)
-    print(noun_synsets)
+                    noun_synsets_relative.append(word_synset)
+                if hypernymOf(word_synset[0], illness[0]):
+                    noun_synsets_illness.append(word_synset)
+                if hypernymOf(word_synset[0], science[0]):
+                    noun_synsets_science.append(word_synset)
+    # # print(noun_lemmas)
+    #
+    # print(noun_synsets_relative)
+    # print(noun_synsets_illness)
+    # print(noun_synsets_science)
+
+    print("Relative: ", len(noun_synsets_relative))
+    print("Illness: ", len(noun_synsets_illness))
+    print("Science: ", len(noun_synsets_science))
+
 
 def hypernymOf(synset1, synset2):
     """ Returns True if synset2 is a hypernym of
