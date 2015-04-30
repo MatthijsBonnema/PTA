@@ -18,6 +18,7 @@ def main():
     # print(file)
 
     noun_lemmas = []
+    noun_synsets =[]
     lemmatizer = WordNetLemmatizer()
     pos_tags = nltk.pos_tag(text)
 
@@ -25,8 +26,12 @@ def main():
         if word[1] == "NN" or word[1] == "NNP":
             print(word)
             noun_lemmas.append(lemmatizer.lemmatize(word[0], wordnet.VERB))
+            # get the synsets for the noun 'honey'
+            word_synsets = wordnet.synsets(word[0], pos="n")
+            noun_synsets.append(word_synsets)
 
     print(noun_lemmas)
+    print(noun_synsets)
 
 
 
