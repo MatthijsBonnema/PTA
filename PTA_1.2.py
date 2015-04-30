@@ -29,13 +29,6 @@ def main():
             print(word)
             nouns.append(lemmatizer.lemmatize(word[0], wordnet.VERB))
 
-    #
-    # lemmatizer = WordNetLemmatizer()
-    #
-    # nouns = []
-    #
-    # for words in text:
-    #     nouns.append(lemmatizer.lemmatize(words, wordnet.VERB))
 
     print(nouns)
 
