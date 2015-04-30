@@ -40,15 +40,24 @@ def main():
                     noun_synsets_illness.append(word_synset)
                 if hypernymOf(word_synset[0], science[0]):
                     noun_synsets_science.append(word_synset)
-    # # print(noun_lemmas)
-    #
-    # print(noun_synsets_relative)
-    # print(noun_synsets_illness)
-    # print(noun_synsets_science)
 
+    # Exercise 1.1
+    print("EXERCISE 1.1\n")
     print("Relative: ", len(noun_synsets_relative))
     print("Illness: ", len(noun_synsets_illness))
     print("Science: ", len(noun_synsets_science))
+
+    # Exercise 1.3
+    print("\nEXERCISE 1.3\n")
+    compare_words = [("car", "automobile"), ("coast", "shore"), ("food", "fruit"), ("journey", "car"),
+                     ("monk", "slave"), ("moon", "string")]
+    similarity_words = []
+    for words in compare_words:
+        w1synsets = wordnet.synsets(words[0], pos="n")
+        w2synsets = wordnet.synsets(words[1], pos="n")
+        similarity_words.append((words[0], words[1], getMaxSim(w1synsets, w2synsets)))
+    for item in similarity_words:
+        print("{:15}{:5}{:15}{:15}".format(item[0], "<>", item[1], item[2]))
 
 
 def hypernymOf(synset1, synset2):
@@ -63,6 +72,16 @@ def hypernymOf(synset1, synset2):
             return True
         if hypernymOf(hypernym, synset2):
             return True
+
+
+def getMaxSim(synsets1, synsets2):
+    maxSim = None
+    for s1 in synsets1:
+        for s2 in synsets2:
+            sim = s1.lch_similarity(s2)
+            if maxSim is None or maxSim < sim:
+                maxSim = sim
+    return maxSim
 
 if __name__ == "__main__":
     main()
