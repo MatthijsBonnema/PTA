@@ -31,10 +31,11 @@ def main():
             noun_lemmas.append(lemmatizer.lemmatize(word[0], wordnet.VERB))
             # get the synsets for the noun 'honey'
             word_synset = wordnet.synsets(word[0], pos="n")
-            if hypernymOf(word_synset[0], relative[0]):
-                noun_synsets.append(word_synset)
-
-
+            if len(word_synset) != 0 and len(relative) != 0:
+                if hypernymOf(word_synset[0], relative[0]):
+                    noun_synsets.append(word_synset)
+    print(noun_lemmas)
+    print(noun_synsets)
 
 def hypernymOf(synset1, synset2):
     """ Returns True if synset2 is a hypernym of
@@ -48,12 +49,6 @@ def hypernymOf(synset1, synset2):
             return True
         if hypernymOf(hypernym, synset2):
             return True
-
-    print(noun_lemmas)
-    print(noun_synsets)
-
-
-
 
 if __name__ == "__main__":
     main()
