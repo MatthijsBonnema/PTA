@@ -56,6 +56,7 @@ def main():
         w1synsets = wordnet.synsets(words[0], pos="n")
         w2synsets = wordnet.synsets(words[1], pos="n")
         similarity_words.append((words[0], words[1], getMaxSim(w1synsets, w2synsets)))
+    similarity_words.sort(key=lambda tup: tup[2], reverse=True)
     for item in similarity_words:
         print("{:15}{:5}{:15}{:15}".format(item[0], "<>", item[1], item[2]))
 
