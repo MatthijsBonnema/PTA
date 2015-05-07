@@ -1,6 +1,7 @@
 #!/usr/bin/python
 from nltk.tag.stanford import NERTagger
 import nltk
+from nltk.corpus import wordnet
 
 
 def main():
@@ -24,13 +25,53 @@ def main():
                'stanford-ner/stanford-ner.jar')
 
 
-    words = []
+    nnp_words = []
+    nn_words = []
 
     pos_tags = nltk.pos_tag(text)
     for tag in pos_tags:
         if tag[1] == 'NNP':
-            words.append(tag[0])
-    print(class3.tag(words))
+            nnp_words.append(tag[0])
+        elif tag[1] == 'NN':
+            nn_words.append(tag[0])
+
+    print("NERTagged words:")
+    print(class3.tag(nnp_words))
+    print("WordNet Tagged Words:")
+    print(WNtagger(nn_words))
+
+
+def WNtagger(l):
+    tagged_words = []
+    person = wordnet.synsets("person", pos='n')
+    organization = wordnet.synsets("organization", pos='n')
+    location = wordnet.synsets("location", pos='n')
+    for w in l:
+        word_synset = wordnet.synsets(w, pos="n")
+        if len(word_synset) != 0 and len(person) != 0 and len(organization) != 0 and len(location) != 0:
+                if hypernymOf(word_synset[0], person[0]):
+                    tagged_words.append((w, "PERSON"))
+                if hypernymOf(word_synset[0], organization[0]):
+                    tagged_words.append((w, "ORGANIZATION"))
+                if hypernymOf(word_synset[0], location[0]):
+                    tagged_words.append((w, "LOCATION"))
+    return tagged_words
+
+
+
+
+def hypernymOf(synset1, synset2):
+    """ Returns True if synset2 is a hypernym of
+    synset1, or if they are the same synset.
+    Returns False otherwise. """
+
+    if synset1 == synset2:
+        return True
+    for hypernym in synset1.hypernyms():
+        if synset2 == hypernym:
+            return True
+        if hypernymOf(hypernym, synset2):
+            return True
 
 
 
