@@ -24,10 +24,11 @@ def main():
     class7 = NERTagger('stanford-ner/classifiers/english.muc.7class.distsim.crf.ser.gz',
                'stanford-ner/stanford-ner.jar')
 
-    # print(class3.tag(text))
+    #print(class3.tag(text))
 
     nnp_words = []
     nn_words = []
+    not_tagged = []
 
     pos_tags = nltk.pos_tag(text)
     for tag in pos_tags:
@@ -37,9 +38,18 @@ def main():
             nn_words.append(tag[0])
 
     print("NERTagged words:")
-    print(class3.tag(nnp_words))
+    ner_tagged = class3.tag(nnp_words)
+    tagged = []
+    for t in ner_tagged[0]:
+        if t[1] == u'O':
+            not_tagged.append(t)
+        else:
+            tagged.append(t)
+    print(tagged)
     print("WordNet Tagged Words:")
     print(WNtagger(nn_words))
+    print("Not Tagged Words:")
+    print(not_tagged)
 
 
 def WNtagger(l):
