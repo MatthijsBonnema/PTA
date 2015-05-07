@@ -83,9 +83,10 @@ def main():
             noun_lemmas.append(lemmatizer.lemmatize(word[0], wordnet.NOUN))
             word_synset = wordnet.synsets(word[0], pos="n")
             for e in list(entities.keys()):
-                if len(word_synset) != 0 and len(entities[e]):
+                if len(word_synset) != 0 and len(entities[e]) != 0:
                     if hypernymOf(word_synset[0], entities[e][0]):
-                        tagged_top_entities[word[0]].extend(e)
+                        print(e)
+                        tagged_top_entities[word[0]].append(e)
     print(tagged_top_entities)
 
     # Exercise 1.3
