@@ -21,16 +21,16 @@ def main():
     illness = wordnet.synsets("illness", pos='n')
 
     noun_lemmas = []
-    noun_synsets_relative =[]
-    noun_synsets_illness =[]
-    noun_synsets_science =[]
+    noun_synsets_relative = []
+    noun_synsets_illness = []
+    noun_synsets_science = []
     lemmatizer = WordNetLemmatizer()
     pos_tags = nltk.pos_tag(text)
 
     for word in pos_tags:
         if word[1] == "NN" or word[1] == "NNP":
             # print(word)
-            noun_lemmas.append(lemmatizer.lemmatize(word[0], wordnet.VERB))
+            noun_lemmas.append(lemmatizer.lemmatize(word[0], wordnet.NOUN))
             # get the synsets for the noun 'honey'
             word_synset = wordnet.synsets(word[0], pos="n")
             if len(word_synset) != 0 and len(relative) != 0 and len(science) != 0 and len(illness) != 0:
@@ -46,6 +46,13 @@ def main():
     print("Relative: ", len(noun_synsets_relative))
     print("Illness: ", len(noun_synsets_illness))
     print("Science: ", len(noun_synsets_science))
+
+    # Exercise 1.2
+    print("\nEXERCISE 1.3\n")
+    for word in pos_tags:
+        if word[1] == "NN" or word[1] == "NNP":
+            noun_lemmas.append(lemmatizer.lemmatize(word[0], wordnet.NOUN))
+            for
 
     # Exercise 1.3
     print("\nEXERCISE 1.3\n")

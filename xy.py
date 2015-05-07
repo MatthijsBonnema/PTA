@@ -72,17 +72,16 @@ def main():
 	
 		
 def hypernymOf(synset1, synset2):
-	""" Returns True if synset2 is a hypernym of
-	synset1, or if they are the same synset.
-	Returns False otherwise. """
-	if synset1 == synset2:
-		return True
-	for hypernym in synset1.hypernyms():
-		if synset2 == hypernym:
-			return True
-		if hypernymOf(hypernym, synset2):
-			return True
+    """ Returns True if synset2 is a hypernym of
+    synset1, or if they are the same synset.
+    Returns False otherwise. """
+    if synset1 == synset2:
+        return True
+    for hypernym in synset1.hypernyms():
+        if synset2 == hypernym:
+            return True     if hypernymOf(hypernym, synset2):
+            return True
 	
 				
 if __name__ == "__main__":
-	main()
+    main()

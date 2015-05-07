@@ -62,9 +62,9 @@ def WNtagger(l):
         if len(word_synset) != 0 and len(person) != 0 and len(organization) != 0 and len(location) != 0:
                 if hypernymOf(word_synset[0], person[0]):
                     tagged_words.append((w, "PERSON"))
-                elif hypernymOf(word_synset[0], organization[0]):
+                if hypernymOf(word_synset[0], organization[0]):
                     tagged_words.append((w, "ORGANIZATION"))
-                elif hypernymOf(word_synset[0], location[0]):
+                if hypernymOf(word_synset[0], location[0]):
                     tagged_words.append((w, "LOCATION"))
     return tagged_words
 
