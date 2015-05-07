@@ -13,6 +13,32 @@ def main():
 	
 	text = nltk.word_tokenize(file)
 	
+	mydict = {
+	"act": wordnet.synsets("act", pos='n'),
+	"animal": wordnet.synsets("animal", pos='n'),
+	"artifact": wordnet.synsets("artifact", pos='n'),
+	"attribute": wordnet.synsets("attribute", pos='n'),
+	"body": wordnet.synsets("body", pos='n'),
+	"cognition": wordnet.synsets("cognition", pos='n'),
+	"communication": wordnet.synsets("communication", pos='n'),
+	"event": wordnet.synsets("event", pos='n'),
+	"feeling": wordnet.synsets("feeling", pos='n'),
+	"food": wordnet.synsets("food", pos='n'),
+	"group": wordnet.synsets("group", pos='n'),
+	"location": wordnet.synsets("location", pos='n'),
+	"motive": wordnet.synsets("motive", pos='n'),
+	"natural object": wordnet.synsets("natural object", pos='n'),
+	"person": wordnet.synsets("person", pos='n'),
+	"plant": wordnet.synsets("plant", pos='n'),
+	"possession": wordnet.synsets("possession", pos='n'),
+	"process": wordnet.synsets("process", pos='n'),
+	"quantity": wordnet.synsets("quantity", pos='n'),
+	"relation": wordnet.synsets("relation", pos='n'),
+	"shape": wordnet.synsets("shape", pos='n'),
+	"state": wordnet.synsets("state", pos='n'),
+	"substance": wordnet.synsets("substance", pos='n'),
+	"time": wordnet.synsets("time", pos='n')
+	}
 	
 	act = wordnet.synsets("act", pos='n')
 	action = wordnet.synsets("action", pos='n')
@@ -72,16 +98,17 @@ def main():
 	
 		
 def hypernymOf(synset1, synset2):
-    """ Returns True if synset2 is a hypernym of
-    synset1, or if they are the same synset.
-    Returns False otherwise. """
-    if synset1 == synset2:
-        return True
-    for hypernym in synset1.hypernyms():
-        if synset2 == hypernym:
-            return True     if hypernymOf(hypernym, synset2):
-            return True
+	""" Returns True if synset2 is a hypernym of
+	synset1, or if they are the same synset.
+	Returns False otherwise. """
+	if synset1 == synset2:
+		return True
+	for hypernym in synset1.hypernyms():
+		if synset2 == hypernym:
+			return True
+		if hypernymOf(hypernym, synset2):
+			return True
 	
 				
 if __name__ == "__main__":
-    main()
+	main()
