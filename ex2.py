@@ -24,6 +24,7 @@ def main():
     class7 = NERTagger('stanford-ner/classifiers/english.muc.7class.distsim.crf.ser.gz',
                'stanford-ner/stanford-ner.jar')
 
+    # print(class3.tag(text))
 
     nnp_words = []
     nn_words = []
@@ -51,13 +52,11 @@ def WNtagger(l):
         if len(word_synset) != 0 and len(person) != 0 and len(organization) != 0 and len(location) != 0:
                 if hypernymOf(word_synset[0], person[0]):
                     tagged_words.append((w, "PERSON"))
-                if hypernymOf(word_synset[0], organization[0]):
+                elif hypernymOf(word_synset[0], organization[0]):
                     tagged_words.append((w, "ORGANIZATION"))
-                if hypernymOf(word_synset[0], location[0]):
+                elif hypernymOf(word_synset[0], location[0]):
                     tagged_words.append((w, "LOCATION"))
     return tagged_words
-
-
 
 
 def hypernymOf(synset1, synset2):
@@ -74,9 +73,5 @@ def hypernymOf(synset1, synset2):
             return True
 
 
-
-    # print(class3.tag(text))
-
-
-
-main()
+if __name__ == "__main__":
+    main()
