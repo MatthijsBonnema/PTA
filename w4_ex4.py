@@ -10,8 +10,8 @@ path = "group9/"
 dirs = ["p34", "p35"]
 for directory in dirs:
     for directory2 in os.listdir(path+directory):
-        for filename in os.listdir(path+directory+directory2):
+        for filename in os.listdir(path+directory+"/"+directory2):
             print(filename)
-            with open(os.path.join(path, directory, filename), 'r') as filedata:
+            with open(os.path.join(path, directory+"/"+directory2, filename), 'r') as filedata:
                 string = "".join(filedata.read().split())
                 print(string)
