@@ -35,7 +35,8 @@ def main():
         "group": wordnet.synsets("group", pos='n'),
         "location": wordnet.synsets("location", pos='n'),
         "motive": wordnet.synsets("motive", pos='n'),
-        #"natural object": wordnet.synsets("natural object", pos='n'),
+        "natural_object": wordnet.synsets("natural object", pos='n'),
+        "natural_phenomenon": wordnet.synsets("natural object", pos='n'),
         "person": wordnet.synsets("person", pos='n'),
         "plant": wordnet.synsets("plant", pos='n'),
         "possession": wordnet.synsets("possession", pos='n'),
@@ -85,9 +86,9 @@ def main():
             for e in list(entities.keys()):
                 if len(word_synset) != 0 and len(entities[e]) != 0:
                     if hypernymOf(word_synset[0], entities[e][0]):
-                        print(e)
                         tagged_top_entities[word[0]].append(e)
-    print(tagged_top_entities)
+    for w in tagged_top_entities:
+        print("{:15}{:15}".format(w, tagged_top_entities[w]))
 
     # Exercise 1.3
     print("\nEXERCISE 1.3\n")
