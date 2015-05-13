@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # File: w4_ex4.py
-# Author: Simon de Wit
+# Author: Simon de Wit and Matthijs Bonnema
 # Date: 5/15/15
 # Info:
 
