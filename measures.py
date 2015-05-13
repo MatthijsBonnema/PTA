@@ -1,7 +1,7 @@
 from collections import Counter
 from nltk.metrics import ConfusionMatrix
 
-ref  = 'DET NN VB DET JJ NN NN IN DET NN'.split()
+ref = 'DET NN VB DET JJ NN NN IN DET NN'.split()
 tagged = 'DET VB VB DET NN NN NN IN DET NN'.split()
 cm = ConfusionMatrix(ref, tagged)
 

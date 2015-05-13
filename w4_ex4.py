@@ -19,6 +19,9 @@ tokens = [token_data[3] for token_data in text_data]
 tagged_tokens = nltk.pos_tag(tokens)
 for i in range(len(text_data)):
     text_data[i].append(tagged_tokens[i][1])
+output = open("en.tok.off.pos", "w")
 for i in text_data:
-    print(i)
-
+    data = ("{:4}{:4}{:6}{:20}{:3}".format(i[0], i[1], i[2], i[3], i[4]))
+    # for items in i:
+    output.write(data+"\n")
+output.close()
