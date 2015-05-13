@@ -22,6 +22,5 @@ for i in range(len(text_data)):
 output = open("en.tok.off.pos", "w")
 for i in text_data:
     data = ("{:4}{:4}{:6}{:20}{:3}".format(i[0], i[1], i[2], i[3], i[4]))
-    # for items in i:
     output.write(data+"\n")
 output.close()
