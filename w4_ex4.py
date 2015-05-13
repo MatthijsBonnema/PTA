@@ -14,4 +14,6 @@ for directory in dirs:
             if filename.endswith(".tok.off"):
                 with open(os.path.join(path, directory+"/"+directory2, filename), 'r') as filedata:
                     text_data = [line.split() for line in filedata]
-                    print(text_data)
+tokens = [token_data[3] for token_data in text_data]
+print(tokens)
+
