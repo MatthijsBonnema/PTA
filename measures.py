@@ -16,10 +16,10 @@ false_positives = Counter()
 for i in labels:
     for j in labels:
         if i == j:
-            true_positives[i] += cm[i,j]
+            true_positives[i] += cm[i, j]
         else:
-            false_negatives[i] += cm[i,j]
-            false_positives[j] += cm[i,j]
+            false_negatives[i] += cm[i, j]
+            false_positives[j] += cm[i, j]
 
 print("TP:", sum(true_positives.values()), true_positives)
 print("FN:", sum(false_negatives.values()), false_negatives)
