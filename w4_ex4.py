@@ -9,12 +9,14 @@ import nltk
 
 path = "group9/"
 dirs = ["p34", "p35"]
+text_data = []
 for directory in dirs:
     for directory2 in os.listdir(path+directory):
         for filename in os.listdir(path+directory+"/"+directory2):
             if filename.endswith(".tok.off"):
                 with open(os.path.join(path, directory+"/"+directory2, filename), 'r') as filedata:
-                    text_data = [line.split() for line in filedata]
+                    for line in filedata:
+                        text_data.append(line.split())
 tokens = [token_data[3] for token_data in text_data]
 tagged_tokens = nltk.pos_tag(tokens)
 for i in range(len(text_data)):
