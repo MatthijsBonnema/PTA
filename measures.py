@@ -11,21 +11,18 @@ def makeList(f):
     return tagged
 
 compare = ["en.tok.off.pos.simon", "en.tok.off.pos.lars", "en.tok.off.pos.matthijs"]
-#lars = makeList(compare[1])
 simon = makeList(compare[0])
+lars = makeList(compare[1])
 #matthijs = makeList(compare[2])
 
-print(simon, len(simon))
-print("TEST KLAAR")
-
-ref = 'DET NN VB DET JJ NN NN IN DET NN'.split()
-tagged = 'DET VB VB DET NN NN NN IN DET NN'.split()
-cm = ConfusionMatrix(ref, tagged)
+cm = ConfusionMatrix(simon, lars)
+#cm2 = ConfusionMatrix(simon, matthijs)
+#cm3 = ConfusionMatrix(lars, matthijs)
 
 print(cm)
 
 # deze moeten cou, cit, etc worden
-labels = set('DET NN VB IN JJ'.split())
+labels = set('COU CIT ENT PER ANI NAT ORG'.split())
 
 true_positives = Counter()
 false_negatives = Counter()
