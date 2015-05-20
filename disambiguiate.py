@@ -49,7 +49,7 @@ def main():
                             output.write(outputwrite)
     c = Counter(synsets)
 
-    print(synsets)
+    print(c)
     print(number_of_ss)
 
 main()
