@@ -12,7 +12,7 @@
 66  76  1012  protesting          VBG  -    -
 77  80  1013  the                 DT   -    -
 81  87  1014  police              NN   ORG  http://en.wikipedia.org/wiki/Police
-88  96  1015  shooting            VBG  -    -
+88  96  1015  shooting           VBG  -    -
 97  99  1016  of                  IN   -    -
 100 101 1017  a                   DT   -    -
 102 105 1018  man                 NN   PER  http://nl.wikipedia.org/wiki/Man_%28geslacht%29
