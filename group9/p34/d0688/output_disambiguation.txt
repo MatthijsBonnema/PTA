@@ -1,1 +1,5 @@
-(Synset('island.n.02'), u'a zone or area resembling an island')(Synset('pisces.n.02'), u'(astrology) a person who is born while the sun is in Pisces')(Synset('activity.n.04'), u'(chemistry) the capacity of a substance to take part in a chemical reaction')(Synset('radio_receiver.n.01'), u'an electronic receiver that detects and demodulates and amplifies transmitted signals')(Synset('island.n.02'), u'a zone or area resembling an island')
+(Synset('island.n.02'), u'a zone or area resembling an island')
+(Synset('pisces.n.02'), u'(astrology) a person who is born while the sun is in Pisces')
+(Synset('activity.n.04'), u'(chemistry) the capacity of a substance to take part in a chemical reaction')
+(Synset('radio_receiver.n.01'), u'an electronic receiver that detects and demodulates and amplifies transmitted signals')
+(Synset('island.n.02'), u'a zone or area resembling an island')

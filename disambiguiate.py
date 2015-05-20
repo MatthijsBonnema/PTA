@@ -39,6 +39,7 @@ def main():
                             ambigious_lines.append(lines)
                         for i in range(len(ambigious_words)):
                             ss = lesk(ambigious_lines[i], ambigious_words[i][1], "n")
-                            output.write(str((ss, ss.definition())))
+                            outputwrite = str((ss, ss.definition())) + "\n"
+                            output.write(outputwrite)
 
 main()

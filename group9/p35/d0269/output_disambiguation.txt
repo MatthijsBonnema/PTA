@@ -1,1 +1,5 @@
-(Synset('busbar.n.01'), u'an electrical conductor that makes a common connection between several circuits')(Synset('bridge.n.03'), u'something resembling a bridge in form or function')(Synset('state.n.03'), u'the group of people comprising the government of a sovereign state')(Synset('call.n.04'), u'a demand especially in the phrase "the call of duty"')(Synset('state_of_matter.n.01'), u'(chemistry) the three traditional states of matter are solids (fixed shape and volume) and liquids (fixed volume and shaped by the container) and gases (filling the container)')
+(Synset('busbar.n.01'), u'an electrical conductor that makes a common connection between several circuits')
+(Synset('bridge.n.03'), u'something resembling a bridge in form or function')
+(Synset('state.n.03'), u'the group of people comprising the government of a sovereign state')
+(Synset('call.n.04'), u'a demand especially in the phrase "the call of duty"')
+(Synset('state_of_matter.n.01'), u'(chemistry) the three traditional states of matter are solids (fixed shape and volume) and liquids (fixed volume and shaped by the container) and gases (filling the container)')

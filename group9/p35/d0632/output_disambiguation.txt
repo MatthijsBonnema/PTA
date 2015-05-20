@@ -1,1 +1,4 @@
-(Synset('heavy.n.02'), u'a serious (or tragic) role in a play')(Synset('brazil.n.01'), u"the largest Latin American country and the largest Portuguese speaking country in the world; located in the central and northeastern part of South America; world's leading coffee exporter")(Synset('city.n.03'), u'people living in a large densely populated municipality')(Synset('region.n.04'), u"the approximate amount of something (usually used prepositionally as in `in the region of')")
+(Synset('heavy.n.02'), u'a serious (or tragic) role in a play')
+(Synset('brazil.n.01'), u"the largest Latin American country and the largest Portuguese speaking country in the world; located in the central and northeastern part of South America; world's leading coffee exporter")
+(Synset('city.n.03'), u'people living in a large densely populated municipality')
+(Synset('region.n.04'), u"the approximate amount of something (usually used prepositionally as in `in the region of')")
