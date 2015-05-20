@@ -7,18 +7,21 @@ import sys
 import os
 
 
-def main(argv):
+def main():
     path = "group9/"
     dirs = ["p34", "p35"]
-    ambigious_words = []
-    ambigious_lines = []
-    text_words = []
+
     for directory in dirs:
         for directory2 in os.listdir(path+directory):
             for filename in os.listdir(path+directory+"/"+directory2):
                 if filename.endswith(".tok.off.pos.ent"):
                     with open(os.path.join(path, directory+"/"+directory2, filename), 'r') as fname:
-                        output = open("output_disambiguation.txt", "w")
+                        output = open(os.path.join(path, directory+"/"+directory2, "output_disambiguation.txt"), 'w')
+
+                        ambigious_words = []
+                        ambigious_lines = []
+                        text_words = []
+
                         for line in fname:
                             split_line = line.split()
                             text_words.append(split_line)
@@ -34,8 +37,8 @@ def main(argv):
                                 if start <= int(l[2]) <= end:
                                     lines.append(l[3])
                             ambigious_lines.append(lines)
-                        for i in range(len(ambigious_lines)):
+                        for i in range(len(ambigious_words)):
                             ss = lesk(ambigious_lines[i], ambigious_words[i][1], "n")
-                            output.write((ss, ss.definition()))
+                            output.write(str((ss, ss.definition())))
 
-main(sys.argv)
+main()
