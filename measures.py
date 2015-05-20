@@ -13,7 +13,7 @@ def makeList(f):
 compare = ["en.tok.off.pos.simon", "en.tok.off.pos.lars", "en.tok.off.pos.matthijs"]
 simon = makeList(compare[0])
 lars = makeList(compare[1])
-#matthijs = makeList(compare[2])
+matthijs = makeList(compare[2])
 
 cm = ConfusionMatrix(simon, lars)
 #cm2 = ConfusionMatrix(simon, matthijs)
