@@ -1,3 +1,107 @@
+0   6   1001  French              JJ 
+7   16  1002  officials           NNS
+17  20  1003  say                 VBP
+21  28  1004  rioters             NNS
+29  35  1005  burned              VBN
+36  40  1006  cars                NNS
+41  44  1007  and                 CC 
+45  49  1008  shot                VBD
+50  52  1009  at                  IN 
+53  59  1010  police              NN ORG http://en.wikipedia.org/wiki/Police	
+60  65  1011  while               IN 
+66  76  1012  protesting          VBG
+77  80  1013  the                 DT 
+81  87  1014  police              NN ORG http://en.wikipedia.org/wiki/Police	
+88  96  1015  shooting            VBG
+97  99  1016  of                  IN 
+100 101 1017  a                   DT 
+102 105 1018  man                 NN 
+106 113 1019  accused             VBD
+114 116 1020  of                  IN 
+117 124 1021  robbing             NN 
+125 126 1022  a                   DT 
+127 133 1023  casino              NN 
+133 134 1024  .                   .  
+136 139 2001  The                 DT 
+140 144 2002  riot                NN 
+145 152 2003  erupted             VBD
+153 157 2004  late                JJ 
+158 164 2005  Friday              NNP
+165 170 2006  night               NN 
+171 173 2007  in                  IN 
+174 177 2008  the                 DT 
+178 190 2009  southeastern        NN 
+191 195 2010  city                NN 
+196 198 2011  of                  IN 
+199 207 2012  Grenoble            NNP CIT http://en.wikipedia.org/wiki/Grenoble
+207 208 2013  .                   .  
+210 219 3001  Officials           NNS
+220 224 3002  said                VBD
+225 228 3003  the                 DT 
+229 236 3004  rioters             NNS
+237 241 3005  also                RB 
+242 249 3006  torched             VBD
+250 255 3007  shops               NNS
+256 259 3008  and                 CC 
+260 268 3009  attacked            VBD
+269 270 3010  a                   DT 
+271 280 3011  streetcar           NN 
+281 282 3012  (                   :  
+282 289 3013  tramway             NN 
+289 290 3014  )                   :  
+291 295 3015  line                NN 
+295 296 3016  .                   .  
+298 304 4001  Police              NNP ORG http://en.wikipedia.org/wiki/Police
+305 309 4002  said                VBD
+310 314 4003  some                DT 
+315 322 4004  rioters             NNS
+323 327 4005  also                RB 
+328 332 4006  shot                VBD
+333 335 4007  at                  IN 
+336 344 4008  officers            NNS
+345 348 4009  and                 CC 
+349 353 4010  that                IN 
+354 358 4011  they                PRP
+359 367 4012  returned            VBD
+368 372 4013  fire                NN 
+372 373 4014  .                   .  
+375 378 5001  The                 DT 
+379 385 5002  French              JJ 
+386 395 5003  newspaper           NN 
+396 398 5004  Le                  NNP ENT https://en.wikipedia.org/wiki/Le_Monde
+399 404 5005  Monde               NNP ENT https://en.wikipedia.org/wiki/Le_Monde
+405 409 5006  says                VBZ
+410 413 5007  the                 DT 
+414 420 5008  youths              NNS
+421 428 5009  started             VBD
+429 434 5010  their               PRP$
+435 442 5011  rampage             NN 
+443 448 5012  after               IN 
+449 456 5013  hearing             NN 
+457 458 5014  a                   DT 
+459 465 5015  Muslim              NNP
+466 470 5016  imam                NN PER http://en.wikipedia.org/wiki/Imam
+471 475 5017  give                VB 
+476 477 5018  a                   DT 
+478 486 5019  ceremony            NN 
+487 490 5020  for                 IN 
+491 493 5021  an                  DT 
+494 501 5022  alleged             JJ 
+502 508 5023  robber              NN PER
+508 509 5024  ,                   ,  
+510 513 5025  who                 WP 
+514 518 5026  died                VBD
+519 527 5027  Thursday            NNP
+528 533 5028  night               NN 
+534 539 5029  after               IN 
+540 545 5030  being               VBG
+546 552 5031  chased              VBN
+553 555 5032  by                  IN 
+556 562 5033  police              NN ORG http://en.wikipedia.org/wiki/Police
+563 566 5034  and                 CC 
+567 577 5035  exchanging          VBG
+578 585 5036  gunfire             NN 
+585 586 5037  .                   .  
 0   9   1001  Tornadoes           VBZ
 10  16  1002  ripped              VBN
 17  24  1003  through             IN 
@@ -180,51 +284,6 @@
 439 441 5016  in                  IN 
 442 446 5017  1991                CD 
 446 447 5018  .                   .  
-0   3   1001  Jan                 NNP NAT http://en.wikipedia.org/wiki/Jan_Mayen
-4   9   1002  Mayen               NNP NAT http://en.wikipedia.org/wiki/Jan_Mayen
-10  12  1003  is                  VBZ
-13  14  1004  a                   DT 
-15  23  1005  volcanic            JJ 
-24  30  1006  island              NN NAT http://en.wikipedia.org/wiki/Island
-31  35  1007  with                IN 
-36  38  1008  no                  DT 
-39  50  1009  exploitable         JJ 
-51  58  1010  natural             JJ 
-59  68  1011  resources           NNS
-68  69  1012  ,                   ,  
-70  78  1013  although            IN 
-79  90  1014  surrounding         VBG
-91  97  1015  waters              NNS
-98  105 1016  contain             VBP
-106 117 1017  substantial         JJ 
-118 122 1018  fish                NN ANI http://en.wikipedia.org/wiki/Fish
-123 129 1019  stocks              NNS
-130 133 1020  and                 CC 
-134 143 1021  potential           JJ 
-144 152 1022  untapped            VBD
-153 162 1023  petroleum           NN 
-163 172 1024  resources           NNS
-172 173 1025  .                   .  
-174 182 2001  Economic            JJ 
-183 191 2002  activity            NN 
-192 194 2003  is                  VBZ
-195 202 2004  limited             VBN
-203 205 2005  to                  TO 
-206 215 2006  providing           NN 
-216 224 2007  services            NNS
-225 228 2008  for                 IN 
-229 238 2009  employees           NNS
-239 241 2010  of                  IN 
-242 248 2011  Norway              NNP COU http://en.wikipedia.org/wiki/Norway
-248 250 2012  's                  POS
-251 256 2013  radio               NN 
-257 260 2014  and                 CC 
-261 275 2015  meteorological      JJ 
-276 284 2016  stations            NNS
-285 287 2017  on                  IN 
-288 291 2018  the                 DT 
-292 298 2019  island              NN NAT http://en.wikipedia.org/wiki/Island
-298 299 2020  .                   .  
 0   10  1001  Salvadoran          NNP
 11  20  1002  lawmakers           NNS
 21  25  1003  have                VBP
@@ -303,110 +362,6 @@
 442 448 5015  August              NNP
 449 453 5016  2003                CD 
 453 454 5017  .                   .  
-0   6   1001  French              JJ 
-7   16  1002  officials           NNS
-17  20  1003  say                 VBP
-21  28  1004  rioters             NNS
-29  35  1005  burned              VBN
-36  40  1006  cars                NNS
-41  44  1007  and                 CC 
-45  49  1008  shot                VBD
-50  52  1009  at                  IN 
-53  59  1010  police              NN ORG http://en.wikipedia.org/wiki/Police	
-60  65  1011  while               IN 
-66  76  1012  protesting          VBG
-77  80  1013  the                 DT 
-81  87  1014  police              NN ORG http://en.wikipedia.org/wiki/Police	
-88  96  1015  shooting            VBG
-97  99  1016  of                  IN 
-100 101 1017  a                   DT 
-102 105 1018  man                 NN 
-106 113 1019  accused             VBD
-114 116 1020  of                  IN 
-117 124 1021  robbing             NN 
-125 126 1022  a                   DT 
-127 133 1023  casino              NN 
-133 134 1024  .                   .  
-136 139 2001  The                 DT 
-140 144 2002  riot                NN 
-145 152 2003  erupted             VBD
-153 157 2004  late                JJ 
-158 164 2005  Friday              NNP
-165 170 2006  night               NN 
-171 173 2007  in                  IN 
-174 177 2008  the                 DT 
-178 190 2009  southeastern        NN 
-191 195 2010  city                NN 
-196 198 2011  of                  IN 
-199 207 2012  Grenoble            NNP CIT http://en.wikipedia.org/wiki/Grenoble
-207 208 2013  .                   .  
-210 219 3001  Officials           NNS
-220 224 3002  said                VBD
-225 228 3003  the                 DT 
-229 236 3004  rioters             NNS
-237 241 3005  also                RB 
-242 249 3006  torched             VBD
-250 255 3007  shops               NNS
-256 259 3008  and                 CC 
-260 268 3009  attacked            VBD
-269 270 3010  a                   DT 
-271 280 3011  streetcar           NN 
-281 282 3012  (                   :  
-282 289 3013  tramway             NN 
-289 290 3014  )                   :  
-291 295 3015  line                NN 
-295 296 3016  .                   .  
-298 304 4001  Police              NNP ORG http://en.wikipedia.org/wiki/Police
-305 309 4002  said                VBD
-310 314 4003  some                DT 
-315 322 4004  rioters             NNS
-323 327 4005  also                RB 
-328 332 4006  shot                VBD
-333 335 4007  at                  IN 
-336 344 4008  officers            NNS
-345 348 4009  and                 CC 
-349 353 4010  that                IN 
-354 358 4011  they                PRP
-359 367 4012  returned            VBD
-368 372 4013  fire                NN 
-372 373 4014  .                   .  
-375 378 5001  The                 DT 
-379 385 5002  French              JJ 
-386 395 5003  newspaper           NN 
-396 398 5004  Le                  NNP ENT https://en.wikipedia.org/wiki/Le_Monde
-399 404 5005  Monde               NNP ENT https://en.wikipedia.org/wiki/Le_Monde
-405 409 5006  says                VBZ
-410 413 5007  the                 DT 
-414 420 5008  youths              NNS
-421 428 5009  started             VBD
-429 434 5010  their               PRP$
-435 442 5011  rampage             NN 
-443 448 5012  after               IN 
-449 456 5013  hearing             NN 
-457 458 5014  a                   DT 
-459 465 5015  Muslim              NNP
-466 470 5016  imam                NN PER http://en.wikipedia.org/wiki/Imam
-471 475 5017  give                VB 
-476 477 5018  a                   DT 
-478 486 5019  ceremony            NN 
-487 490 5020  for                 IN 
-491 493 5021  an                  DT 
-494 501 5022  alleged             JJ 
-502 508 5023  robber              NN PER
-508 509 5024  ,                   ,  
-510 513 5025  who                 WP 
-514 518 5026  died                VBD
-519 527 5027  Thursday            NNP
-528 533 5028  night               NN 
-534 539 5029  after               IN 
-540 545 5030  being               VBG
-546 552 5031  chased              VBN
-553 555 5032  by                  IN 
-556 562 5033  police              NN ORG http://en.wikipedia.org/wiki/Police
-563 566 5034  and                 CC 
-567 577 5035  exchanging          VBG
-578 585 5036  gunfire             NN 
-585 586 5037  .                   .  
 0   10  1001  Kyrgyzstan          NNP COU http://en.wikipedia.org/wiki/Kyrgyzstan
 10  12  1002  's                  POS
 13  16  1003  old                 JJ 
@@ -508,94 +463,479 @@
 603 615 5009  presidential        JJ 
 616 625 5010  elections           NNS
 625 626 5011  .                   .  
-1   10  1001  Billboard           NNP ENT http://en.wikipedia.org/wiki/Billboard_%28magazine%29
-11  19  1002  magazine            NN ENT http://en.wikipedia.org/wiki/Billboard_%28magazine%29
-20  25  1003  lists               NNS
-26  29  1004  the                 DT 
-30  34  1005  band                NN 
-35  42  1006  Chicago             NNP ENT http://nl.wikipedia.org/wiki/Chicago_%28band%29
-43  45  1007  as                  IN 
-46  49  1008  the                 DT 
-50  57  1009  leading             VBG
-58  65  1010  singles             NNS
-66  71  1011  chart               NN 
-72  77  1012  group               NN 
-78  80  1013  of                  IN 
-81  84  1014  the                 DT 
-85  90  1015  1970s               CD 
-90  91  1016  .                   .  
-93  97  2001  With                IN 
-98  102 2002  more                JJR
-103 107 2003  than                IN 
-108 110 2004  21                  CD 
-111 126 2005  million-selling     JJ 
-127 133 2006  albums              NNS
-133 134 2007  ,                   ,  
-135 142 2008  Chicago             NNP ENT http://nl.wikipedia.org/wiki/Chicago_%28band%29
-143 146 2009  has                 VBZ
-147 154 2010  secured             VBN
-155 156 2011  a                   DT 
-157 162 2012  place               NN 
-163 165 2013  in                  IN 
-166 171 2014  music               JJ ENT http://en.wikipedia.org/wiki/Music
-172 179 2015  history             NN 
-179 180 2016  .                   .  
-182 186 3001  With                IN 
-187 190 3002  its                 PRP$
-191 200 3003  legendary           JJ 
-201 205 3004  horn                NN 
-206 213 3005  section             NN 
-214 217 3006  and                 CC 
-218 229 3007  distinctive         JJ 
-230 236 3008  vocals              NNS
-236 237 3009  ,                   ,  
-238 245 3010  Chicago             NNP ENT http://nl.wikipedia.org/wiki/Chicago_%28band%29
-246 253 3011  remains             VBZ
-254 257 3012  one                 CD 
-258 260 3013  of                  IN 
-261 264 3014  the                 DT 
-265 280 3015  longest-running     JJ 
-281 284 3016  and                 CC 
-285 300 3017  most-successful     JJ 
-301 309 3018  pop/rock            NN 
-310 316 3019  groups              NNS
-316 317 3020  .                   .  
-319 322 4001  VOA                 NNP
-322 324 4002  's                  POS
-325 330 4003  Larry               NNP PER
-331 337 4004  London              NNP PER
-338 341 4005  had                 VBD
-342 345 4006  the                 DT 
-346 357 4007  opportunity         NN 
-358 360 4008  to                  TO 
-361 365 4009  talk                VB 
-366 370 4010  with                IN 
-371 378 4011  founder             NN PER
-379 382 4012  and                 CC 
-383 387 4013  lead                NN 
-388 394 4014  singer              NN PER
-395 401 4015  Robert              NNP PER http://en.wikipedia.org/wiki/Robert_Lamm
-402 406 4016  Lamm                NNP PER http://en.wikipedia.org/wiki/Robert_Lamm
-406 407 4017  ,                   ,  
-408 411 4018  and                 CC 
-412 419 4019  trumpet             NN 
-420 426 4020  player              NN PER
-427 430 4021  Lee                 NNP PER http://en.wikipedia.org/wiki/Lee_Loughnane
-431 440 4022  Loughnane           NNP PER http://en.wikipedia.org/wiki/Lee_Loughnane
-441 443 4023  at                  IN 
-444 448 4024  Wolf                NNP
-449 453 4025  Trap                NNP
-454 462 4026  National            NNP
-463 467 4027  Park                NNP
-468 471 4028  for                 IN 
-472 475 4029  the                 DT 
-476 486 4030  Performing          NNP
-487 491 4031  Arts                NNP
-492 494 4032  in                  IN 
-495 501 4033  Vienna              NNP CIT http://en.wikipedia.org/wiki/Vienna
-501 502 4034  ,                   ,  
-503 511 4035  Virginia            NNP COU http://en.wikipedia.org/wiki/Virginia
-511 512 4036  .                   .  
+0   3   1001  Jan                 NNP NAT http://en.wikipedia.org/wiki/Jan_Mayen
+4   9   1002  Mayen               NNP NAT http://en.wikipedia.org/wiki/Jan_Mayen
+10  12  1003  is                  VBZ
+13  14  1004  a                   DT 
+15  23  1005  volcanic            JJ 
+24  30  1006  island              NN NAT http://en.wikipedia.org/wiki/Island
+31  35  1007  with                IN 
+36  38  1008  no                  DT 
+39  50  1009  exploitable         JJ 
+51  58  1010  natural             JJ 
+59  68  1011  resources           NNS
+68  69  1012  ,                   ,  
+70  78  1013  although            IN 
+79  90  1014  surrounding         VBG
+91  97  1015  waters              NNS
+98  105 1016  contain             VBP
+106 117 1017  substantial         JJ 
+118 122 1018  fish                NN ANI http://en.wikipedia.org/wiki/Fish
+123 129 1019  stocks              NNS
+130 133 1020  and                 CC 
+134 143 1021  potential           JJ 
+144 152 1022  untapped            VBD
+153 162 1023  petroleum           NN 
+163 172 1024  resources           NNS
+172 173 1025  .                   .  
+174 182 2001  Economic            JJ 
+183 191 2002  activity            NN 
+192 194 2003  is                  VBZ
+195 202 2004  limited             VBN
+203 205 2005  to                  TO 
+206 215 2006  providing           NN 
+216 224 2007  services            NNS
+225 228 2008  for                 IN 
+229 238 2009  employees           NNS
+239 241 2010  of                  IN 
+242 248 2011  Norway              NNP COU http://en.wikipedia.org/wiki/Norway
+248 250 2012  's                  POS
+251 256 2013  radio               NN 
+257 260 2014  and                 CC 
+261 275 2015  meteorological      JJ 
+276 284 2016  stations            NNS
+285 287 2017  on                  IN 
+288 291 2018  the                 DT 
+292 298 2019  island              NN NAT http://en.wikipedia.org/wiki/Island
+298 299 2020  .                   .  
+0   1   1001  A                   DT 
+2   12  1002  well-known          JJ 
+13  23  1003  journalist          NN PER http://en.wikipedia.org/wiki/Journalist
+24  26  1004  in                  IN 
+27  33  1005  Gambia              NNP COU http://en.wikipedia.org/wiki/The_Gambia
+34  37  1006  has                 VBZ
+38  42  1007  been                VBN
+43  47  1008  shot                VBN
+48  51  1009  and                 CC 
+52  58  1010  killed              VBD
+59  61  1011  in                  IN 
+62  65  1012  the                 DT 
+66  73  1013  capital             NN 
+73  74  1014  ,                   ,  
+75  81  1015  Banjul              NNP CIT http://en.wikipedia.org/wiki/Banjul
+81  82  1016  .                   .  
+83  93  2001  Colleagues          NNPS
+94  97  2002  and                 CC 
+98  104 2003  family              NN 
+105 112 2004  members             NNS
+113 116 2005  say                 VBP
+117 126 2006  newspaper           NN 
+127 133 2007  editor              NN PER
+134 137 2008  and                 CC 
+138 149 2009  news-agency         NN 
+150 163 2010  correspondent       NN PER http://en.wikipedia.org/wiki/Correspondent
+164 169 2011  Deyda               NNP PER http://en.wikipedia.org/wiki/Deyda_Hydara
+170 176 2012  Hydara              NNP PER http://en.wikipedia.org/wiki/Deyda_Hydara
+177 181 2013  died                VBD
+182 184 2014  at                  IN 
+185 188 2015  the                 DT 
+189 193 2016  spot                NN 
+194 199 2017  where               WRB
+200 202 2018  he                  PRP
+203 206 2019  was                 VBD
+207 213 2020  gunned              VBN
+214 218 2021  down                RP 
+219 224 2022  after               IN 
+225 232 2023  leaving             VBG
+233 237 2024  work                NN 
+238 242 2025  late                RB 
+243 251 2026  Thursday            NNP
+251 252 2027  .                   .  
+253 255 3001  No                  DT 
+256 264 3002  attacker            NN PER
+265 268 3003  was                 VBD
+269 279 3004  identified          VBN
+279 280 3005  .                   .  
+281 284 4001  Mr.                 NNP
+285 291 4002  Hydara              NNP PER http://en.wikipedia.org/wiki/Deyda_Hydara
+292 295 4003  was                 VBD
+296 298 4004  an                  DT 
+299 305 4005  editor              NN PER
+306 309 4006  for                 IN 
+310 313 4007  the                 DT 
+314 323 4008  newspaper           NN 
+324 327 4009  The                 DT ENT http://en.wikipedia.org/wiki/The_Point_(the_Gambia)
+328 333 4010  Point               NNP ENT http://en.wikipedia.org/wiki/The_Point_(the_Gambia)
+334 337 4011  and                 CC 
+338 339 4012  a                   DT 
+340 353 4013  correspondent       NN PER http://en.wikipedia.org/wiki/Correspondent
+354 357 4014  for                 IN 
+358 361 4015  the                 DT 
+362 368 4016  French              JJ 
+369 373 4017  news                NN 
+374 380 4018  agency              NN ORG http://en.wikipedia.org/wiki/Agency
+380 381 4019  ,                   ,  
+382 385 4020  AFP                 NNP
+385 386 4021  .                   .  
+0   11  1001  Authorities         NNPS
+12  14  1002  in                  IN 
+15  27  1003  northwestern        JJ 
+28  36  1004  Pakistan            NNP COU http://en.wikipedia.org/wiki/Pakistan
+37  40  1005  say                 VBP
+41  42  1006  a                   DT 
+43  50  1007  minibus             NN 
+51  52  1008  -                   :  
+53  56  1009  hit                 NN 
+57  59  1010  by                  IN 
+60  67  1011  falling             NN 
+68  72  1012  rock                NN 
+73  74  1013  -                   :  
+75  78  1014  has                 VBZ
+79  86  1015  plunged             VBN
+87  91  1016  into                IN 
+92  93  1017  a                   DT 
+94  100 1018  ravine              NN 
+100 101 1019  ,                   ,  
+102 109 1020  killing             VBG
+110 112 1021  15                  CD 
+113 119 1022  people              NNS
+119 120 1023  .                   .  
+121 125 2001  Four                CD 
+126 132 2002  others              NNS
+133 141 2003  survived            VBD
+142 146 2004  with                IN 
+147 155 2005  injuries            NNS
+155 156 2006  .                   .  
+157 160 3001  The                 DT 
+161 172 3002  authorities         NNS
+173 176 3003  say                 VBP
+177 180 3004  the                 DT 
+181 187 3005  driver              NN 
+188 190 3006  to                  TO 
+191 195 3007  lost                VB 
+196 203 3008  control             NN 
+204 206 3009  of                  IN 
+207 210 3010  the                 DT 
+211 214 3011  bus                 NN 
+215 221 3012  Sunday              NNP
+222 224 3013  on                  IN 
+225 228 3014  the                 DT 
+229 233 3015  road                NN 
+234 236 3016  to                  TO 
+237 245 3017  Mansehra            NNP CIT http://en.wikipedia.org/wiki/Mansehra
+246 250 3018  from                IN 
+251 258 3019  Balakot             NNP COU http://en.wikipedia.org/wiki/Balakot
+258 259 3020  ,                   ,  
+260 261 3021  a                   DT 
+262 266 3022  town                NN 
+267 277 3023  devastated          VBN
+278 280 3024  by                  IN 
+281 285 3025  last                JJ 
+286 290 3026  year                NN 
+290 292 3027  's                  POS
+293 303 3028  earthquake          NN 
+303 304 3029  .                   .  
+305 315 4001  Landslides          NNP
+316 319 4002  are                 VBP
+320 326 4003  common              JJ 
+327 329 4004  in                  IN 
+330 333 4005  the                 DT 
+334 345 4006  mountainous         JJ 
+346 352 4007  region              NN 
+352 353 4008  ,                   ,  
+354 359 4009  where               WRB
+360 363 4010  the                 DT 
+364 371 4011  October             NNP
+372 373 4012  8                   CD 
+374 379 4013  quake               NN 
+380 384 4014  last                JJ 
+385 389 4015  year                NN 
+390 396 4016  killed              VBD
+397 401 4017  more                JJR
+402 406 4018  than                IN 
+407 413 4019  73,000              CD 
+414 420 4020  people              NNS
+420 421 4021  .                   .  
+0   1   1001  A                   DT 
+2   8   1002  strong              JJ 
+9   19  1003  earthquake          NN 
+20  24  1004  that                WDT
+25  32  1005  rattled             VBD
+33  45  1006  southeastern        NN 
+46  52  1007  Turkey              NNP COU http://en.wikipedia.org/wiki/Turkey
+53  59  1008  Monday              NNP
+60  63  1009  has                 VBZ
+64  71  1010  injured             VBN
+72  74  1011  at                  IN 
+75  80  1012  least               JJS
+81  83  1013  37                  CD 
+84  90  1014  people              NNS
+91  96  1015  while               IN 
+97  104 1016  causing             VBG
+105 110 1017  minor               NN 
+111 117 1018  damage              NN 
+118 120 1019  to                  TO 
+121 130 1020  buildings           NNS
+130 131 1021  .                   .  
+132 135 2001  The                 DT 
+136 143 2002  Kandill             NNP ORG https://en.wikipedia.org/wiki/Kandilli_Observatory
+144 155 2003  Observatory         NNP ORG https://en.wikipedia.org/wiki/Kandilli_Observatory
+156 158 2004  in                  IN 
+159 167 2005  Istanbul            NNP CIT http://en.wikipedia.org/wiki/Istanbul
+168 172 2006  says                VBZ
+173 174 2007  a                   DT 
+175 186 2008  preliminary         JJ 
+187 195 2009  estimate            NN 
+196 198 2010  of                  IN 
+199 202 2011  the                 DT 
+203 208 2012  quake               NN 
+208 210 2013  's                  POS
+211 220 2014  magnitude           NN 
+221 224 2015  was                 VBD
+225 229 2016  5.7.                CD 
+230 232 2017  It                  PRP
+233 236 2018  was                 VBD
+237 245 2019  centered            VBN
+246 250 2020  near                JJ 
+251 254 2021  the                 DT 
+255 259 2022  town                NN 
+260 262 2023  of                  IN 
+263 271 2024  Karliova            NNP CIT http://en.wikipedia.org/wiki/Karl%C4%B1ova
+272 274 2025  in                  IN 
+275 281 2026  Bingol              NNP COU http://en.wikipedia.org/wiki/Bing%C3%B6l
+282 290 2027  province            NN 
+290 291 2028  .                   .  
+292 299 3001  Turkish             JJ 
+300 309 3002  officials           NNS
+310 314 3003  have                VBP
+315 319 3004  sent                VBN
+320 326 3005  rescue              NN 
+327 332 3006  teams               NNS
+332 333 3007  ,                   ,  
+334 339 3008  tents               NNS
+340 343 3009  and                 CC 
+344 352 3010  blankets            NNS
+353 355 3011  to                  TO 
+356 359 3012  the                 DT 
+360 364 3013  area                NN 
+364 365 3014  .                   .  
+366 377 4001  Earthquakes         NNP
+378 381 4002  are                 VBP
+382 390 4003  frequent            JJ 
+391 393 4004  in                  IN 
+394 400 4005  Turkey              NNP COU http://en.wikipedia.org/wiki/Turkey
+400 401 4006  ,                   ,  
+402 407 4007  which               WDT
+408 412 4008  sits                NNS
+413 417 4009  atop                VBP
+418 419 4010  a                   DT 
+420 425 4011  major               JJ 
+426 434 4012  tectonic            NN 
+435 444 4013  faultline           NN 
+444 445 4014  .                   .  
+446 447 5001  A                   DT 
+448 456 5002  powerful            JJ 
+457 462 5003  quake               NN 
+463 467 5004  that                WDT
+468 471 5005  hit                 VBD
+472 484 5006  northwestern        NN 
+485 491 5007  Turkey              NNP COU http://en.wikipedia.org/wiki/Turkey
+492 494 5008  in                  IN 
+495 499 5009  1999                CD 
+500 506 5010  killed              VBN
+507 511 5011  more                JJR
+512 516 5012  than                IN 
+517 523 5013  17,000              CD 
+524 530 5014  people              NNS
+530 531 5015  .                   .  
+0   11  1001  Authorities         NNPS
+12  14  1002  in                  IN 
+15  20  1003  India               NNP COU http://en.wikipedia.org/wiki/India
+21  24  1004  say                 VBP
+25  27  1005  at                  IN 
+28  33  1006  least               JJS
+34  36  1007  17                  CD 
+37  46  1008  policemen           NNS
+47  51  1009  were                VBD
+52  58  1010  killed              VBN
+59  67  1011  Saturday            NNP
+68  72  1012  when                WRB
+73  79  1013  Maoist              NNP
+80  86  1014  rebels              VBZ
+87  91  1015  blew                JJ 
+92  94  1016  up                  IN 
+95  100 1017  their               PRP$
+101 104 1018  bus                 NN 
+105 107 1019  in                  IN 
+108 116 1020  northern            JJ 
+117 122 1021  India               NNP COU http://en.wikipedia.org/wiki/India
+122 123 1022  .                   .  
+124 130 2001  Police              NNP ORG http://en.wikipedia.org/wiki/Police
+131 140 2002  officials           NNS
+141 144 2003  say                 VBP
+145 151 2004  rebels              NNS
+152 161 2005  detonated           VBN
+162 163 2006  a                   DT 
+164 172 2007  landmine            NN 
+173 175 2008  as                  IN 
+176 179 2009  the                 DT 
+180 186 2010  police              NN ORG http://en.wikipedia.org/wiki/Police
+187 190 2011  bus                 VBZ
+191 201 2012  approached          VBN
+202 203 2013  a                   DT 
+204 210 2014  bridge              NN 
+211 213 2015  in                  IN 
+214 219 2016  India               NNP COU http://en.wikipedia.org/wiki/India
+219 221 2017  's                  POS
+222 230 2018  northern            JJ 
+231 236 2019  state               NN 
+237 239 2020  of                  IN 
+240 245 2021  Uttar               NNP COU http://en.wikipedia.org/wiki/Uttar_Pradesh
+246 253 2022  Pradesh             NNP COU http://en.wikipedia.org/wiki/Uttar_Pradesh
+253 254 2023  .                   .  
+255 261 3001  Maoist              NNP
+262 268 3002  rebels              NNS
+268 269 3003  ,                   ,  
+270 273 3004  who                 WP 
+274 279 3005  claim               NN 
+280 282 3006  to                  TO 
+283 285 3007  be                  VB 
+286 294 3008  fighting            VBG
+295 298 3009  for                 IN 
+299 302 3010  the                 DT 
+303 309 3011  rights              NNS
+310 312 3012  of                  IN 
+313 321 3013  landless            NN 
+322 330 3014  peasants            NNS
+330 331 3015  ,                   ,  
+332 339 3016  operate             VBP
+340 342 3017  in                  IN 
+343 351 3018  southern            NN 
+352 355 3019  and                 CC 
+356 363 3020  eastern             NN 
+364 369 3021  India               NNP COU http://en.wikipedia.org/wiki/India
+369 370 3022  .                   .  
+371 375 4001  They                PRP
+376 381 4002  often               RB 
+382 388 4003  attack              VBP
+389 392 4004  the                 DT 
+393 399 4005  police              NN ORG http://en.wikipedia.org/wiki/Police
+400 407 4006  through             IN 
+408 416 4007  ambushes            NNS
+417 420 4008  and                 CC 
+421 430 4009  landmines           NNS
+430 431 4010  .                   .  
+432 436 5001  They                PRP
+437 440 5002  are                 VBP
+441 445 5003  also                RB 
+446 452 5004  active              JJ 
+453 455 5005  in                  IN 
+456 461 5006  Nepal               NNP COU http://en.wikipedia.org/wiki/Nepal
+461 462 5007  ,                   ,  
+463 468 5008  which               WDT
+469 476 5009  borders             NNS
+477 481 5010  both                DT 
+482 487 5011  Uttar               NNP COU http://en.wikipedia.org/wiki/Uttar_Pradesh
+488 495 5012  Pradesh             NNP COU http://en.wikipedia.org/wiki/Uttar_Pradesh
+496 499 5013  and                 CC 
+500 511 5014  neighboring         VBG
+512 517 5015  Bihar               NNP COU http://en.wikipedia.org/wiki/Bihar
+518 523 5016  state               NN 
+523 524 5017  .                   .  
+0   7   1001  Chinese             JJ 
+8   17  1002  officials           NNS
+18  21  1003  say                 VBP
+22  24  1004  at                  IN 
+25  30  1005  least               JJS
+31  33  1006  27                  CD 
+34  41  1007  workers             NNS
+42  45  1008  are                 VBP
+46  55  1009  confirmed           VBN
+56  60  1010  dead                JJ 
+61  66  1011  after               IN 
+67  68  1012  a                   DT 
+69  72  1013  gas                 NN 
+73  82  1014  explosion           NN 
+83  87  1015  tore                NN 
+88  95  1016  through             IN 
+96  97  1017  a                   DT 
+98  102 1018  coal                NN 
+103 107 1019  mine                NN 
+108 110 1020  in                  IN 
+111 116 1021  China               NNP COU http://en.wikipedia.org/wiki/China
+116 118 1022  's                  POS
+119 128 1023  northwest           NN 
+129 136 1024  Shaanxi             NNP COU http://en.wikipedia.org/wiki/Shaanxi
+137 145 1025  province            NN 
+145 146 1026  .                   .  
+147 152 2001  China               NNP COU http://en.wikipedia.org/wiki/China
+152 154 2002  's                  POS
+155 163 2003  official            NN 
+164 170 2004  Xinhua              NNP ORG http://en.wikipedia.org/wiki/Xinhua_News_Agency
+171 175 2005  news                NN ORG http://en.wikipedia.org/wiki/Xinhua_News_Agency
+176 182 2006  agency              NN ORG http://en.wikipedia.org/wiki/Xinhua_News_Agency
+183 187 2007  says                VBZ
+188 190 2008  39                  CD 
+191 197 2009  miners              NNS
+198 202 2010  were                VBD
+203 210 2011  working             VBG
+211 213 2012  at                  IN 
+214 217 2013  the                 DT 
+218 226 2014  Wayaobao            NNP
+227 231 2015  mine                NN 
+232 234 2016  in                  IN 
+235 242 2017  Zichang             NNP ORG http://en.wikipedia.org/wiki/Zichang_County
+243 249 2018  county              NN ORG http://en.wikipedia.org/wiki/Zichang_County
+250 254 2019  when                WRB
+255 258 2020  the                 DT 
+259 264 2021  blast               NN 
+265 273 2022  happened            VBD
+274 282 2023  Saturday            NNP
+282 283 2024  .                   .  
+284 288 3001  Five                CD 
+289 296 3002  workers             NNS
+297 303 3003  remain              NN 
+304 311 3004  missing             VBG
+311 312 3005  .                   .  
+313 318 4001  Seven               CD 
+319 325 4002  miners              NNS
+326 333 4003  escaped             VBD
+334 338 4004  with                IN 
+339 344 4005  minor               JJ 
+345 353 4006  injuries            NNS
+353 354 4007  .                   .  
+355 360 5001  China               NNP COU http://en.wikipedia.org/wiki/China
+360 362 5002  's                  POS
+363 368 5003  mines               NNS
+369 372 5004  are                 VBP
+373 376 5005  the                 DT 
+377 382 5006  world               NN 
+382 384 5007  's                  POS
+385 394 5008  deadliest           NN 
+394 395 5009  .                   .  
+396 405 6001  Thousands           NNS
+406 408 6002  of                  IN 
+409 416 6003  workers             NNS
+417 420 6004  are                 VBP
+421 427 6005  killed              VBN
+428 432 6006  each                DT 
+433 437 6007  year                NN 
+438 440 6008  in                  IN 
+441 446 6009  fires               NNS
+446 447 6010  ,                   ,  
+448 458 6011  explosions          NNS
+458 459 6012  ,                   ,  
+460 466 6013  floods              NNS
+467 470 6014  and                 CC 
+471 479 6015  cave-ins            NNS
+479 480 6016  ,                   ,  
+481 488 6017  despite             IN 
+489 499 6018  government          NN ORG http://en.wikipedia.org/wiki/Government
+500 507 6019  efforts             NNS
+508 510 6020  to                  TO 
+511 518 6021  improve             VB 
+519 525 6022  safety              NN 
+525 526 6023  .                   .  
 0   5   1001  South               NNP
 6   13  1002  Koreans             NNP
 14  17  1003  are                 VBP
@@ -698,384 +1038,6 @@
 511 521 3016  pre-launch          JJ 
 522 530 3017  makeover            NN 
 530 531 3018  .                   .  
-0   1   1001  A                   DT 
-2   12  1002  well-known          JJ 
-13  23  1003  journalist          NN PER http://en.wikipedia.org/wiki/Journalist
-24  26  1004  in                  IN 
-27  33  1005  Gambia              NNP COU http://en.wikipedia.org/wiki/The_Gambia
-34  37  1006  has                 VBZ
-38  42  1007  been                VBN
-43  47  1008  shot                VBN
-48  51  1009  and                 CC 
-52  58  1010  killed              VBD
-59  61  1011  in                  IN 
-62  65  1012  the                 DT 
-66  73  1013  capital             NN 
-73  74  1014  ,                   ,  
-75  81  1015  Banjul              NNP CIT http://en.wikipedia.org/wiki/Banjul
-81  82  1016  .                   .  
-83  93  2001  Colleagues          NNPS
-94  97  2002  and                 CC 
-98  104 2003  family              NN 
-105 112 2004  members             NNS
-113 116 2005  say                 VBP
-117 126 2006  newspaper           NN 
-127 133 2007  editor              NN PER
-134 137 2008  and                 CC 
-138 149 2009  news-agency         NN 
-150 163 2010  correspondent       NN PER http://en.wikipedia.org/wiki/Correspondent
-164 169 2011  Deyda               NNP PER http://en.wikipedia.org/wiki/Deyda_Hydara
-170 176 2012  Hydara              NNP PER http://en.wikipedia.org/wiki/Deyda_Hydara
-177 181 2013  died                VBD
-182 184 2014  at                  IN 
-185 188 2015  the                 DT 
-189 193 2016  spot                NN 
-194 199 2017  where               WRB
-200 202 2018  he                  PRP
-203 206 2019  was                 VBD
-207 213 2020  gunned              VBN
-214 218 2021  down                RP 
-219 224 2022  after               IN 
-225 232 2023  leaving             VBG
-233 237 2024  work                NN 
-238 242 2025  late                RB 
-243 251 2026  Thursday            NNP
-251 252 2027  .                   .  
-253 255 3001  No                  DT 
-256 264 3002  attacker            NN PER
-265 268 3003  was                 VBD
-269 279 3004  identified          VBN
-279 280 3005  .                   .  
-281 284 4001  Mr.                 NNP
-285 291 4002  Hydara              NNP PER http://en.wikipedia.org/wiki/Deyda_Hydara
-292 295 4003  was                 VBD
-296 298 4004  an                  DT 
-299 305 4005  editor              NN PER
-306 309 4006  for                 IN 
-310 313 4007  the                 DT 
-314 323 4008  newspaper           NN 
-324 327 4009  The                 DT ENT http://en.wikipedia.org/wiki/The_Point_(the_Gambia)
-328 333 4010  Point               NNP ENT http://en.wikipedia.org/wiki/The_Point_(the_Gambia)
-334 337 4011  and                 CC 
-338 339 4012  a                   DT 
-340 353 4013  correspondent       NN PER http://en.wikipedia.org/wiki/Correspondent
-354 357 4014  for                 IN 
-358 361 4015  the                 DT 
-362 368 4016  French              JJ 
-369 373 4017  news                NN 
-374 380 4018  agency              NN ORG http://en.wikipedia.org/wiki/Agency
-380 381 4019  ,                   ,  
-382 385 4020  AFP                 NNP
-385 386 4021  .                   .  
-0   5   1001  Heavy               NNP
-6   11  1002  rains               VBZ
-12  14  1003  in                  IN 
-15  21  1004  Brazil              NNP COU http://en.wikipedia.org/wiki/Brazil
-22  26  1005  have                VBP
-27  33  1006  caused              VBN
-34  40  1007  deadly              RB 
-41  50  1008  mudslides           VBZ
-51  55  1009  that                IN 
-56  60  1010  have                VBP
-61  67  1011  killed              VBN
-68  70  1012  at                  IN 
-71  76  1013  least               JJS
-77  82  1014  seven               CD 
-83  89  1015  people              NNS
-89  90  1016  ,                   ,  
-91  97  1017  mostly              RB 
-98  106 1018  children            VBN
-106 107 1019  .                   .  
-108 119 2001  Authorities         NNPS
-120 123 2002  say                 VBP
-124 127 2003  the                 DT 
-128 135 2004  victims             NNS
-136 141 2005  lived               VBD
-142 144 2006  in                  IN 
-145 146 2007  a                   DT 
-147 157 2008  shantytown          NN 
-158 160 2009  in                  IN 
-161 164 2010  the                 DT 
-165 175 2011  industrial          JJ 
-176 182 2012  suburb              NN 
-183 185 2013  of                  IN 
-186 189 2014  Sao                 NNP CIT http://en.wikipedia.org/wiki/S%C3%A3o_Bernardo_do_Campo
-190 198 2015  Bernardo            NNP CIT http://en.wikipedia.org/wiki/S%C3%A3o_Bernardo_do_Campo
-199 201 2016  do                  VBP CIT http://en.wikipedia.org/wiki/S%C3%A3o_Bernardo_do_Campo
-202 207 2017  Campo               NNP CIT http://en.wikipedia.org/wiki/S%C3%A3o_Bernardo_do_Campo
-207 208 2018  ,                   ,  
-209 213 2019  near                IN 
-214 217 2020  the                 DT 
-218 222 2021  city                NN 
-223 225 2022  of                  IN 
-226 229 2023  Sao                 NNP CIT http://en.wikipedia.org/wiki/S%C3%A3o_Paulo 
-230 235 2024  Paulo               NNP CIT http://en.wikipedia.org/wiki/S%C3%A3o_Paulo
-235 236 2025  .                   .  
-237 247 3001  Torrential          NNP
-248 253 3002  rains               VBZ
-254 258 3003  have                VBP
-259 265 3004  lashed              VBN
-266 269 3005  the                 DT 
-270 273 3006  Sao                 NNP CIT http://en.wikipedia.org/wiki/S%C3%A3o_Paulo
-274 279 3007  Paulo               NNP CIT http://en.wikipedia.org/wiki/S%C3%A3o_Paulo
-280 286 3008  region              NN 
-287 292 3009  since               IN 
-293 300 3010  Tuesday             NNP
-300 301 3011  .                   .  
-0   11  1001  Authorities         NNPS
-12  14  1002  in                  IN 
-15  20  1003  India               NNP COU http://en.wikipedia.org/wiki/India
-21  24  1004  say                 VBP
-25  27  1005  at                  IN 
-28  33  1006  least               JJS
-34  36  1007  17                  CD 
-37  46  1008  policemen           NNS
-47  51  1009  were                VBD
-52  58  1010  killed              VBN
-59  67  1011  Saturday            NNP
-68  72  1012  when                WRB
-73  79  1013  Maoist              NNP
-80  86  1014  rebels              VBZ
-87  91  1015  blew                JJ 
-92  94  1016  up                  IN 
-95  100 1017  their               PRP$
-101 104 1018  bus                 NN 
-105 107 1019  in                  IN 
-108 116 1020  northern            JJ 
-117 122 1021  India               NNP COU http://en.wikipedia.org/wiki/India
-122 123 1022  .                   .  
-124 130 2001  Police              NNP ORG http://en.wikipedia.org/wiki/Police
-131 140 2002  officials           NNS
-141 144 2003  say                 VBP
-145 151 2004  rebels              NNS
-152 161 2005  detonated           VBN
-162 163 2006  a                   DT 
-164 172 2007  landmine            NN 
-173 175 2008  as                  IN 
-176 179 2009  the                 DT 
-180 186 2010  police              NN ORG http://en.wikipedia.org/wiki/Police
-187 190 2011  bus                 VBZ
-191 201 2012  approached          VBN
-202 203 2013  a                   DT 
-204 210 2014  bridge              NN 
-211 213 2015  in                  IN 
-214 219 2016  India               NNP COU http://en.wikipedia.org/wiki/India
-219 221 2017  's                  POS
-222 230 2018  northern            JJ 
-231 236 2019  state               NN 
-237 239 2020  of                  IN 
-240 245 2021  Uttar               NNP COU http://en.wikipedia.org/wiki/Uttar_Pradesh
-246 253 2022  Pradesh             NNP COU http://en.wikipedia.org/wiki/Uttar_Pradesh
-253 254 2023  .                   .  
-255 261 3001  Maoist              NNP
-262 268 3002  rebels              NNS
-268 269 3003  ,                   ,  
-270 273 3004  who                 WP 
-274 279 3005  claim               NN 
-280 282 3006  to                  TO 
-283 285 3007  be                  VB 
-286 294 3008  fighting            VBG
-295 298 3009  for                 IN 
-299 302 3010  the                 DT 
-303 309 3011  rights              NNS
-310 312 3012  of                  IN 
-313 321 3013  landless            NN 
-322 330 3014  peasants            NNS
-330 331 3015  ,                   ,  
-332 339 3016  operate             VBP
-340 342 3017  in                  IN 
-343 351 3018  southern            NN 
-352 355 3019  and                 CC 
-356 363 3020  eastern             NN 
-364 369 3021  India               NNP COU http://en.wikipedia.org/wiki/India
-369 370 3022  .                   .  
-371 375 4001  They                PRP
-376 381 4002  often               RB 
-382 388 4003  attack              VBP
-389 392 4004  the                 DT 
-393 399 4005  police              NN ORG http://en.wikipedia.org/wiki/Police
-400 407 4006  through             IN 
-408 416 4007  ambushes            NNS
-417 420 4008  and                 CC 
-421 430 4009  landmines           NNS
-430 431 4010  .                   .  
-432 436 5001  They                PRP
-437 440 5002  are                 VBP
-441 445 5003  also                RB 
-446 452 5004  active              JJ 
-453 455 5005  in                  IN 
-456 461 5006  Nepal               NNP COU http://en.wikipedia.org/wiki/Nepal
-461 462 5007  ,                   ,  
-463 468 5008  which               WDT
-469 476 5009  borders             NNS
-477 481 5010  both                DT 
-482 487 5011  Uttar               NNP COU http://en.wikipedia.org/wiki/Uttar_Pradesh
-488 495 5012  Pradesh             NNP COU http://en.wikipedia.org/wiki/Uttar_Pradesh
-496 499 5013  and                 CC 
-500 511 5014  neighboring         VBG
-512 517 5015  Bihar               NNP COU http://en.wikipedia.org/wiki/Bihar
-518 523 5016  state               NN 
-523 524 5017  .                   .  
-0   10  1001  Originally          RB 
-11  18  1002  settled             VBD
-19  21  1003  by                  IN 
-22  32  1004  Polynesian          NNP
-33  42  1005  emigrants           NNS
-43  47  1006  from                IN 
-48  59  1007  surrounding         VBG
-60  66  1008  island              NN NAT http://en.wikipedia.org/wiki/Island
-67  73  1009  groups              NNS
-73  74  1010  ,                   ,  
-75  78  1011  the                 DT 
-79  86  1012  Tokelau             NNP NAT http://en.wikipedia.org/wiki/Tokelau
-87  94  1013  Islands             NNPS NAT http://en.wikipedia.org/wiki/Tokelau
-95  99  1014  were                VBD
-100 104 1015  made                VBN
-105 106 1016  a                   DT 
-107 114 1017  British             JJ 
-115 127 1018  protectorate        NN 
-128 130 1019  in                  IN 
-131 135 1020  1889                CD 
-135 136 1021  .                   .  
-137 141 2001  They                PRP
-142 146 2002  were                VBD
-147 158 2003  transferred         VBN
-159 161 2004  to                  TO 
-162 165 2005  New                 NNP COU http://en.wikipedia.org/wiki/New_Zealand
-166 173 2006  Zealand             NNP COU http://en.wikipedia.org/wiki/New_Zealand
-174 188 2007  administration      NN 
-189 191 2008  in                  IN 
-192 196 2009  1925                CD 
-196 197 2010  .                   .  
-198 207 3001  Referenda           NNP
-208 212 3002  held                VBD
-213 215 3003  in                  IN 
-216 220 3004  2006                CD 
-221 224 3005  and                 CC 
-225 229 3006  2007                CD 
-230 232 3007  to                  TO 
-233 239 3008  change              VB 
-240 243 3009  the                 DT 
-244 250 3010  status              NN 
-251 253 3011  of                  IN 
-254 257 3012  the                 DT 
-258 265 3013  islands             NNS NAT http://en.wikipedia.org/wiki/Island
-266 270 3014  from                IN 
-271 275 3015  that                DT 
-276 278 3016  of                  IN 
-279 280 3017  a                   DT 
-281 284 3018  New                 NNP COU http://en.wikipedia.org/wiki/New_Zealand
-285 292 3019  Zealand             NNP COU http://en.wikipedia.org/wiki/New_Zealand
-293 302 3020  territory           NN 
-303 305 3021  to                  TO 
-306 309 3022  one                 CD 
-310 312 3023  of                  IN 
-313 317 3024  free                JJ 
-318 329 3025  association         NN 
-330 334 3026  with                IN 
-335 338 3027  New                 NNP COU http://en.wikipedia.org/wiki/New_Zealand
-339 346 3028  Zealand             NNP COU http://en.wikipedia.org/wiki/New_Zealand
-347 350 3029  did                 VBD
-351 354 3030  not                 RB 
-355 359 3031  meet                VB 
-360 363 3032  the                 DT 
-364 370 3033  needed              VBN
-371 380 3034  threshold           NN 
-381 384 3035  for                 IN 
-385 393 3036  approval            NN 
-393 394 3037  .                   .  
-0   1   1001  A                   DT 
-2   8   1002  strong              JJ 
-9   19  1003  earthquake          NN 
-20  24  1004  that                WDT
-25  32  1005  rattled             VBD
-33  45  1006  southeastern        NN 
-46  52  1007  Turkey              NNP COU http://en.wikipedia.org/wiki/Turkey
-53  59  1008  Monday              NNP
-60  63  1009  has                 VBZ
-64  71  1010  injured             VBN
-72  74  1011  at                  IN 
-75  80  1012  least               JJS
-81  83  1013  37                  CD 
-84  90  1014  people              NNS
-91  96  1015  while               IN 
-97  104 1016  causing             VBG
-105 110 1017  minor               NN 
-111 117 1018  damage              NN 
-118 120 1019  to                  TO 
-121 130 1020  buildings           NNS
-130 131 1021  .                   .  
-132 135 2001  The                 DT 
-136 143 2002  Kandill             NNP ORG https://en.wikipedia.org/wiki/Kandilli_Observatory
-144 155 2003  Observatory         NNP ORG https://en.wikipedia.org/wiki/Kandilli_Observatory
-156 158 2004  in                  IN 
-159 167 2005  Istanbul            NNP CIT http://en.wikipedia.org/wiki/Istanbul
-168 172 2006  says                VBZ
-173 174 2007  a                   DT 
-175 186 2008  preliminary         JJ 
-187 195 2009  estimate            NN 
-196 198 2010  of                  IN 
-199 202 2011  the                 DT 
-203 208 2012  quake               NN 
-208 210 2013  's                  POS
-211 220 2014  magnitude           NN 
-221 224 2015  was                 VBD
-225 229 2016  5.7.                CD 
-230 232 2017  It                  PRP
-233 236 2018  was                 VBD
-237 245 2019  centered            VBN
-246 250 2020  near                JJ 
-251 254 2021  the                 DT 
-255 259 2022  town                NN 
-260 262 2023  of                  IN 
-263 271 2024  Karliova            NNP CIT http://en.wikipedia.org/wiki/Karl%C4%B1ova
-272 274 2025  in                  IN 
-275 281 2026  Bingol              NNP COU http://en.wikipedia.org/wiki/Bing%C3%B6l
-282 290 2027  province            NN 
-290 291 2028  .                   .  
-292 299 3001  Turkish             JJ 
-300 309 3002  officials           NNS
-310 314 3003  have                VBP
-315 319 3004  sent                VBN
-320 326 3005  rescue              NN 
-327 332 3006  teams               NNS
-332 333 3007  ,                   ,  
-334 339 3008  tents               NNS
-340 343 3009  and                 CC 
-344 352 3010  blankets            NNS
-353 355 3011  to                  TO 
-356 359 3012  the                 DT 
-360 364 3013  area                NN 
-364 365 3014  .                   .  
-366 377 4001  Earthquakes         NNP
-378 381 4002  are                 VBP
-382 390 4003  frequent            JJ 
-391 393 4004  in                  IN 
-394 400 4005  Turkey              NNP COU http://en.wikipedia.org/wiki/Turkey
-400 401 4006  ,                   ,  
-402 407 4007  which               WDT
-408 412 4008  sits                NNS
-413 417 4009  atop                VBP
-418 419 4010  a                   DT 
-420 425 4011  major               JJ 
-426 434 4012  tectonic            NN 
-435 444 4013  faultline           NN 
-444 445 4014  .                   .  
-446 447 5001  A                   DT 
-448 456 5002  powerful            JJ 
-457 462 5003  quake               NN 
-463 467 5004  that                WDT
-468 471 5005  hit                 VBD
-472 484 5006  northwestern        NN 
-485 491 5007  Turkey              NNP COU http://en.wikipedia.org/wiki/Turkey
-492 494 5008  in                  IN 
-495 499 5009  1999                CD 
-500 506 5010  killed              VBN
-507 511 5011  more                JJR
-512 516 5012  than                IN 
-517 523 5013  17,000              CD 
-524 530 5014  people              NNS
-530 531 5015  .                   .  
 0   9   1001  President           NNP PER http://en.wikipedia.org/wiki/George_H._W._Bush
 10  14  1002  Bush                NNP PER http://en.wikipedia.org/wiki/George_H._W._Bush
 15  19  1003  says                VBZ
@@ -1166,176 +1128,215 @@
 468 472 4024  will                MD 
 473 481 4025  continue            VB 
 481 482 4026  .                   .  
-0   7   1001  Chinese             JJ 
-8   17  1002  officials           NNS
-18  21  1003  say                 VBP
-22  24  1004  at                  IN 
-25  30  1005  least               JJS
-31  33  1006  27                  CD 
-34  41  1007  workers             NNS
-42  45  1008  are                 VBP
-46  55  1009  confirmed           VBN
-56  60  1010  dead                JJ 
-61  66  1011  after               IN 
-67  68  1012  a                   DT 
-69  72  1013  gas                 NN 
-73  82  1014  explosion           NN 
-83  87  1015  tore                NN 
-88  95  1016  through             IN 
-96  97  1017  a                   DT 
-98  102 1018  coal                NN 
-103 107 1019  mine                NN 
-108 110 1020  in                  IN 
-111 116 1021  China               NNP COU http://en.wikipedia.org/wiki/China
-116 118 1022  's                  POS
-119 128 1023  northwest           NN 
-129 136 1024  Shaanxi             NNP COU http://en.wikipedia.org/wiki/Shaanxi
-137 145 1025  province            NN 
-145 146 1026  .                   .  
-147 152 2001  China               NNP COU http://en.wikipedia.org/wiki/China
-152 154 2002  's                  POS
-155 163 2003  official            NN 
-164 170 2004  Xinhua              NNP ORG http://en.wikipedia.org/wiki/Xinhua_News_Agency
-171 175 2005  news                NN ORG http://en.wikipedia.org/wiki/Xinhua_News_Agency
-176 182 2006  agency              NN ORG http://en.wikipedia.org/wiki/Xinhua_News_Agency
-183 187 2007  says                VBZ
-188 190 2008  39                  CD 
-191 197 2009  miners              NNS
-198 202 2010  were                VBD
-203 210 2011  working             VBG
-211 213 2012  at                  IN 
-214 217 2013  the                 DT 
-218 226 2014  Wayaobao            NNP
-227 231 2015  mine                NN 
-232 234 2016  in                  IN 
-235 242 2017  Zichang             NNP ORG http://en.wikipedia.org/wiki/Zichang_County
-243 249 2018  county              NN ORG http://en.wikipedia.org/wiki/Zichang_County
-250 254 2019  when                WRB
-255 258 2020  the                 DT 
-259 264 2021  blast               NN 
-265 273 2022  happened            VBD
-274 282 2023  Saturday            NNP
-282 283 2024  .                   .  
-284 288 3001  Five                CD 
-289 296 3002  workers             NNS
-297 303 3003  remain              NN 
-304 311 3004  missing             VBG
-311 312 3005  .                   .  
-313 318 4001  Seven               CD 
-319 325 4002  miners              NNS
-326 333 4003  escaped             VBD
-334 338 4004  with                IN 
-339 344 4005  minor               JJ 
-345 353 4006  injuries            NNS
-353 354 4007  .                   .  
-355 360 5001  China               NNP COU http://en.wikipedia.org/wiki/China
-360 362 5002  's                  POS
-363 368 5003  mines               NNS
-369 372 5004  are                 VBP
-373 376 5005  the                 DT 
-377 382 5006  world               NN 
-382 384 5007  's                  POS
-385 394 5008  deadliest           NN 
-394 395 5009  .                   .  
-396 405 6001  Thousands           NNS
-406 408 6002  of                  IN 
-409 416 6003  workers             NNS
-417 420 6004  are                 VBP
-421 427 6005  killed              VBN
-428 432 6006  each                DT 
-433 437 6007  year                NN 
-438 440 6008  in                  IN 
-441 446 6009  fires               NNS
-446 447 6010  ,                   ,  
-448 458 6011  explosions          NNS
-458 459 6012  ,                   ,  
-460 466 6013  floods              NNS
-467 470 6014  and                 CC 
-471 479 6015  cave-ins            NNS
-479 480 6016  ,                   ,  
-481 488 6017  despite             IN 
-489 499 6018  government          NN ORG http://en.wikipedia.org/wiki/Government
-500 507 6019  efforts             NNS
-508 510 6020  to                  TO 
-511 518 6021  improve             VB 
-519 525 6022  safety              NN 
-525 526 6023  .                   .  
-0   11  1001  Authorities         NNPS
-12  14  1002  in                  IN 
-15  27  1003  northwestern        JJ 
-28  36  1004  Pakistan            NNP COU http://en.wikipedia.org/wiki/Pakistan
-37  40  1005  say                 VBP
-41  42  1006  a                   DT 
-43  50  1007  minibus             NN 
-51  52  1008  -                   :  
-53  56  1009  hit                 NN 
-57  59  1010  by                  IN 
-60  67  1011  falling             NN 
-68  72  1012  rock                NN 
-73  74  1013  -                   :  
-75  78  1014  has                 VBZ
-79  86  1015  plunged             VBN
-87  91  1016  into                IN 
-92  93  1017  a                   DT 
-94  100 1018  ravine              NN 
-100 101 1019  ,                   ,  
-102 109 1020  killing             VBG
-110 112 1021  15                  CD 
-113 119 1022  people              NNS
-119 120 1023  .                   .  
-121 125 2001  Four                CD 
-126 132 2002  others              NNS
-133 141 2003  survived            VBD
-142 146 2004  with                IN 
-147 155 2005  injuries            NNS
-155 156 2006  .                   .  
-157 160 3001  The                 DT 
-161 172 3002  authorities         NNS
-173 176 3003  say                 VBP
-177 180 3004  the                 DT 
-181 187 3005  driver              NN 
-188 190 3006  to                  TO 
-191 195 3007  lost                VB 
-196 203 3008  control             NN 
-204 206 3009  of                  IN 
-207 210 3010  the                 DT 
-211 214 3011  bus                 NN 
-215 221 3012  Sunday              NNP
-222 224 3013  on                  IN 
-225 228 3014  the                 DT 
-229 233 3015  road                NN 
-234 236 3016  to                  TO 
-237 245 3017  Mansehra            NNP CIT http://en.wikipedia.org/wiki/Mansehra
-246 250 3018  from                IN 
-251 258 3019  Balakot             NNP COU http://en.wikipedia.org/wiki/Balakot
-258 259 3020  ,                   ,  
-260 261 3021  a                   DT 
-262 266 3022  town                NN 
-267 277 3023  devastated          VBN
-278 280 3024  by                  IN 
-281 285 3025  last                JJ 
-286 290 3026  year                NN 
-290 292 3027  's                  POS
-293 303 3028  earthquake          NN 
-303 304 3029  .                   .  
-305 315 4001  Landslides          NNP
-316 319 4002  are                 VBP
-320 326 4003  common              JJ 
-327 329 4004  in                  IN 
-330 333 4005  the                 DT 
-334 345 4006  mountainous         JJ 
-346 352 4007  region              NN 
-352 353 4008  ,                   ,  
-354 359 4009  where               WRB
-360 363 4010  the                 DT 
-364 371 4011  October             NNP
-372 373 4012  8                   CD 
-374 379 4013  quake               NN 
-380 384 4014  last                JJ 
-385 389 4015  year                NN 
-390 396 4016  killed              VBD
-397 401 4017  more                JJR
-402 406 4018  than                IN 
-407 413 4019  73,000              CD 
-414 420 4020  people              NNS
-420 421 4021  .                   .  
+1   10  1001  Billboard           NNP ENT http://en.wikipedia.org/wiki/Billboard_%28magazine%29
+11  19  1002  magazine            NN ENT http://en.wikipedia.org/wiki/Billboard_%28magazine%29
+20  25  1003  lists               NNS
+26  29  1004  the                 DT 
+30  34  1005  band                NN 
+35  42  1006  Chicago             NNP ENT http://nl.wikipedia.org/wiki/Chicago_%28band%29
+43  45  1007  as                  IN 
+46  49  1008  the                 DT 
+50  57  1009  leading             VBG
+58  65  1010  singles             NNS
+66  71  1011  chart               NN 
+72  77  1012  group               NN 
+78  80  1013  of                  IN 
+81  84  1014  the                 DT 
+85  90  1015  1970s               CD 
+90  91  1016  .                   .  
+93  97  2001  With                IN 
+98  102 2002  more                JJR
+103 107 2003  than                IN 
+108 110 2004  21                  CD 
+111 126 2005  million-selling     JJ 
+127 133 2006  albums              NNS
+133 134 2007  ,                   ,  
+135 142 2008  Chicago             NNP ENT http://nl.wikipedia.org/wiki/Chicago_%28band%29
+143 146 2009  has                 VBZ
+147 154 2010  secured             VBN
+155 156 2011  a                   DT 
+157 162 2012  place               NN 
+163 165 2013  in                  IN 
+166 171 2014  music               JJ ENT http://en.wikipedia.org/wiki/Music
+172 179 2015  history             NN 
+179 180 2016  .                   .  
+182 186 3001  With                IN 
+187 190 3002  its                 PRP$
+191 200 3003  legendary           JJ 
+201 205 3004  horn                NN 
+206 213 3005  section             NN 
+214 217 3006  and                 CC 
+218 229 3007  distinctive         JJ 
+230 236 3008  vocals              NNS
+236 237 3009  ,                   ,  
+238 245 3010  Chicago             NNP ENT http://nl.wikipedia.org/wiki/Chicago_%28band%29
+246 253 3011  remains             VBZ
+254 257 3012  one                 CD 
+258 260 3013  of                  IN 
+261 264 3014  the                 DT 
+265 280 3015  longest-running     JJ 
+281 284 3016  and                 CC 
+285 300 3017  most-successful     JJ 
+301 309 3018  pop/rock            NN 
+310 316 3019  groups              NNS
+316 317 3020  .                   .  
+319 322 4001  VOA                 NNP
+322 324 4002  's                  POS
+325 330 4003  Larry               NNP PER
+331 337 4004  London              NNP PER
+338 341 4005  had                 VBD
+342 345 4006  the                 DT 
+346 357 4007  opportunity         NN 
+358 360 4008  to                  TO 
+361 365 4009  talk                VB 
+366 370 4010  with                IN 
+371 378 4011  founder             NN PER
+379 382 4012  and                 CC 
+383 387 4013  lead                NN 
+388 394 4014  singer              NN PER
+395 401 4015  Robert              NNP PER http://en.wikipedia.org/wiki/Robert_Lamm
+402 406 4016  Lamm                NNP PER http://en.wikipedia.org/wiki/Robert_Lamm
+406 407 4017  ,                   ,  
+408 411 4018  and                 CC 
+412 419 4019  trumpet             NN 
+420 426 4020  player              NN PER
+427 430 4021  Lee                 NNP PER http://en.wikipedia.org/wiki/Lee_Loughnane
+431 440 4022  Loughnane           NNP PER http://en.wikipedia.org/wiki/Lee_Loughnane
+441 443 4023  at                  IN 
+444 448 4024  Wolf                NNP
+449 453 4025  Trap                NNP
+454 462 4026  National            NNP
+463 467 4027  Park                NNP
+468 471 4028  for                 IN 
+472 475 4029  the                 DT 
+476 486 4030  Performing          NNP
+487 491 4031  Arts                NNP
+492 494 4032  in                  IN 
+495 501 4033  Vienna              NNP CIT http://en.wikipedia.org/wiki/Vienna
+501 502 4034  ,                   ,  
+503 511 4035  Virginia            NNP COU http://en.wikipedia.org/wiki/Virginia
+511 512 4036  .                   .  
+0   5   1001  Heavy               NNP
+6   11  1002  rains               VBZ
+12  14  1003  in                  IN 
+15  21  1004  Brazil              NNP COU http://en.wikipedia.org/wiki/Brazil
+22  26  1005  have                VBP
+27  33  1006  caused              VBN
+34  40  1007  deadly              RB 
+41  50  1008  mudslides           VBZ
+51  55  1009  that                IN 
+56  60  1010  have                VBP
+61  67  1011  killed              VBN
+68  70  1012  at                  IN 
+71  76  1013  least               JJS
+77  82  1014  seven               CD 
+83  89  1015  people              NNS
+89  90  1016  ,                   ,  
+91  97  1017  mostly              RB 
+98  106 1018  children            VBN
+106 107 1019  .                   .  
+108 119 2001  Authorities         NNPS
+120 123 2002  say                 VBP
+124 127 2003  the                 DT 
+128 135 2004  victims             NNS
+136 141 2005  lived               VBD
+142 144 2006  in                  IN 
+145 146 2007  a                   DT 
+147 157 2008  shantytown          NN 
+158 160 2009  in                  IN 
+161 164 2010  the                 DT 
+165 175 2011  industrial          JJ 
+176 182 2012  suburb              NN 
+183 185 2013  of                  IN 
+186 189 2014  Sao                 NNP CIT http://en.wikipedia.org/wiki/S%C3%A3o_Bernardo_do_Campo
+190 198 2015  Bernardo            NNP CIT http://en.wikipedia.org/wiki/S%C3%A3o_Bernardo_do_Campo
+199 201 2016  do                  VBP CIT http://en.wikipedia.org/wiki/S%C3%A3o_Bernardo_do_Campo
+202 207 2017  Campo               NNP CIT http://en.wikipedia.org/wiki/S%C3%A3o_Bernardo_do_Campo
+207 208 2018  ,                   ,  
+209 213 2019  near                IN 
+214 217 2020  the                 DT 
+218 222 2021  city                NN 
+223 225 2022  of                  IN 
+226 229 2023  Sao                 NNP CIT http://en.wikipedia.org/wiki/S%C3%A3o_Paulo 
+230 235 2024  Paulo               NNP CIT http://en.wikipedia.org/wiki/S%C3%A3o_Paulo
+235 236 2025  .                   .  
+237 247 3001  Torrential          NNP
+248 253 3002  rains               VBZ
+254 258 3003  have                VBP
+259 265 3004  lashed              VBN
+266 269 3005  the                 DT 
+270 273 3006  Sao                 NNP CIT http://en.wikipedia.org/wiki/S%C3%A3o_Paulo
+274 279 3007  Paulo               NNP CIT http://en.wikipedia.org/wiki/S%C3%A3o_Paulo
+280 286 3008  region              NN 
+287 292 3009  since               IN 
+293 300 3010  Tuesday             NNP
+300 301 3011  .                   .  
+0   10  1001  Originally          RB 
+11  18  1002  settled             VBD
+19  21  1003  by                  IN 
+22  32  1004  Polynesian          NNP
+33  42  1005  emigrants           NNS
+43  47  1006  from                IN 
+48  59  1007  surrounding         VBG
+60  66  1008  island              NN NAT http://en.wikipedia.org/wiki/Island
+67  73  1009  groups              NNS
+73  74  1010  ,                   ,  
+75  78  1011  the                 DT 
+79  86  1012  Tokelau             NNP NAT http://en.wikipedia.org/wiki/Tokelau
+87  94  1013  Islands             NNPS NAT http://en.wikipedia.org/wiki/Tokelau
+95  99  1014  were                VBD
+100 104 1015  made                VBN
+105 106 1016  a                   DT 
+107 114 1017  British             JJ 
+115 127 1018  protectorate        NN 
+128 130 1019  in                  IN 
+131 135 1020  1889                CD 
+135 136 1021  .                   .  
+137 141 2001  They                PRP
+142 146 2002  were                VBD
+147 158 2003  transferred         VBN
+159 161 2004  to                  TO 
+162 165 2005  New                 NNP COU http://en.wikipedia.org/wiki/New_Zealand
+166 173 2006  Zealand             NNP COU http://en.wikipedia.org/wiki/New_Zealand
+174 188 2007  administration      NN 
+189 191 2008  in                  IN 
+192 196 2009  1925                CD 
+196 197 2010  .                   .  
+198 207 3001  Referenda           NNP
+208 212 3002  held                VBD
+213 215 3003  in                  IN 
+216 220 3004  2006                CD 
+221 224 3005  and                 CC 
+225 229 3006  2007                CD 
+230 232 3007  to                  TO 
+233 239 3008  change              VB 
+240 243 3009  the                 DT 
+244 250 3010  status              NN 
+251 253 3011  of                  IN 
+254 257 3012  the                 DT 
+258 265 3013  islands             NNS NAT http://en.wikipedia.org/wiki/Island
+266 270 3014  from                IN 
+271 275 3015  that                DT 
+276 278 3016  of                  IN 
+279 280 3017  a                   DT 
+281 284 3018  New                 NNP COU http://en.wikipedia.org/wiki/New_Zealand
+285 292 3019  Zealand             NNP COU http://en.wikipedia.org/wiki/New_Zealand
+293 302 3020  territory           NN 
+303 305 3021  to                  TO 
+306 309 3022  one                 CD 
+310 312 3023  of                  IN 
+313 317 3024  free                JJ 
+318 329 3025  association         NN 
+330 334 3026  with                IN 
+335 338 3027  New                 NNP COU http://en.wikipedia.org/wiki/New_Zealand
+339 346 3028  Zealand             NNP COU http://en.wikipedia.org/wiki/New_Zealand
+347 350 3029  did                 VBD
+351 354 3030  not                 RB 
+355 359 3031  meet                VB 
+360 363 3032  the                 DT 
+364 370 3033  needed              VBN
+371 380 3034  threshold           NN 
+381 384 3035  for                 IN 
+385 393 3036  approval            NN 
+393 394 3037  .                   .  
+

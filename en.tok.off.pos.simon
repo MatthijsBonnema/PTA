@@ -1133,7 +1133,7 @@
 20  25  1003  lists               NNS
 26  29  1004  the                 DT 
 30  34  1005  band                NN 
-35  42  1006  Chicago             NNP 	COU
+35  42  1006  Chicago             NNP 	COU     http://en.wikipedia.org/wiki/Chicago
 43  45  1007  as                  IN 
 46  49  1008  the                 DT 
 50  57  1009  leading             VBG
@@ -1182,8 +1182,8 @@
 316 317 3020  .                   .  
 319 322 4001  VOA                 NNP 	ENT 	http://en.wikipedia.org/wiki/Voice_of_America
 322 324 4002  's                  POS 	
-325 330 4003  Larry               NNP 	PER 	
-331 337 4004  London              NNP 	PER 	
+325 330 4003  Larry               NNP 	PER     -
+331 337 4004  London              NNP 	PER 	-
 338 341 4005  had                 VBD
 342 345 4006  the                 DT 
 346 357 4007  opportunity         NN 
@@ -1338,4 +1338,4 @@
 371 380 3034  threshold           NN 
 381 384 3035  for                 IN 
 385 393 3036  approval            NN 
-393 394 3037  .                   .  
+393 394 3037  .                   .
