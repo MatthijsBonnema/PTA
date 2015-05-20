@@ -17,17 +17,22 @@ def main(argv):
                     ambigious_words.append((l[2], l[3]))
     with open(argv[1], 'r') as fname:
         for word in ambigious_words:
-            lines = []
-            start = int(str(word[0][0]) + "001")
+            x = 0
+            start = int(str(word[x][0]) + "001")
+            print(start)
             end = start + 999
             for line in fname:
                 l = line.split()
+                if str(l[2]).endswith("001"):
+                    lines = []
+                print(lines)
                 if start <= int(l[2]) <= end:
                     lines.append(l[3])
-            ambigious_lines.append(lines)
+                ambigious_lines.append(lines)
+            x += 1
     # print(ambigious_words, ambigious_lines)
-    for i in range(len(ambigious_lines)):
-        print(ambigious_words[i], ambigious_lines[i])
+    # for i in range(len(ambigious_lines)):
+        # print(ambigious_words[i], ambigious_lines[i])
 
 
 
