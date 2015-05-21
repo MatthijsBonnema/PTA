@@ -16,6 +16,6 @@ def main(argv):
             i.append("-")
         data = ("{:4}{:4}{:6}{:20}{:5}{:5}{}".format(i[0], i[1], i[2], i[3], i[4], i[5], i[6]))
         output.write(data+"\n")
-        output.close()
+    output.close()
 
 main(sys.argv)
