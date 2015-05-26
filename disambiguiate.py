@@ -15,8 +15,4 @@ def main(argv):
                 if len(wordnet.synsets(l[5], "n")) > 1:
                     ambigious_words.append((l[2], l[3]))
 
-
-
-
-
 main(sys.argv)
