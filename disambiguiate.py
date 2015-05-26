@@ -2,8 +2,6 @@
 
 from nltk.corpus import wordnet
 from nltk.wsd import lesk
-from nltk import word_tokenize
-import sys
 import os
 from collections import Counter
 
@@ -21,8 +19,8 @@ def main():
                     with open(os.path.join(path, directory+"/"+directory2, filename), 'r') as fname:
                         output = open(os.path.join(path, directory+"/"+directory2, "output_disambiguation.txt"), 'w')
 
-                        ambigious_words = []
-                        ambigious_lines = []
+                        ambiguous_words = []
+                        ambiguous_lines = []
                         text_words = []
 
 
@@ -34,22 +32,22 @@ def main():
                                 if len(wordnet.synsets(l[3], "n")) > 1:
                                     number_of_ss += len(wordnet.synsets(l[3], "n"))
                                     synsets.append(len(wordnet.synsets(l[3], "n")))
-                                    ambigious_words.append((l[2], l[3]))
-                        for word in ambigious_words:
+                                    ambiguous_words.append((l[2], l[3]))
+                        for word in ambiguous_words:
                             start = int(str(word[0][0]) + "001")
                             end = start + 999
                             lines = []
                             for l in text_words:
                                 if start <= int(l[2]) <= end:
                                     lines.append(l[3])
-                            ambigious_lines.append(lines)
-                        for i in range(len(ambigious_words)):
-                            ss = lesk(ambigious_lines[i], ambigious_words[i][1], "n")
+                            ambiguous_lines.append(lines)
+                        for i in range(len(ambiguous_words)):
+                            ss = lesk(ambiguous_lines[i], ambiguous_words[i][1], "n")
                             outputwrite = str((ss, ss.definition())) + "\n"
                             output.write(outputwrite)
     c = Counter(synsets)
 
-    print(sorted(c.items(), key=lambda pair: pair[1], reverse=True))
+    print(sorted(c.items(), key=lambda pair: pair[0], reverse=True))
     print(number_of_ss)
 
 main()
