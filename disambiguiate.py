@@ -10,6 +10,7 @@ import os
 def main():
     path = "group9/"
     dirs = ["p34", "p35"]
+    number_of_ss = 0
 
     for directory in dirs:
         for directory2 in os.listdir(path+directory):
@@ -21,7 +22,6 @@ def main():
                         ambigious_words = []
                         ambigious_lines = []
                         text_words = []
-                        number_of_ss = []
 
                         for line in fname:
                             split_line = line.split()
@@ -29,7 +29,7 @@ def main():
                             l = line.split()
                             if l[4] == "NN" or l[4] == "NNP":
                                 if len(wordnet.synsets(l[3], "n")) > 1:
-                                    number_of_ss.append(len(wordnet.synsets(l[3], "n")))
+                                    number_of_ss += len(wordnet.synsets(l[3], "n"))
                                     ambigious_words.append((l[2], l[3]))
                         for word in ambigious_words:
                             start = int(str(word[0][0]) + "001")
@@ -43,6 +43,6 @@ def main():
                             ss = lesk(ambigious_lines[i], ambigious_words[i][1], "n")
                             outputwrite = str((ss, ss.definition())) + "\n"
                             output.write(outputwrite)
-                        print(number_of_ss)
+    print(number_of_ss)
 
 main()
