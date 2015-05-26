@@ -27,7 +27,8 @@ def main(argv):
                 lines.append(l[3])
         ambigious_lines.append(lines)
     for i in range(len(ambigious_lines)):
-        print(ambigious_words[i], ambigious_lines[i])
+        print(lesk(ambigious_lines[i], ambigious_words[i][1], "n"))
+        print(ambigious_words[i][1].definition())
 
 
 
