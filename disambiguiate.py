@@ -19,16 +19,16 @@ def main(argv):
         start = int(str(word[0][0]) + "001")
         end = start + 999
         with open(argv[1], 'r') as fname:
+            lines = []
             for line in fname:
                 l = line.split()
-                if str(l[2]).endswith("001"):
-                    lines = []
                 if start <= int(l[2]) <= end:
                     lines.append(l[3])
-                ambigious_lines.append(lines)
-    print(ambigious_lines, ambigious_words)
-    # for i in range(len(ambigious_lines)):
-    #     print(ambigious_words[i], ambigious_lines[i])
+                    print(l[3])
+            ambigious_lines.append(lines)
+    for i in range(len(ambigious_lines)):
+        print(ambigious_words[i], ambigious_lines[i])
+        print(i)
 
 
 
