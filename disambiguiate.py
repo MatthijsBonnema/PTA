@@ -8,6 +8,9 @@ import sys
 
 def main(argv):
     with open(argv[1], 'r') as fname:
+        for line in fname:
+            l = line.split()
+            if l[5]
 
 
 main(sys.argv)
