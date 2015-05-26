@@ -49,7 +49,7 @@ def main():
                             output.write(outputwrite)
     c = Counter(synsets)
 
-    print(c)
+    print(sorted(c.items(), key=lambda pair: pair[1], reverse=True))
     print(number_of_ss)
 
 main()
