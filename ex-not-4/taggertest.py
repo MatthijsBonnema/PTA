@@ -9,41 +9,49 @@ from nltk.stem.wordnet import WordNetLemmatizer
 from nltk.corpus import wordnet
 import nltk
 from collections import defaultdict
+from nltk.tag.stanford import NERTagger
+
 
 def main():
     words = ["book", "car", "flower", "shower", "tower", "happiness"]
 
-    entities = {
-        "act": wordnet.synsets("act", pos='n'),
-        "animal": wordnet.synsets("animal", pos='n'),
-        "artifact": wordnet.synsets("artifact", pos='n'),
-        "attribute": wordnet.synsets("attribute", pos='n'),
-        "body": wordnet.synsets("body", pos='n'),
-        "cognition": wordnet.synsets("cognition", pos='n'),
-        "communication": wordnet.synsets("communication", pos='n'),
-        "event": wordnet.synsets("event", pos='n'),
-        "feeling": wordnet.synsets("feeling", pos='n'),
-        "food": wordnet.synsets("food", pos='n'),
-        "group": wordnet.synsets("group", pos='n'),
-        "location": wordnet.synsets("location", pos='n'),
-        "motive": wordnet.synsets("motive", pos='n'),
-        "natural_object": wordnet.synsets("natural object", pos='n'),
-        "natural_phenomenon": wordnet.synsets("natural object", pos='n'),
-        "person": wordnet.synsets("person", pos='n'),
-        "plant": wordnet.synsets("plant", pos='n'),
-        "possession": wordnet.synsets("possession", pos='n'),
-        "process": wordnet.synsets("process", pos='n'),
-        "quantity": wordnet.synsets("quantity", pos='n'),
-        "relation": wordnet.synsets("relation", pos='n'),
-        "shape": wordnet.synsets("shape", pos='n'),
-        "state": wordnet.synsets("state", pos='n'),
-        "substance": wordnet.synsets("substance", pos='n'),
-        "time": wordnet.synsets("time", pos='n')
-    }
-
     noun_lemmas = []
-    lemmatizer = WordNetLemmatizer()
+    nouns = []
+    final_ner_tagged = []
+    not_ner_tagged = []
     pos_tags = nltk.pos_tag(words)
+    lemmatizer = WordNetLemmatizer()
+
+    class3 = NERTagger('stanford-ner/classifiers/english.all.3class.distsim.crf.ser.gz',
+                       'stanford-ner/stanford-ner.jar')
+
+    # STANFORD NERTAGGING HAPPENS HERE
+    for tag in pos_tags:
+        if tag[1] == 'NNP':
+            nouns.append(tag[0])
+        elif tag[1] == 'NN':
+            nouns.append(tag[0])
+
+    ner_tagged = class3.tag(nouns)
+    for t in ner_tagged[0]:
+        if t[1] == u'O':
+            not_ner_tagged.append(t[0])
+        else:
+            final_ner_tagged.append(t)
+    print(final_ner_tagged)
+
+    entities = {
+        "COUNTRY": wordnet.synsets("country", pos='n'),
+        "STATE": wordnet.synsets("state", pos='n'),
+        "CITY": wordnet.synsets("city", pos='n'),
+        "TOWN": wordnet.synsets("town", pos='n'),
+        "NAT": wordnet.synsets("natural places", pos='n'),
+        "PER": wordnet.synsets("person", pos='n'),
+        "ORG": wordnet.synsets("organisation", pos='n'),
+        "ANI": wordnet.synsets("animal", pos='n'),
+        "SPO": wordnet.synsets("sport", pos='n'),
+        "ENT": wordnet.synsets("entertainment", pos='n'),
+    }
 
     print(pos_tags)
 

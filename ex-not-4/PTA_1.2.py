@@ -53,7 +53,6 @@ def main():
     noun_synsets_relative = []
     noun_synsets_illness = []
     noun_synsets_science = []
-    lemmatizer = WordNetLemmatizer()
     pos_tags = nltk.pos_tag(text)
 
     for word in pos_tags:
