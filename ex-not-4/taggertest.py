@@ -1,18 +1,18 @@
 #!/usr/bin/python
-# Date: 5/28/15
+# File: PTA_1.2.py
+# Author: Matthijs Bonnema
+# Date: 4/30/15
+# Info: 
 
 import sys
-import wikipedia
 from nltk.stem.wordnet import WordNetLemmatizer
 from nltk.corpus import wordnet
 import nltk
 from collections import defaultdict
 
 def main():
-    print(wikipedia.search("Barack"))
+    words = ["book", "car", "flower", "shower", "tower", "mower", ]
 
-
-def nertagger(list):
     # print(file)
     relative = wordnet.synsets("relative", pos='n')
     science = wordnet.synsets("science", pos='n')
@@ -75,7 +75,7 @@ def nertagger(list):
 
     # Exercise 1.2
     print("\nEXERCISE 1.2\n")
-    tagged_top_entities = defaultdict(list)
+    tagged_top_entities = defaultdict(words)
     for word in pos_tags:
         if word[1] == "NN" or word[1] == "NNP":
             noun_lemmas.append(lemmatizer.lemmatize(word[0], wordnet.NOUN))
@@ -123,7 +123,6 @@ def getMaxSim(synsets1, synsets2):
             if maxSim is None or maxSim < sim:
                 maxSim = sim
     return maxSim
-
 
 if __name__ == "__main__":
     main()
