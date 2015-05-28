@@ -9,7 +9,7 @@ import nltk
 from collections import defaultdict
 
 def main():
-    print(wikipedia.search("Barack"))
+    print(wikipedia.search("chair"))
 
 
 def nertagger(list):

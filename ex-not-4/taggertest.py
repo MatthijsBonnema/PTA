@@ -11,12 +11,7 @@ import nltk
 from collections import defaultdict
 
 def main():
-    words = ["book", "car", "flower", "shower", "tower", "mower", ]
-
-    # print(file)
-    relative = wordnet.synsets("relative", pos='n')
-    science = wordnet.synsets("science", pos='n')
-    illness = wordnet.synsets("illness", pos='n')
+    words = ["book", "car", "flower", "shower", "tower", "happiness"]
 
     entities = {
         "act": wordnet.synsets("act", pos='n'),
@@ -47,35 +42,12 @@ def main():
     }
 
     noun_lemmas = []
-    noun_synsets_relative = []
-    noun_synsets_illness = []
-    noun_synsets_science = []
     lemmatizer = WordNetLemmatizer()
-    pos_tags = nltk.pos_tag(list)
+    pos_tags = nltk.pos_tag(words)
 
-    for word in pos_tags:
-        if word[1] == "NN" or word[1] == "NNP":
-            # print(word)
-            noun_lemmas.append(lemmatizer.lemmatize(word[0], wordnet.NOUN))
-            # get the synsets for the noun 'honey'
-            word_synset = wordnet.synsets(word[0], pos="n")
-            if len(word_synset) != 0 and len(relative) != 0 and len(science) != 0 and len(illness) != 0:
-                if hypernymOf(word_synset[0], relative[0]):
-                    noun_synsets_relative.append(word_synset)
-                if hypernymOf(word_synset[0], illness[0]):
-                    noun_synsets_illness.append(word_synset)
-                if hypernymOf(word_synset[0], science[0]):
-                    noun_synsets_science.append(word_synset)
+    print(pos_tags)
 
-    # Exercise 1.1
-    print("EXERCISE 1.1\n")
-    print("Relative: ", len(noun_synsets_relative))
-    print("Illness: ", len(noun_synsets_illness))
-    print("Science: ", len(noun_synsets_science))
-
-    # Exercise 1.2
-    print("\nEXERCISE 1.2\n")
-    tagged_top_entities = defaultdict(words)
+    tagged_top_entities = defaultdict(list)
     for word in pos_tags:
         if word[1] == "NN" or word[1] == "NNP":
             noun_lemmas.append(lemmatizer.lemmatize(word[0], wordnet.NOUN))
@@ -86,19 +58,6 @@ def main():
                         tagged_top_entities[word[0]].append(e)
     for w in tagged_top_entities:
         print("{:15}{:15}".format(w, tagged_top_entities[w]))
-
-    # Exercise 1.3
-    print("\nEXERCISE 1.3\n")
-    compare_words = [("car", "automobile"), ("coast", "shore"), ("food", "fruit"), ("journey", "car"),
-                     ("monk", "slave"), ("moon", "string")]
-    similarity_words = []
-    for words in compare_words:
-        w1synsets = wordnet.synsets(words[0], pos="n")
-        w2synsets = wordnet.synsets(words[1], pos="n")
-        similarity_words.append((words[0], words[1], getMaxSim(w1synsets, w2synsets)))
-    similarity_words.sort(key=lambda tup: tup[2], reverse=True)
-    for item in similarity_words:
-        print("{:15}{:5}{:15}{:15}".format(item[0], "<>", item[1], item[2]))
 
 
 def hypernymOf(synset1, synset2):
