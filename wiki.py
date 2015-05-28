@@ -1,7 +1,5 @@
-# File: wikipedia.py
-# Author: Matthijs Bonnema
+#!/usr/bin/python
 # Date: 5/28/15
-# Info: 
 
 import sys
 import wikipedia
