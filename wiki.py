@@ -28,61 +28,51 @@ def posTagger(text_data):
 
 
 def nertagger(fname):
+    class3 = NERTagger('stanford-ner/classifiers/english.all.3class.distsim.crf.ser.gz',
+                       'stanford-ner/stanford-ner.jar')
+    output = open("en.tok.off.pos.tagged", "w")
     with open(fname, "r") as inp_file:
-        if word[1] == "NN" or word[1] == "NNP":
-        words = ["Barack Obama", "Holland", "Government", "Tennis", "happiness"]
+        for l in inp_file:
+            line = l.split()
+            if line[4] == "NN" or line[4] == "NNP":
+                ner_tagged = class3.tag(line[3])
+                print(ner_tagged)
+                for t in ner_tagged:
+                    if t[1] == u'O':
+                        #WordNet tagging
+                        tag = wordNetTagger(t[0])
+                        data = ("{:4}{:4}{:6}{:20}{:3}{:10}".format(line[0], line[1], line[2], line[3], line[4], tag))
+                        output.write(data+"\n")
+                    else:
+                        data = ("{:4}{:4}{:6}{:20}{:3}{:10}".format(line[0], line[1], line[2], line[3], line[4], t[1]))
+                        output.write(data+"\n")
+    output.close()
 
-        noun_lemmas = []
-        nouns = []
-        final_ner_tagged = []
-        not_ner_tagged = []
-        pos_tags = nltk.pos_tag(words)
-        lemmatizer = WordNetLemmatizer()
 
-        class3 = NERTagger('stanford-ner/classifiers/english.all.3class.distsim.crf.ser.gz',
-                           'stanford-ner/stanford-ner.jar')
+def wordNetTagger(w):
+    lemmatizer = WordNetLemmatizer()
+    entities = {
+        "COUNTRY": wordnet.synsets("country", pos='n'),
+        "STATE": wordnet.synsets("state", pos='n'),
+        "CITY": wordnet.synsets("city", pos='n'),
+        "TOWN": wordnet.synsets("town", pos='n'),
+        "NAT": wordnet.synsets("natural places", pos='n'),
+        "PER": wordnet.synsets("person", pos='n'),
+        "ORG": wordnet.synsets("organisation", pos='n'),
+        "ANI": wordnet.synsets("animal", pos='n'),
+        "SPO": wordnet.synsets("sport", pos='n'),
+        "ENT": wordnet.synsets("entertainment", pos='n'),
+    }
 
-        # STANFORD NERTAGGING HAPPENS HERE
-        for tag in pos_tags:
-            if tag[1] == 'NNP':
-                nouns.append(tag[0])
-            elif tag[1] == 'NN':
-                nouns.append(tag[0])
-
-        ner_tagged = class3.tag(nouns)
-        for t in ner_tagged[0]:
-            if t[1] == u'O':
-                not_ner_tagged.append(t[0])
+    tagged_top_entities = defaultdict(list)
+    lemmatizer.lemmatize(w, wordnet.NOUN)
+    word_synset = wordnet.synsets(w, pos="n")
+    for e in list(entities.keys()):
+        if len(word_synset) != 0 and len(entities[e]) != 0:
+            if hypernymOf(word_synset[0], entities[e][0]):
+                return e
             else:
-                final_ner_tagged.append(t)
-        print("NERTagged:")
-        print(final_ner_tagged)
-
-        entities = {
-            "COUNTRY": wordnet.synsets("country", pos='n'),
-            "STATE": wordnet.synsets("state", pos='n'),
-            "CITY": wordnet.synsets("city", pos='n'),
-            "TOWN": wordnet.synsets("town", pos='n'),
-            "NAT": wordnet.synsets("natural places", pos='n'),
-            "PER": wordnet.synsets("person", pos='n'),
-            "ORG": wordnet.synsets("organisation", pos='n'),
-            "ANI": wordnet.synsets("animal", pos='n'),
-            "SPO": wordnet.synsets("sport", pos='n'),
-            "ENT": wordnet.synsets("entertainment", pos='n'),
-        }
-
-        tagged_top_entities = defaultdict(list)
-        for word in pos_tags:
-            if word[1] == "NN" or word[1] == "NNP":
-                noun_lemmas.append(lemmatizer.lemmatize(word[0], wordnet.NOUN))
-                word_synset = wordnet.synsets(word[0], pos="n")
-                for e in list(entities.keys()):
-                    if len(word_synset) != 0 and len(entities[e]) != 0:
-                        if hypernymOf(word_synset[0], entities[e][0]):
-                            tagged_top_entities[word[0]].append(e)
-        print("WordNet tagged:")
-        for w in tagged_top_entities:
-            print("{:15}{:15}".format(w, tagged_top_entities[w]))
+                return None
 
 
 def hypernymOf(synset1, synset2):
@@ -97,16 +87,6 @@ def hypernymOf(synset1, synset2):
             return True
         if hypernymOf(hypernym, synset2):
             return True
-
-
-def getMaxSim(synsets1, synsets2):
-    maxSim = None
-    for s1 in synsets1:
-        for s2 in synsets2:
-            sim = s1.lch_similarity(s2)
-            if maxSim is None or maxSim < sim:
-                maxSim = sim
-    return maxSim
 
 
 if __name__ == "__main__":
