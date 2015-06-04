@@ -71,42 +71,42 @@ def entityTagger():
     with open("en.tok.off.test.pos", "r") as inp_file:
         for l in inp_file:
             line = l.split()
-            print(line[3])
             if line[4] == "NN" or line[4] == "NNP":
                 ner_tagged = class3.tag([line[3]])
-                print("Nertagged:", ner_tagged)
                 for t in ner_tagged[0]:
                     if len(t[1]) < 3:
                         #WordNet tagging
                         tag = wordNetTagger(t[0])
-                        print("Wordnet tag:", tag)
                         data = ("{:4}{:4}{:6}{:20}{:6}{:10}".format(line[0], line[1], line[2], line[3], line[4], tag))
                         output.write(data+"\n")
                     else:
                         data = ("{:4}{:4}{:6}{:20}{:6}{:10}".format(line[0], line[1], line[2], line[3], line[4], t[1]))
                         output.write(data+"\n")
+            else:
+                data = ("{:4}{:4}{:6}{:20}{:6}{:10}".format(line[0], line[1], line[2], line[3], line[4], "-"))
+                output.write(data+"\n")
     output.close()
 
 
 def wordNetTagger(w):
     entities = {
-        "country": wordnet.synsets("country", pos='n'),
-        "state": wordnet.synsets("state", pos='n'),
-        "city": wordnet.synsets("city", pos='n'),
-        "town": wordnet.synsets("town", pos='n'),
-        "natural_places": wordnet.synsets("natural places", pos='n'),
-        "person": wordnet.synsets("person", pos='n'),
-        "organisation": wordnet.synsets("organisation", pos='n'),
-        "animal": wordnet.synsets("animal", pos='n'),
-        "sport": wordnet.synsets("sport", pos='n'),
-        "entertainment": wordnet.synsets("entertainment", pos='n'),
+        "COU": wordnet.synsets("country", pos='n'),
+        "STATE": wordnet.synsets("state", pos='n'),
+        "CITY": wordnet.synsets("city", pos='n'),
+        "TOWN": wordnet.synsets("town", pos='n'),
+        "NAT": wordnet.synsets("natural places", pos='n'),
+        "PER": wordnet.synsets("person", pos='n'),
+        "ORG": wordnet.synsets("organisation", pos='n'),
+        "ANI": wordnet.synsets("animal", pos='n'),
+        "SPO": wordnet.synsets("sport", pos='n'),
+        "ENT": wordnet.synsets("entertainment", pos='n'),
     }
     word_synset = wordnet.synsets(w, pos="n")
     for e in list(entities.keys()):
         if len(word_synset) != 0 and len(entities[e]) != 0:
             if hypernymOf(word_synset[0], entities[e][0]):
                 return e
-    return None
+    return "-"
 
 
 def hypernymOf(synset1, synset2):
