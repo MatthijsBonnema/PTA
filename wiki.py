@@ -26,7 +26,6 @@ def main(argv):
     # for line in result_word_syn_list:
     #     print(line)
 
-
     for i in result_word_syn_list:
         # print(i[0] + "\n" + i[1])
         words = i[0].split(" ")
@@ -42,10 +41,7 @@ def main(argv):
             # outputwrite = str((ss, ss.definition())) + "\n"
             # output.write(outputwrite)
 
-
-
     # print(result_synset_list)
-
 
     text = []
     with open(argv[1], 'r') as filedata:
@@ -91,12 +87,6 @@ def entityTagger():
                         output.write(data+"\n")
     output.close()
 
-        noun_lemmas = []
-        nouns = []
-        final_ner_tagged = []
-        not_ner_tagged = []
-        pos_tags = nltk.pos_tag(words)
-        lemmatizer = WordNetLemmatizer()
 
 def wordNetTagger(w):
     entities = {
