@@ -10,7 +10,42 @@ from nltk.tag.stanford import NERTagger
 
 
 def main(argv):
-    print(wikipedia.search("chair"))
+    result_word_syn_list = []
+    result_synset_list = []
+    result_list = wikipedia.search("President")
+    print(result_list)
+    for result in result_list:
+        # print(result, wikipedia.summary(result), "\n")
+
+        try:
+            result_word_syn_list.append((result, wikipedia.summary(result, sentences=2)))
+        except wikipedia.exceptions.DisambiguationError as e:
+            for result_e in e:
+                result_word_syn_list.append((result_e, wikipedia.summary(result, sentences=2)))
+
+    # for line in result_word_syn_list:
+    #     print(line)
+
+
+    for i in result_word_syn_list:
+        # print(i[0] + "\n" + i[1])
+        words = i[0].split(" ")
+        for word in words:
+            print(word)
+            print(i[1])
+            ss = lesk(i[1], word, "n")
+            print(ss)
+            try:
+                print(str((ss, ss.definition())) + "\n")
+            except AttributeError:
+                print(str((word, "No definition")))
+            # outputwrite = str((ss, ss.definition())) + "\n"
+            # output.write(outputwrite)
+
+
+
+    # print(result_synset_list)
+
 
     text = []
     with open(argv[1], 'r') as filedata:
@@ -56,6 +91,12 @@ def entityTagger():
                         output.write(data+"\n")
     output.close()
 
+        noun_lemmas = []
+        nouns = []
+        final_ner_tagged = []
+        not_ner_tagged = []
+        pos_tags = nltk.pos_tag(words)
+        lemmatizer = WordNetLemmatizer()
 
 def wordNetTagger(w):
     entities = {
