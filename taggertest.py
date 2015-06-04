@@ -13,7 +13,7 @@ from nltk.tag.stanford import NERTagger
 
 
 def main():
-    words = ["book", "car", "flower", "shower", "tower", "happiness"]
+    words = ["Barack Obama", "Holland", "Government", "Tennis", "happiness"]
 
     noun_lemmas = []
     nouns = []
@@ -38,6 +38,7 @@ def main():
             not_ner_tagged.append(t[0])
         else:
             final_ner_tagged.append(t)
+    print("NERTagged:")
     print(final_ner_tagged)
 
     entities = {
@@ -53,8 +54,6 @@ def main():
         "ENT": wordnet.synsets("entertainment", pos='n'),
     }
 
-    print(pos_tags)
-
     tagged_top_entities = defaultdict(list)
     for word in pos_tags:
         if word[1] == "NN" or word[1] == "NNP":
@@ -64,6 +63,7 @@ def main():
                 if len(word_synset) != 0 and len(entities[e]) != 0:
                     if hypernymOf(word_synset[0], entities[e][0]):
                         tagged_top_entities[word[0]].append(e)
+    print("WordNet tagged:")
     for w in tagged_top_entities:
         print("{:15}{:15}".format(w, tagged_top_entities[w]))
 
