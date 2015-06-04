@@ -10,38 +10,38 @@ from nltk.tag.stanford import NERTagger
 
 
 def main(argv):
-    result_word_syn_list = []
-    result_synset_list = []
-    result_list = wikipedia.search("President")
-    print(result_list)
-    for result in result_list:
-        # print(result, wikipedia.summary(result), "\n")
-
-        try:
-            result_word_syn_list.append((result, wikipedia.summary(result, sentences=2)))
-        except wikipedia.exceptions.DisambiguationError as e:
-            for result_e in e:
-                result_word_syn_list.append((result_e, wikipedia.summary(result, sentences=2)))
-
-    # for line in result_word_syn_list:
-    #     print(line)
-
-    for i in result_word_syn_list:
-        # print(i[0] + "\n" + i[1])
-        words = i[0].split(" ")
-        for word in words:
-            print(word)
-            print(i[1])
-            ss = lesk(i[1], word, "n")
-            print(ss)
-            try:
-                print(str((ss, ss.definition())) + "\n")
-            except AttributeError:
-                print(str((word, "No definition")))
-            # outputwrite = str((ss, ss.definition())) + "\n"
-            # output.write(outputwrite)
-
-    # print(result_synset_list)
+    # result_word_syn_list = []
+    # result_synset_list = []
+    # result_list = wikipedia.search("President")
+    # print(result_list)
+    # for result in result_list:
+    #     # print(result, wikipedia.summary(result), "\n")
+    #
+    #     try:
+    #         result_word_syn_list.append((result, wikipedia.summary(result, sentences=2)))
+    #     except wikipedia.exceptions.DisambiguationError as e:
+    #         for result_e in e:
+    #             result_word_syn_list.append((result_e, wikipedia.summary(result, sentences=2)))
+    #
+    # # for line in result_word_syn_list:
+    # #     print(line)
+    #
+    # for i in result_word_syn_list:
+    #     # print(i[0] + "\n" + i[1])
+    #     words = i[0].split(" ")
+    #     for word in words:
+    #         print(word)
+    #         print(i[1])
+    #         ss = lesk(i[1], word, "n")
+    #         print(ss)
+    #         try:
+    #             print(str((ss, ss.definition())) + "\n")
+    #         except AttributeError:
+    #             print(str((word, "No definition")))
+    #         # outputwrite = str((ss, ss.definition())) + "\n"
+    #         # output.write(outputwrite)
+    #
+    # # print(result_synset_list)
 
     text = []
     with open(argv[1], 'r') as filedata:
@@ -90,24 +90,23 @@ def entityTagger():
 
 def wordNetTagger(w):
     entities = {
-        "COUNTRY": wordnet.synsets("country", pos='n'),
-        "STATE": wordnet.synsets("state", pos='n'),
-        "CITY": wordnet.synsets("city", pos='n'),
-        "TOWN": wordnet.synsets("town", pos='n'),
-        "NAT": wordnet.synsets("natural places", pos='n'),
-        "PER": wordnet.synsets("person", pos='n'),
-        "ORG": wordnet.synsets("organisation", pos='n'),
-        "ANI": wordnet.synsets("animal", pos='n'),
-        "SPO": wordnet.synsets("sport", pos='n'),
-        "ENT": wordnet.synsets("entertainment", pos='n'),
+        "country": wordnet.synsets("country", pos='n'),
+        "state": wordnet.synsets("state", pos='n'),
+        "city": wordnet.synsets("city", pos='n'),
+        "town": wordnet.synsets("town", pos='n'),
+        "natural_places": wordnet.synsets("natural places", pos='n'),
+        "person": wordnet.synsets("person", pos='n'),
+        "organisation": wordnet.synsets("organisation", pos='n'),
+        "animal": wordnet.synsets("animal", pos='n'),
+        "sport": wordnet.synsets("sport", pos='n'),
+        "entertainment": wordnet.synsets("entertainment", pos='n'),
     }
     word_synset = wordnet.synsets(w, pos="n")
     for e in list(entities.keys()):
         if len(word_synset) != 0 and len(entities[e]) != 0:
             if hypernymOf(word_synset[0], entities[e][0]):
                 return e
-            else:
-                return None
+    return None
 
 
 def hypernymOf(synset1, synset2):
