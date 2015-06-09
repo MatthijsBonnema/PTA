@@ -2,7 +2,7 @@
 # File: wikitest.py
 # Author: Matthijs Bonnema
 # Date: 6/9/15
-# Info: 
+# Info: Returns urls for wikipedia
 
 import wikipedia
 from nltk.corpus import wordnet
