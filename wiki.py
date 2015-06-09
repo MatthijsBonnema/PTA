@@ -15,9 +15,9 @@ def main(argv):
     with open("en.tok.off.test", 'r') as filedata:
         for line in filedata:
             text.append(line.split())
-        woorden = [token_data[3] for token_data in text]
+        words = [token_data[3] for token_data in text]
 
-        bigram_list = nltk.ngrams(woorden, 2)
+        bigram_list = nltk.ngrams(words, 2)
     posTagger(text)
     entityTagger()
     tagged_bigrams = ngramTagger(bigram_list)
