@@ -9,7 +9,7 @@ from nltk.corpus import wordnet
 
 
 def main():
-    word = wordnet.synsets("Texas", pos="n")[0]
+    word = wordnet.synsets("San_Francisco", pos="n")[0]
 
     city = wordnet.synsets("City", pos="n")[0]
     state = wordnet.synsets("State", pos="n")[0]
