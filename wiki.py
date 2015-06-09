@@ -52,6 +52,10 @@ def main(argv):
 
 
 def posTagger(text_data):
+    """
+    Pos tags words.
+    :param text_data: raw data from files
+    """
     # Take the 4th column, the word
     tokens = [token_data[3] for token_data in text_data]
     tagged_tokens = nltk.pos_tag(tokens)
@@ -65,17 +69,21 @@ def posTagger(text_data):
 
 
 def entityTagger():
+    """
+    Tags nouns in given file, writes them to output file
+    """
     class3 = NERTagger('stanford-ner/classifiers/english.all.3class.distsim.crf.ser.gz',
                        'stanford-ner/stanford-ner.jar')
     output = open("en.tok.off.test.pos.tagged", "w")
     with open("en.tok.off.test.pos", "r") as inp_file:
         for l in inp_file:
             line = l.split()
+            # If words is a noun, go tag it!
             if line[4] == "NN" or line[4] == "NNP":
                 ner_tagged = class3.tag([line[3]])
                 for t in ner_tagged[0]:
+                    # No nertag? Check wordnet tagging
                     if len(t[1]) < 3:
-                        #WordNet tagging
                         tag = wordNetTagger(t[0])
                         data = ("{:4}{:4}{:6}{:20}{:6}{:10}".format(line[0], line[1], line[2], line[3], line[4], tag))
                         output.write(data+"\n")
@@ -89,6 +97,11 @@ def entityTagger():
 
 
 def wordNetTagger(w):
+    """
+    Tags words using Wordnet Synsets.
+    :param w: input a word
+    :return: class name or None indicator ("-")
+    """
     entities = {
         "COU": wordnet.synsets("country", pos='n'),
         "STATE": wordnet.synsets("state", pos='n'),
@@ -103,10 +116,52 @@ def wordNetTagger(w):
     }
     word_synset = wordnet.synsets(w, pos="n")
     for e in list(entities.keys()):
+        # Check word synsets with class synsets.
         if len(word_synset) != 0 and len(entities[e]) != 0:
             if hypernymOf(word_synset[0], entities[e][0]):
                 return e
     return "-"
+
+
+def ngramTagger(l):
+    """
+    This function takes a list of ngrams, creates bigrams and entity tags them.
+    :param l: input must be a list of bigrams, formed in tuples
+    :return: returns a list with words that are tagged. (For example, "El Salvador" would be [("El", "LOCATION"),
+    ("Salvador", "LOCATION")]
+    """
+    bigrams = []
+    tagged_bigrams = []
+    # Create bigrams for nertagging
+    for i in l:
+        ngram = i[0] + " " + i[1]
+        bigrams.append(ngram)
+
+    class3 = NERTagger('stanford-ner/classifiers/english.all.3class.distsim.crf.ser.gz',
+                       'stanford-ner/stanford-ner.jar')
+    nertagged_bigrams = class3.tag(bigrams)
+    # Check tuples in lists for tags, if tagged add to tagged_bigrams
+    for l in nertagged_bigrams:
+        for t in l:
+            if len(t[1]) > 3:
+                tagged_bigrams.append(t)
+    print(tagged_bigrams)
+
+
+def tagChecker(fname, tagged_bigrams):
+    """
+    This function adds enitity tags to ngrams.
+    :param fname: input must be a filename
+    :param bl: must be a list of words which are tagged (preferably bigrams)
+    :return:
+    """
+    with open(fname, "r") as inp_file:
+        for line in inp_file:
+            l = line.split()
+            # Check if word in our tagged ngram list, if so replace tag with new tag.
+            for t in tagged_bigrams:
+                if t[0] == l[3]:
+                    l[5] = t[1]
 
 
 def hypernymOf(synset1, synset2):
