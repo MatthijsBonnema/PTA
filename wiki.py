@@ -195,13 +195,10 @@ def wiki_lookup(search_pass, tag_pass):
 
     tagcheck = ["COUNTRY", "STATE", "CITY", "TOWN", "NATURAL_PLACE", "PERSON", "ORGANISATION", "ANIMAL", "SPORT", "ENTERTAINMENT"]
 
-
-
     if len(search.split(" ")) == 1:
         search_syn = str(wordnet.synsets(search, pos="n")[0])
     else:
         search_syn = None
-
 
     wiki_results = []
     url_list = []
@@ -212,8 +209,6 @@ def wiki_lookup(search_pass, tag_pass):
         search_results = wikipedia.search((search+" "+tag))
     else:
         search_results = wikipedia.search(search)
-
-
 
     for result in search_results:
         try:
