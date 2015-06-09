@@ -52,7 +52,8 @@ def main(argv):
         bigram_list = nltk.ngrams(woorden, 2)
     posTagger(text)
     entityTagger()
-    ngramTagger(bigram_list)
+    tagged_bigrams = ngramTagger(bigram_list)
+    tagChecker("en.tok.off.test.pos.et", tagged_bigrams)
 
 
 def posTagger(text_data):
@@ -78,7 +79,7 @@ def entityTagger():
     """
     class3 = NERTagger('stanford-ner/classifiers/english.all.3class.distsim.crf.ser.gz',
                        'stanford-ner/stanford-ner.jar')
-    output = open("en.tok.off.test.pos.tagged", "w")
+    output = open("en.tok.off.test.pos.et", "w")
     with open("en.tok.off.test.pos", "r") as inp_file:
         for l in inp_file:
             line = l.split()
@@ -179,12 +180,10 @@ def ngramTagger(l):
             if len(t[1]) > 3:
                 tb.append(t)
     for bg in bigrams:
-        print(bg[1])
         tag_bg = bgWordNetTagger(bg[0], bg[1])
-        print(tag_bg)
         if tag_bg == "COUNTRY" or tag_bg == "STATE" or tag_bg == "CITY" or tag_bg == "TOWN":
             tb.append((bg, tag_bg))
-    print(tb)
+    return tb
 
 
 def tagChecker(fname, tagged_bigrams):
