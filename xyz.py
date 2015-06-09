@@ -14,10 +14,16 @@ def main():
         woorden = [token_data[3] for token_data in text]
 
         bigram_list = nltk.ngrams(woorden, 2)
-    bigramTagger(bigram_list)
+    ngramTagger(bigram_list)
     #entityTagger()
 
-def bigramTagger(l):
+def ngramTagger(l):
+    """
+    This function takes a list of ngrams, creates bigrams and entity tags them.
+    :param l: input must be a list of bigrams, formed in tuples
+    :return: returns a list with words that are tagged. (For example, "El Salvador" would be [("El", "LOCATION"),
+    ("Salvador", "LOCATION")]
+    """
     bigrams = []
     tb = []
     for i in l:
@@ -33,6 +39,20 @@ def bigramTagger(l):
                 tb.append(t)
     print(tb)
 
+
+def tagChecker(fname, bl):
+    """
+    This function adds enitity tags to ngrams.
+    :param fname: input must be a filename
+    :param bl: must be a list of words which are tagged (preferably bigrams)
+    :return:
+    """
+    with open(fname, "r") as inp_file:
+        for line in inp_file:
+            l = line.split()
+            for t in bl:
+                if t[0] == l[3]:
+                    l[5] = t[1]
 
 
 def posTagger(text_data):
