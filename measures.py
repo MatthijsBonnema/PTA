@@ -10,12 +10,10 @@ def makeList(f):
                 tagged.append(line.split()[5])
     return tagged
 
-compare = ["en.tok.off.pos.simon2", "en.tok.off.pos.lars2", "en.tok.off.pos.matthijs2"]
-simon = makeList(compare[0])
-lars = makeList(compare[1])
-matthijs = makeList(compare[2])
+golden_set = makeList("development.set")
+our_set = makeList("development.set.our")
 
-cm_list = [ConfusionMatrix(simon, lars), ConfusionMatrix(simon, matthijs), ConfusionMatrix(lars, matthijs)]
+cm_list = ConfusionMatrix(golden_set, our_set)
 
 # deze moeten cou, cit, etc worden
 labels = set('COU CIT ENT PER ANI NAT ORG'.split())

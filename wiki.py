@@ -107,7 +107,7 @@ def wordNetTagger(w):
         "STATE": wordnet.synsets("state", pos='n'),
         "CITY": wordnet.synsets("city", pos='n'),
         "TOWN": wordnet.synsets("town", pos='n'),
-        "NAT": wordnet.synsets("natural places", pos='n'),
+        "NAT": wordnet.synsets("natural_places", pos='n'),
         "PER": wordnet.synsets("person", pos='n'),
         "ORG": wordnet.synsets("organisation", pos='n'),
         "ANI": wordnet.synsets("animal", pos='n'),
@@ -123,6 +123,32 @@ def wordNetTagger(w):
     return "-"
 
 
+def bgWordNetTagger(ner_word, wn_word):
+    class3 = NERTagger('stanford-ner/classifiers/english.all.3class.distsim.crf.ser.gz',
+                       'stanford-ner/stanford-ner.jar')
+    tag_bigram = class3.tag([ner_word])
+    if tag_bigram[0][0][1] == "LOCATION":
+        if len(wordnet.synsets(wn_word, pos="n")) > 0:
+            word = wordnet.synsets(wn_word, pos="n")[0]
+
+            city = wordnet.synsets("City", pos="n")[0]
+            state = wordnet.synsets("State", pos="n")[0]
+            country = wordnet.synsets("Country", pos="n")[1]
+            town = wordnet.synsets("Town", pos='n')[0]
+
+            results = [("CITY", word.path_similarity(city)),
+                       ("STATE", word.path_similarity(state)),
+                       ("COUNTRY", word.path_similarity(country)),
+                       ("TOWN", word.path_similarity(town))]
+
+            sorted_scores = sorted(results, key=lambda tup: tup[1], reverse=True)
+
+            return sorted_scores[0][0]
+        else:
+            return "-"
+    return "-"
+
+
 def ngramTagger(l):
     """
     This function takes a list of ngrams, creates bigrams and entity tags them.
@@ -130,22 +156,31 @@ def ngramTagger(l):
     :return: returns a list with words that are tagged. (For example, "El Salvador" would be [("El", "LOCATION"),
     ("Salvador", "LOCATION")]
     """
+    bigrams_ner = []
+    bigrams_wn = []
     bigrams = []
-    tagged_bigrams = []
-    # Create bigrams for nertagging
+    tb = []
     for i in l:
-        ngram = i[0] + " " + i[1]
-        bigrams.append(ngram)
+        ngram_ner = i[0] + " " + i[1]
+        ngram_wn = i[0] + "_" + i[1]
+        bigrams_ner.append(ngram_ner)
+        bigrams_wn.append(ngram_wn)
+        bigrams.append((ngram_ner, ngram_wn))
 
     class3 = NERTagger('stanford-ner/classifiers/english.all.3class.distsim.crf.ser.gz',
                        'stanford-ner/stanford-ner.jar')
-    nertagged_bigrams = class3.tag(bigrams)
-    # Check tuples in lists for tags, if tagged add to tagged_bigrams
-    for l in nertagged_bigrams:
+    tagged_bigrams = class3.tag(bigrams_ner)
+    for l in tagged_bigrams:
         for t in l:
             if len(t[1]) > 3:
-                tagged_bigrams.append(t)
-    print(tagged_bigrams)
+                tb.append(t)
+    for bg in bigrams:
+        print(bg[1])
+        tag_bg = bgWordNetTagger(bg[0], bg[1])
+        print(tag_bg)
+        if tag_bg == "COUNTRY" or tag_bg == "STATE" or tag_bg == "CITY" or tag_bg == "TOWN":
+            tb.append((bg, tag_bg))
+    print(tb)
 
 
 def tagChecker(fname, tagged_bigrams):
