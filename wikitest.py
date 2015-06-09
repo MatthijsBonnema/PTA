@@ -58,7 +58,7 @@ def wiki_lookup(search_pass, tag_pass):
         result.append(page.url)
         url_list.append(page.url)
 
-    if search_syn != None:
+    if search_syn:
         if search_syn in result_syns:
             for result in wiki_results:
                 if result[2] == search_syn:
@@ -76,7 +76,7 @@ def wiki_lookup(search_pass, tag_pass):
     return(to_return)
 
 if __name__ == "__main__":
-    search = "El Salvador"
+    search = "New York"
     tag = "COU"
     test = wiki_lookup(search, tag)
 
