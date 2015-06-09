@@ -9,13 +9,15 @@ from nltk.corpus import wordnet
 
 
 def main():
-    word = wordnet.synsets("El_Salvador", pos="n")[0]
+    word = wordnet.synsets("Texas", pos="n")[0]
+
     city = wordnet.synsets("City", pos="n")[0]
     state = wordnet.synsets("State", pos="n")[0]
-    country = wordnet.synsets("Country", pos="n")[0]
-    print("City", word.wup_similarity(city))
-    print("State", word.wup_similarity(state))
-    print("Country", word.wup_similarity(country))
+    country = wordnet.synsets("Country", pos="n")[1]
+
+    print("City", word.path_similarity(city))
+    print("State", word.path_similarity(state))
+    print("Country", word.path_similarity(country))
 
 
 if __name__ == "__main__":
