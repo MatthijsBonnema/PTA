@@ -6,18 +6,34 @@ import nltk
 from collections import defaultdict
 from nltk.tag.stanford import NERTagger
 
-def main(): 
-	text = []
-	with open("en.tok.off", 'r') as filedata:
-		for line in filedata:
-			text.append(line.split())
-		woorden = [token_data[3] for token_data in text]
-		
-		bigram_list = []
-		for i in range(len(woorden)-1):
-			bigram_list.append((woorden[i], woorden[i+1]))
-	posTagger(bigram_list)
-	entityTagger()
+def main():
+    text = []
+    with open("en.tok.off.test", 'r') as filedata:
+        for line in filedata:
+            text.append(line.split())
+        woorden = [token_data[3] for token_data in text]
+
+        bigram_list = nltk.ngrams(woorden, 2)
+    bigramTagger(bigram_list)
+    #entityTagger()
+
+def bigramTagger(l):
+    bigrams = []
+    tb = []
+    for i in l:
+        ngram = i[0] + " " + i[1]
+        bigrams.append(ngram)
+
+    class3 = NERTagger('stanford-ner/classifiers/english.all.3class.distsim.crf.ser.gz',
+                       'stanford-ner/stanford-ner.jar')
+    tagged_bigrams = class3.tag(bigrams)
+    for l in tagged_bigrams:
+        for t in l:
+            if len(t[1]) > 3:
+                tb.append(t)
+    print(tb)
+
+
 
 def posTagger(text_data):
     # Take the 4th column, the word
@@ -52,7 +68,7 @@ def entityTagger():
                         data = ("{:4}{:4}{:6}{:20}{:6}{:10}".format(line[0], line[1], line[2], line[3], line[4], t[1]))
                         output.write(data+"\n")
     output.close()
-    
+
 def wordNetTagger(w):
     entities = {
         "country": wordnet.synsets("country", pos='n'),
@@ -65,7 +81,7 @@ def wordNetTagger(w):
         "animal": wordnet.synsets("animal", pos='n'),
         "sport": wordnet.synsets("sport", pos='n'),
         "entertainment": wordnet.synsets("entertainment", pos='n'),
-    }
+        }
     word_synset = wordnet.synsets(w, pos="n")
     for e in list(entities.keys()):
         if len(word_synset) != 0 and len(entities[e]) != 0:
@@ -85,8 +101,8 @@ def hypernymOf(synset1, synset2):
             return True
         if hypernymOf(hypernym, synset2):
             return True
-	
-		
-		
+
+
+
 if __name__ == "__main__":
     main()
