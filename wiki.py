@@ -44,11 +44,15 @@ def main(argv):
     # # print(result_synset_list)
 
     text = []
-    with open(argv[1], 'r') as filedata:
+    with open("en.tok.off.test", 'r') as filedata:
         for line in filedata:
             text.append(line.split())
+        woorden = [token_data[3] for token_data in text]
+
+        bigram_list = nltk.ngrams(woorden, 2)
     posTagger(text)
     entityTagger()
+    ngramTagger(bigram_list)
 
 
 def posTagger(text_data):
