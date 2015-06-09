@@ -193,7 +193,9 @@ def wiki_lookup(search_pass, tag_pass):
     search = search_pass
     tag = tag_pass
 
-    tagcheck = ["COU", "STATE", "CITY", "TOWN", "NAT", "PER", "ORG", "ANI", "SPO", "ENT"]
+    tagcheck = ["COUNTRY", "STATE", "CITY", "TOWN", "NATURAL_PLACE", "PERSON", "ORGANISATION", "ANIMAL", "SPORT", "ENTERTAINMENT"]
+
+
 
     if len(search.split(" ")) == 1:
         search_syn = str(wordnet.synsets(search, pos="n")[0])
@@ -205,7 +207,11 @@ def wiki_lookup(search_pass, tag_pass):
     url_list = []
     result_syns = []
     to_return = []
-    search_results = wikipedia.search(search)
+
+    if tag != "NATURAL_PLACE" or tag != "ENTERTAINMENT":
+        search_results = wikipedia.search((search+" "+tag))
+    else:
+        search_results = wikipedia.search((search))
 
 
 
