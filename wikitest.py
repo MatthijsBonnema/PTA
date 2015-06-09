@@ -18,27 +18,30 @@ def wiki_lookup(search_pass, tag_pass):
     search = search_pass
     tag = tag_pass
 
-    tagcheck = ["COUNTRY", "STATE", "CITY", "TOWN", "NATURAL_PLACE", "PERSON", "ORGANISATION", "ANIMAL", "SPORT", "ENTERTAINMENT"]
-
-
+    tagcheck = ["COUNTRY", "STATE", "CITY", "TOWN", "NATURAL_PLACE", "PERSON", "ORGANISATION", "ANIMAL", "SPORT"]
 
     if len(search.split(" ")) == 1:
         search_syn = str(wordnet.synsets(search, pos="n")[0])
     else:
-        search_syn = None
-
+        search_clean = search.split(" ")
+        search_clean = "_".join(search_clean)
+        syn = wordnet.synsets(search_clean, pos="n")
+        if len(syn) == 0:
+            search_syn = None
+        else:
+            search_syn = str(wordnet.synsets(search_clean, pos="n")[0])
 
     wiki_results = []
     url_list = []
     result_syns = []
     to_return = []
 
-    if tag != "NATURAL_PLACE" or tag != "ENTERTAINMENT" or tag != "ANIMAL":
-        search_results = wikipedia.search((search+" "+tag))
+    if tag != "NATURAL_PLACE" and tag != "ANIMAL" and tag != "ENTERTAINMENT" and tag != "COUNTRY":
+        search = search+" "+tag
+        search_results = wikipedia.search(search)
+        print("test")
     else:
         search_results = wikipedia.search(search)
-
-
 
     for result in search_results:
         try:
@@ -51,14 +54,18 @@ def wiki_lookup(search_pass, tag_pass):
         result_words = result[0].split(" ")
         if len(result_words) >= 1:
             result_clean = "_".join(result_words)
-            print(result_clean)
             ss = lesk(result[1], result_clean, "n")
             try:
-                result.append(str(ss))
-                result_syns.append(str(ss))
+                if ss == None:
+                    result.append("-")
+                    # result_syns.append("-")
+                else:
+                    result.append(str(ss))
+                    result_syns.append(str(ss))
             except AttributeError:
                 result.append("-")
                 result_syns.append("-")
+
         else:
             result.append("-")
 
@@ -71,6 +78,8 @@ def wiki_lookup(search_pass, tag_pass):
             for result in wiki_results:
                 if result[2] == search_syn:
                     to_return = [result[3], "-", "-"]
+        else:
+            to_return = [url_list[0], "-", "-"]
     elif tag in tagcheck:
         to_return = [url_list[0], "-", "-"]
     else:
@@ -84,8 +93,8 @@ def wiki_lookup(search_pass, tag_pass):
     return(to_return)
 
 if __name__ == "__main__":
-    search = "New York"
-    tag = "CITY"
+    search = "El Salvador"
+    tag = "COUNTRY"
     test = wiki_lookup(search, tag)
 
     print(test)
