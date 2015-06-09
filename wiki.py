@@ -7,7 +7,7 @@ from nltk.corpus import wordnet
 import nltk
 from collections import defaultdict
 from nltk.tag.stanford import NERTagger
-
+from nltk.wsd import lesk
 
 def main(argv):
 
