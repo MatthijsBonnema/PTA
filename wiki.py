@@ -224,8 +224,10 @@ def wiki_lookup(search_pass, tag_pass):
 
     for result in wiki_results:
         result_words = result[0].split(" ")
-        if len(result_words) == 1:
-            ss = lesk(result[1], result[0], "n")
+        if len(result_words) >= 1:
+            result_clean = "_".join(result_words)
+            print(result_clean)
+            ss = lesk(result[1], result_clean, "n")
             try:
                 result.append(str(ss))
                 result_syns.append(str(ss))
