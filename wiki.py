@@ -10,38 +10,6 @@ from nltk.tag.stanford import NERTagger
 
 
 def main(argv):
-    # result_word_syn_list = []
-    # result_synset_list = []
-    # result_list = wikipedia.search("President")
-    # print(result_list)
-    # for result in result_list:
-    #     # print(result, wikipedia.summary(result), "\n")
-    #
-    #     try:
-    #         result_word_syn_list.append((result, wikipedia.summary(result, sentences=2)))
-    #     except wikipedia.exceptions.DisambiguationError as e:
-    #         for result_e in e:
-    #             result_word_syn_list.append((result_e, wikipedia.summary(result, sentences=2)))
-    #
-    # # for line in result_word_syn_list:
-    # #     print(line)
-    #
-    # for i in result_word_syn_list:
-    #     # print(i[0] + "\n" + i[1])
-    #     words = i[0].split(" ")
-    #     for word in words:
-    #         print(word)
-    #         print(i[1])
-    #         ss = lesk(i[1], word, "n")
-    #         print(ss)
-    #         try:
-    #             print(str((ss, ss.definition())) + "\n")
-    #         except AttributeError:
-    #             print(str((word, "No definition")))
-    #         # outputwrite = str((ss, ss.definition())) + "\n"
-    #         # output.write(outputwrite)
-    #
-    # # print(result_synset_list)
 
     text = []
     with open("en.tok.off.test", 'r') as filedata:
@@ -214,6 +182,68 @@ def hypernymOf(synset1, synset2):
             return True
         if hypernymOf(hypernym, synset2):
             return True
+
+def wiki_lookup(search_pass, tag_pass):
+
+    search = search_pass
+    tag = tag_pass
+
+    tagcheck = ["COU", "STATE", "CITY", "TOWN", "NAT", "PER", "ORG", "ANI", "SPO", "ENT"]
+
+    if len(search.split(" ")) == 1:
+        search_syn = str(wordnet.synsets(search, pos="n")[0])
+    else:
+        search_syn = None
+
+
+    wiki_results = []
+    url_list = []
+    result_syns = []
+    to_return = []
+    search_results = wikipedia.search(search)
+
+
+
+    for result in search_results:
+        try:
+            wiki_results.append([result, wikipedia.summary(result, sentences=2)])
+        except wikipedia.exceptions.DisambiguationError as e:
+            for result_e in e:
+                wiki_results.append([result_e, wikipedia.summary(result, sentences=2)])
+
+    for result in wiki_results:
+        result_words = result[0].split(" ")
+        if len(result_words) == 1:
+            ss = lesk(result[1], result[0], "n")
+            try:
+                result.append(str(ss))
+                result_syns.append(str(ss))
+            except AttributeError:
+                result.append("-")
+                result_syns.append("-")
+        else:
+            result.append("-")
+
+        page = wikipedia.page(result[0])
+        result.append(page.url)
+        url_list.append(page.url)
+
+    if search_syn:
+        if search_syn in result_syns:
+            for result in wiki_results:
+                if result[2] == search_syn:
+                    to_return = [result[3], "-", "-"]
+    elif tag in tagcheck:
+        to_return = [url_list[0], "-", "-"]
+    else:
+        if len(url_list) >= 3:
+            to_return = ([url_list[0], url_list[1], url_list[2]])
+        elif len(url_list) == 2:
+            to_return = ([url_list[0], url_list[1], "-"])
+        else:
+            to_return = ([url_list[0], "-", "-"])
+
+    return(to_return)
 
 
 if __name__ == "__main__":
