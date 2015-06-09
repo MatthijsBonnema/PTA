@@ -129,6 +129,7 @@ def ngramTagger(l):
     :return: returns a list with words that are tagged. (For example, "El Salvador" would be [("El", "LOCATION"),
     ("Salvador", "LOCATION")]
     """
+    print("tagging ngrams")
     bigrams_ner = []
     bigrams_wn = []
     bigrams = []
@@ -161,13 +162,17 @@ def tagChecker(fname, tagged_bigrams):
     :param bl: must be a list of words which are tagged (preferably bigrams)
     :return:
     """
+    output = open("en.tok.off.test.pos.et.final", "w")
+    print("checking Tags")
     with open(fname, "r") as inp_file:
         for line in inp_file:
             l = line.split()
             # Check if word in our tagged ngram list, if so replace tag with new tag.
             for t in tagged_bigrams:
                 if t[0] == l[3]:
-                    l[5] = t[1]
+                    data = ("{:4}{:4}{:6}{:20}{:6}{:10}".format(line[0], line[1], line[2], line[3], line[4], t[1]))
+                    output.write(data+"\n")
+
 
 
 def hypernymOf(synset1, synset2):
