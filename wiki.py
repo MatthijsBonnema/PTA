@@ -24,6 +24,7 @@ def main(argv):
     tagged_bigrams = ngramTagger(bigram_list)
     tagChecker(tagged_bigrams)
     locationCheck()
+    wikification()
 
 
 def posTagger(text_data):
@@ -121,15 +122,20 @@ def ngramTagger(l):
                        'stanford-ner/stanford-ner.jar')
     tagged_bigrams = class3.tag(bigrams_ner)
     for l in tagged_bigrams:
-        for t in l:
-            if len(t[1]) > 3:
-                if t[1] != "LOCATION":
-                    tb.append(t)
+        while l:
+            if l[0][1] == l[1][1]:
+                if len(l[0][1]) > 3 and len(l[1][1]) > 3:
+                    if l[0][1] != "LOCATION" and l[1][1] != "LOCATION":
+                        bigram = l[0][0] + " " + l[1][0]
+                        links = wiki_lookup(bigram, l[0][1])
+                        tb.extend([(l[0][0], l[0][1], links), (l[1][0], l[1][1], links)])
     for bg in bigrams:
         tag_bg = bgWordNetTagger(bg[0], bg[1])
+        # bg0 samen met tab_bg geef terug links lijst
+        links = wiki_lookup(bg[0], tag_bg)
         if tag_bg == "COUNTRY" or tag_bg == "STATE" or tag_bg == "CITY" or tag_bg == "TOWN":
             words = bg[0].split()
-            tb.extend([(words[0], tag_bg), (words[1], tag_bg)])
+            tb.extend([(words[0], tag_bg, links), (words[1], tag_bg, links)])
     return tb
 
 
@@ -180,7 +186,7 @@ def extraWordNetTagger(w):
 
 
 def locationCheck():
-    output = open("tag.final", "w")
+    output = open("location.checked", "w")
     with open("tag.checked", "r") as inp_f:
         for line in inp_f:
             l = line.split()
@@ -207,7 +213,8 @@ def tagChecker(tagged_bigrams):
             # Check if word in our tagged ngram list, if so replace tag with new tag.
             condition = bigramCheck(l[3], tagged_bigrams)
             if condition[0] == "yes":
-                data = "{:4}{:4}{:6}{:20}{:6}{:10}".format(l[0], l[1], l[2], l[3], l[4], condition[1])
+                data = "{:4}{:4}{:6}{:20}{:6}{:10}{:90}{:90}{:90}".format(l[0], l[1], l[2], l[3], l[4], condition[1],
+                                                tagged_bigrams[2][0], tagged_bigrams[2][1], tagged_bigrams[2][2])
             elif condition[0] == "no":
                 data = "{:4}{:4}{:6}{:20}{:6}{:10}".format(l[0], l[1], l[2], l[3], l[4], l[5])
             output.write(data+"\n")
@@ -232,6 +239,28 @@ def hypernymOf(synset1, synset2):
             return True
         if hypernymOf(hypernym, synset2):
             return True
+
+
+def wikification():
+    output = open("wiki.final", "w")
+    with open("location.checked", "r") as inp_f:
+        for line in inp_f:
+            l = line.split()
+            if len(l) == 6:
+                if l[5] != "-":
+                    links = wiki_lookup(l[3], l[5])
+                    data = "{:4}{:4}{:6}{:20}{:6}{:10}{:90}{:90}{:90}".format(l[0], l[1], l[2], l[3], l[4], l[5],
+                                                                              links[0], links[1], links[2])
+                    output.write(data+"\n")
+                else:
+                    data = "{:4}{:4}{:6}{:20}{:6}{:10}{:90}{:90}{:90}".format(l[0], l[1], l[2], l[3], l[4], l[5],
+                                                                              "-", "-", "-")
+                    output.write(data+"\n")
+            else:
+                data = "{:4}{:4}{:6}{:20}{:6}{:10}{:90}{:90}{:90}".format(l[0], l[1], l[2], l[3], l[4], l[5],
+                                                                          l[6], l[7], l[8])
+                output.write(data+"\n")
+
 
 def wiki_lookup(search_pass, tag_pass):
     search = search_pass
@@ -308,13 +337,13 @@ def wiki_lookup(search_pass, tag_pass):
         to_return = [url_list[0], "-", "-"]
     else:
         if len(url_list) >= 3:
-            to_return = ([url_list[0], url_list[1], url_list[2]])
+            to_return = [url_list[0], url_list[1], url_list[2]]
         elif len(url_list) == 2:
-            to_return = ([url_list[0], url_list[1], "-"])
+            to_return = [url_list[0], url_list[1], "-"]
         else:
-            to_return = ([url_list[0], "-", "-"])
+            to_return = [url_list[0], "-", "-"]
 
-    return(to_return)
+    return to_return
 
 
 if __name__ == "__main__":
