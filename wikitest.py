@@ -14,14 +14,17 @@ from nltk.tag.stanford import NERTagger
 
 
 def wiki_lookup(search_pass, tag_pass):
-
     search = search_pass
     tag = tag_pass
 
     tagcheck = ["COUNTRY", "STATE", "CITY", "TOWN", "NATURAL_PLACE", "PERSON", "ORGANISATION", "ANIMAL", "SPORT"]
 
     if len(search.split(" ")) == 1:
-        search_syn = str(wordnet.synsets(search, pos="n")[0])
+        try:
+            search_syn = wordnet.synsets(search, pos="n")[0]
+            search_syn = str(search_syn)
+        except IndexError:
+            search_syn = None
     else:
         search_clean = search.split(" ")
         search_clean = "_".join(search_clean)
@@ -39,7 +42,6 @@ def wiki_lookup(search_pass, tag_pass):
     if tag != "NATURAL_PLACE" and tag != "ANIMAL" and tag != "ENTERTAINMENT" and tag != "COUNTRY":
         search = search+" "+tag
         search_results = wikipedia.search(search)
-        print("test")
     else:
         search_results = wikipedia.search(search)
 
@@ -49,6 +51,8 @@ def wiki_lookup(search_pass, tag_pass):
         except wikipedia.exceptions.DisambiguationError as e:
             for result_e in e:
                 wiki_results.append([result_e, wikipedia.summary(result, sentences=2)])
+        except wikipedia.exceptions.PageError:
+            pass
 
     for result in wiki_results:
         result_words = result[0].split(" ")
@@ -73,14 +77,19 @@ def wiki_lookup(search_pass, tag_pass):
         result.append(page.url)
         url_list.append(page.url)
 
-    if search_syn:
+    print(type(search_syn))
+
+    if search_syn != None:
         if search_syn in result_syns:
+            print("Synset Found")
             for result in wiki_results:
                 if result[2] == search_syn:
                     to_return = [result[3], "-", "-"]
         else:
+            print("Synset not Found")
             to_return = [url_list[0], "-", "-"]
     elif tag in tagcheck:
+        print("Tag Used")
         to_return = [url_list[0], "-", "-"]
     else:
         if len(url_list) >= 3:
@@ -92,9 +101,10 @@ def wiki_lookup(search_pass, tag_pass):
 
     return(to_return)
 
+
 if __name__ == "__main__":
-    search = "El Salvador"
-    tag = "COUNTRY"
+    search = "Billy Elliot"
+    tag = "ENTERTAINMENT"
     test = wiki_lookup(search, tag)
 
     print(test)
