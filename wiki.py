@@ -155,8 +155,8 @@ def bgWordNetTagger(ner_word, wn_word, tagger):
             sorted_scores = sorted(results, key=lambda tup: tup[1], reverse=True)
 
             return (ner_word, sorted_scores[0][0])
-    # elif tag_bigram[0][0][1] != "-":
-    #     return (ner_word, tag_bigram[0][0][1])
+    elif tag_bigram[0][0][1] != "-":
+        return (ner_word, tag_bigram[0][0][1])
     return (ner_word, "-")
 
 
