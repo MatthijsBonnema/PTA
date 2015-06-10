@@ -5,7 +5,6 @@ import sys
 import wikipedia
 from nltk.corpus import wordnet
 import nltk
-from collections import defaultdict
 from nltk.tag.stanford import NERTagger
 from nltk.wsd import lesk
 
@@ -19,6 +18,12 @@ def main(argv):
         words = [token_data[3] for token_data in text]
 
         bigram_list = nltk.ngrams(words, 2)
+    # print(wiki_lookup("Barack Obama", "PERSON"))
+    # class3 = NERTagger('stanford-ner/classifiers/english.all.3class.distsim.crf.ser.gz',
+    #                    'stanford-ner/stanford-ner.jar')
+    # print(class3.tag(["Barack Obama"]))
+    # print(wordNetTagger("Barack Obama"))
+
     posTagger(text)
     entityTagger()
     tagged_bigrams = ngramTagger(bigram_list)
@@ -47,6 +52,7 @@ def posTagger(text_data):
 def entityTagger():
     """
     Tags nouns in given file, writes them to output file
+    :rtype : object
     """
     class3 = NERTagger('stanford-ner/classifiers/english.all.3class.distsim.crf.ser.gz',
                        'stanford-ner/stanford-ner.jar')
@@ -83,7 +89,7 @@ def wordNetTagger(w):
         "STATE": wordnet.synsets("state", pos='n'),
         "CITY": wordnet.synsets("city", pos='n'),
         "TOWN": wordnet.synsets("town", pos='n'),
-        "NATURAL PLACES": wordnet.synsets("natural_places", pos='n'),
+        "NATURAL_PLACES": wordnet.synsets("natural_places", pos='n'),
         "PERSON": wordnet.synsets("person", pos='n'),
         "ORGANIZATION": wordnet.synsets("organisation", pos='n'),
         "ANIMAL": wordnet.synsets("animal", pos='n'),
@@ -106,43 +112,32 @@ def ngramTagger(l):
     :return: returns a list with words that are tagged. (For example, "El Salvador" would be [("El", "LOCATION"),
     ("Salvador", "LOCATION")]
     """
-    print("tagging ngrams")
-    bigrams_ner = []
-    bigrams_wn = []
     bigrams = []
-    tb = []
+    tagged_bigrams = []
     for i in l:
         ngram_ner = i[0] + " " + i[1]
         ngram_wn = i[0] + "_" + i[1]
-        bigrams_ner.append(ngram_ner)
-        bigrams_wn.append(ngram_wn)
         bigrams.append((ngram_ner, ngram_wn))
 
     class3 = NERTagger('stanford-ner/classifiers/english.all.3class.distsim.crf.ser.gz',
                        'stanford-ner/stanford-ner.jar')
-    tagged_bigrams = class3.tag(bigrams_ner)
-    for l in tagged_bigrams:
-        while l:
-            if l[0][1] == l[1][1]:
-                if len(l[0][1]) > 3 and len(l[1][1]) > 3:
-                    if l[0][1] != "LOCATION" and l[1][1] != "LOCATION":
-                        bigram = l[0][0] + " " + l[1][0]
-                        links = wiki_lookup(bigram, l[0][1])
-                        tb.extend([(l[0][0], l[0][1], links), (l[1][0], l[1][1], links)])
+
+    ner_bigrams = []
     for bg in bigrams:
-        tag_bg = bgWordNetTagger(bg[0], bg[1])
-        # bg0 samen met tab_bg geef terug links lijst
-        links = wiki_lookup(bg[0], tag_bg)
-        if tag_bg == "COUNTRY" or tag_bg == "STATE" or tag_bg == "CITY" or tag_bg == "TOWN":
-            words = bg[0].split()
-            tb.extend([(words[0], tag_bg, links), (words[1], tag_bg, links)])
-    return tb
+        bg_tagged = bgWordNetTagger(bg[0], bg[1], class3)
+        if bg_tagged[1] != "-":
+            ner_bigrams.append(bg_tagged)
+
+    for t in ner_bigrams:
+        links = wiki_lookup(t[0], t[1])
+        words = t[0].split()
+        tagged_bigrams.extend([(words[0], t[1], links), (words[1], t[1], links)])
+    print(tagged_bigrams)
+    return tagged_bigrams
 
 
-def bgWordNetTagger(ner_word, wn_word):
-    class3 = NERTagger('stanford-ner/classifiers/english.all.3class.distsim.crf.ser.gz',
-                       'stanford-ner/stanford-ner.jar')
-    tag_bigram = class3.tag([ner_word])
+def bgWordNetTagger(ner_word, wn_word, tagger):
+    tag_bigram = tagger.tag([ner_word])
     if tag_bigram[0][0][1] == "LOCATION":
         if len(wordnet.synsets(wn_word, pos="n")) > 0:
             word = wordnet.synsets(wn_word, pos="n")[0]
@@ -159,10 +154,10 @@ def bgWordNetTagger(ner_word, wn_word):
 
             sorted_scores = sorted(results, key=lambda tup: tup[1], reverse=True)
 
-            return sorted_scores[0][0]
-        else:
-            return "-"
-    return "-"
+            return (ner_word, sorted_scores[0][0])
+    # elif tag_bigram[0][0][1] != "-":
+    #     return (ner_word, tag_bigram[0][0][1])
+    return (ner_word, "-")
 
 
 def extraWordNetTagger(w):
@@ -193,14 +188,18 @@ def locationCheck():
             if l[5] == "LOCATION":
                 tag = extraWordNetTagger(l[3])
                 data = "{:4}{:4}{:6}{:20}{:6}{:10}".format(l[0], l[1], l[2], l[3], l[4], tag)
+            elif len(l) > 6:
+                data = "{:4}{:4}{:6}{:20}{:6}{:10}{:90}{:90}{:90}".format(l[0], l[1], l[2], l[3], l[4], l[5],
+                                                                          l[6], l[7], l[8])
             else:
                 data = "{:4}{:4}{:6}{:20}{:6}{:10}".format(l[0], l[1], l[2], l[3], l[4], l[5])
+
             output.write(data+"\n")
 
 
 def tagChecker(tagged_bigrams):
     """
-    This function adds enitity tags to ngrams.
+    This function adds entity tags to ngrams.
     :param fname: input must be a filename
     :param bl: must be a list of words which are tagged (preferably bigrams)
     :return:
@@ -214,7 +213,9 @@ def tagChecker(tagged_bigrams):
             condition = bigramCheck(l[3], tagged_bigrams)
             if condition[0] == "yes":
                 data = "{:4}{:4}{:6}{:20}{:6}{:10}{:90}{:90}{:90}".format(l[0], l[1], l[2], l[3], l[4], condition[1],
-                                                tagged_bigrams[2][0], tagged_bigrams[2][1], tagged_bigrams[2][2])
+                                                                          tagged_bigrams[condition[2]][2][0],
+                                                                          tagged_bigrams[condition[2]][2][1],
+                                                                          tagged_bigrams[condition[2]][2][2])
             elif condition[0] == "no":
                 data = "{:4}{:4}{:6}{:20}{:6}{:10}".format(l[0], l[1], l[2], l[3], l[4], l[5])
             output.write(data+"\n")
@@ -223,7 +224,7 @@ def tagChecker(tagged_bigrams):
 def bigramCheck(w, l):
     for t in l:
         if t[0] == w:
-            return ("yes", t[1])
+            return ("yes", t[1], l.index(t))
     return ("no", None)
 
 
@@ -246,7 +247,7 @@ def wikification():
     with open("location.checked", "r") as inp_f:
         for line in inp_f:
             l = line.split()
-            if len(l) == 6:
+            if len(l) <= 6:
                 if l[5] != "-":
                     links = wiki_lookup(l[3], l[5])
                     data = "{:4}{:4}{:6}{:20}{:6}{:10}{:90}{:90}{:90}".format(l[0], l[1], l[2], l[3], l[4], l[5],
