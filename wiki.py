@@ -50,7 +50,7 @@ def posTagger(text_data):
         text_data[i].append(tagged_tokens[i][1])
     output = open("pos.tagged", "w")
     for i in text_data:
-        data = ("{:4}{:4}{:4}{:6}{:20}{:3}".format(i[0], i[1], i[2], i[3], i[4], i[5]))
+        data = ("{:6}{:6}{:6}{:6}{:20}{:3}".format(i[0], i[1], i[2], i[3], i[4], i[5]))
         print(data)
         output.write(data+"\n")
     output.close()
