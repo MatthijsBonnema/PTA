@@ -1,9 +1,44 @@
 g7.2 0 9 1001 President NNP PER http://en.wikipedia.org/wiki/George_W._Bush
 g7.2 10 14 1002 Bush NNP PER http://en.wikipedia.org/wiki/George_W._Bush
+g7.2 15 19 1003 said VBD
+g7.2 20 27 1004 nations NNS
+g7.2 28 34 1005 around IN
+g7.2 35 38 1006 the DT
+g7.2 39 44 1007 world NN
+g7.2 45 49 1008 need VBP
+g7.2 50 52 1009 to TO
+g7.2 53 58 1010 stand VB
+g7.2 59 63 1011 with IN
+g7.2 64 72 1012 moderate JJ
+g7.2 73 82 1013 reformers NNS
+g7.2 83 85 1014 in IN
+g7.2 86 89 1015 the DT
+g7.2 90 96 1016 MIddle NNP 
+g7.2 97 101 1017 East NNP 
+g7.2 101 102 1018 . .
+g7.2 103 105 2001 He PRP
+g7.2 106 110 2002 said VBD
+g7.2 111 114 2003 the DT
+g7.2 115 120 2004 world NN
+g7.2 121 125 2005 must MD
+g7.2 126 130 2006 seek VB
+g7.2 131 140 2007 stability NN
+g7.2 141 143 2008 in IN
+g7.2 144 147 2009 the DT
+g7.2 148 154 2010 region NN
+g7.2 155 162 2011 through IN
+g7.2 163 166 2012 the DT
+g7.2 167 180 2013 establishment NN
+g7.2 181 183 2014 of IN
+g7.2 184 188 2015 free JJ
+g7.2 189 192 2016 and CC
+g7.2 193 197 2017 just RB
+g7.2 198 207 2018 societies NNS
+g7.2 207 208 2019 . .
 g7.2 209 212 3001 Mr. NNP PER http://en.wikipedia.org/wiki/George_W._Bush
 g7.2 213 217 3002 Bush NNP PER http://en.wikipedia.org/wiki/George_W._Bush
-g7.2 218 222 3003 also RB s
-g7.2 223 230 3004 pledged VBD s
+g7.2 218 222 3003 also RB
+g7.2 223 230 3004 pledged VBD
 g7.2 231 233 3005 to TO
 g7.2 234 242 3006 continue VB
 g7.2 243 245 3007 to TO
@@ -13,3 +48,223 @@ g7.2 258 268 3010 government NN ORG http://en.wikipedia.org/wiki/Federal_governm
 g7.2 269 271 3011 of IN
 g7.2 272 276 3012 Iraq NNP COU http://en.wikipedia.org/wiki/Iraq
 g7.2 277 279 3013 in IN
+g7.2 280 283 3014 its PRP$
+g7.2 284 292 3015 struggle NN
+g7.2 293 297 3016 with IN
+g7.2 298 308 3017 terrorists NNS
+g7.2 308 309 3018 . .
+g7.2 310 312 4001 In IN
+g7.2 313 321 4002 addition NN
+g7.2 321 322 4003 , ,
+g7.2 323 326 4004 the DT PER http://en.wikipedia.org/wiki/George_W._Bush
+g7.2 327 336 4005 president NN PER http://en.wikipedia.org/wiki/George_W._Bush
+g7.2 337 341 4006 said VBD
+g7.2 342 346 4007 Iran NNP COU http://en.wikipedia.org/wiki/Iran
+g7.2 347 351 4008 must MD
+g7.2 352 359 4009 abandon VB
+g7.2 360 364 4010 what WP
+g7.2 365 367 4011 he PRP
+g7.2 368 374 4012 called VBD
+g7.2 375 378 4013 its PRP$
+g7.2 379 387 4014 ambition NN
+g7.2 388 391 4015 for IN
+g7.2 392 399 4016 nuclear JJ
+g7.2 400 407 4017 weapons NNS
+g7.2 407 408 4018 . .
+g7.2 409 411 5001 He PRP
+g7.2 412 416 5002 said VBD
+g7.2 417 420 5003 the DT COU
+g7.2 421 427 5004 United NNP COU http://en.wikipedia.org/wiki/United_States
+g7.2 428 434 5005 States NNPS COU http://en.wikipedia.org/wiki/United_States
+g7.2 435 437 5006 is VBZ
+g7.2 438 445 5007 working VBG
+g7.2 446 449 5008 for IN
+g7.2 450 451 5009 a DT
+g7.2 452 462 5010 diplomatic JJ
+g7.2 463 471 5011 solution NN
+g7.2 472 474 5012 to TO
+g7.2 475 478 5013 the DT
+g7.2 479 484 5014 issue NN
+g7.2 484 485 5015 , ,
+g7.2 486 489 5016 and CC
+g7.2 490 494 5017 said VBD
+g7.2 495 498 5018 the DT
+g7.2 499 503 5019 U.S. NNP COU http://en.wikipedia.org/wiki/United_States
+g7.2 504 508 5020 does VBZ
+g7.2 509 512 5021 not RB
+g7.2 513 519 5022 oppose VB
+g7.2 520 521 5023 a DT
+g7.2 522 527 5024 truly RB
+g7.2 528 536 5025 peaceful JJ
+g7.2 537 544 5026 nuclear JJ
+g7.2 545 552 5027 program NN
+g7.2 553 556 5028 for IN
+g7.2 557 561 5029 Iran NNP COU http://en.wikipedia.org/wiki/Iran
+g7.2 561 562 5030 . .
+g3.1 0 2 1001 An DT 
+g3.1 3 10 1002 attempt NN
+g3.1 11 13 1003 to TO
+g3.1 14 21 1004 address VB
+g3.1 22 29 1005 America NNP COU https://en.wikipedia.org/wiki/United_States
+g3.1 29 31 1006 's POS
+g3.1 32 38 1007 weight NN
+g3.1 39 46 1008 problem NN
+g3.1 47 50 1009 has VBZ
+g3.1 51 54 1010 run VBN
+g3.1 55 59 1011 into IN
+g3.1 60 67 1012 trouble NN
+g3.1 68 70 1013 in IN 
+g3.1 71 74 1014 New NNP CIT https://en.wikipedia.org/wiki/New_York
+g3.1 75 79 1015 York NNP CIT https://en.wikipedia.org/wiki/New_York
+g3.1 79 80 1016 . .
+g3.1 81 87 2001 Health NNP ORG https://en.wikipedia.org/wiki/United_States_Public_Health_Service
+g3.1 88 97 2002 officials NNS ORG https://en.wikipedia.org/wiki/United_States_Public_Health_Service
+g3.1 98 101 2003 are VBP
+g3.1 102 108 2004 trying VBG
+g3.1 109 111 2005 to TO
+g3.1 112 120 2006 increase VB
+g3.1 121 124 2007 the DT
+g3.1 125 129 2008 city NN 
+g3.1 129 131 2009 's POS
+g3.1 132 143 2010 consumption NN
+g3.1 144 146 2011 of IN
+g3.1 147 153 2012 fruits NNS
+g3.1 154 157 2013 and CC
+g3.1 158 168 2014 vegetables NNS
+g3.1 168 169 2015 , ,
+g3.1 170 180 2016 especially RB
+g3.1 181 183 2017 in IN
+g3.1 184 188 2018 less JJR
+g3.1 189 197 2019 affluent NN
+g3.1 198 211 2020 neighborhoods NNS
+g3.1 212 217 2021 where WRB
+g3.1 218 225 2022 obesity NN
+g3.1 226 231 2023 rates NNS
+g3.1 232 235 2024 are VBP
+g3.1 236 242 2025 higher JJR
+g3.1 242 243 2026 . .
+g3.1 244 249 3001 Given NNP
+g3.1 250 254 3002 that IN
+g3.1 255 259 3003 more JJR
+g3.1 260 264 3004 than IN
+g3.1 265 269 3005 half PDT
+g3.1 270 272 3006 of IN
+g3.1 273 276 3007 New NNP CIT https://en.wikipedia.org/wiki/New_York
+g3.1 277 281 3008 York NNP CIT https://en.wikipedia.org/wiki/New_York
+g3.1 282 288 3009 adults NNS
+g3.1 289 292 3010 are VBP
+g3.1 293 303 3011 overweight VBN
+g3.1 304 306 3012 or CC
+g3.1 307 312 3013 obese JJ
+g3.1 313 314 3014 - :
+g3.1 315 318 3015 and CC
+g3.1 319 321 3016 an DT
+g3.1 322 331 3017 estimated VBN
+g3.1 332 339 3018 700,000 CD
+g3.1 340 346 3019 suffer NN
+g3.1 347 351 3020 from IN
+g3.1 352 360 3021 diabetes NNS
+g3.1 361 362 3022 - :
+g3.1 363 366 3023 the DT
+g3.1 367 375 3024 argument NN
+g3.1 376 378 3025 is VBZ
+g3.1 379 382 3026 not RB
+g3.1 383 387 3027 over IN
+g3.1 388 391 3028 the DT
+g3.1 392 396 3029 need NN
+g3.1 397 400 3030 for IN
+g3.1 401 407 3031 action NN
+g3.1 407 408 3032 . .
+g3.1 409 416 4001 Instead NNP
+g3.1 416 417 4002 , ,
+g3.1 418 421 4003 the DT
+g3.1 422 427 4004 issue NN
+g3.1 428 430 4005 is VBZ
+g3.1 431 434 4006 the DT
+g3.1 435 438 4007 way NN
+g3.1 439 442 4008 the DT
+g3.1 443 447 4009 city NN
+g3.1 448 451 4010 has VBZ
+g3.1 452 456 4011 gone VBN
+g3.1 457 462 4012 about IN
+g3.1 463 465 4013 it PRP
+g3.1 465 466 4014 . .
+g3.1 467 472 5001 Paige NNP PER https://en.wikipedia.org/wiki/Paige_Kollock
+g3.1 473 480 5002 Kollock NNP PER https://en.wikipedia.org/wiki/Paige_Kollock
+g3.1 481 484 5003 has VBZ 
+g3.1 485 489 5004 more JJR 
+g3.1 489 490 5005 . .
+g4.9 0 6 1001 Police NNP
+g4.9 7 9 1002 in IN
+g4.9 10 13 1003 Sri NNP COU http://en.wikipedia.org/wiki/Sri_Lanka
+g4.9 14 19 1004 Lanka NNP COU http://en.wikipedia.org/wiki/Sri_Lanka
+g4.9 20 23 1005 say VBP
+g4.9 24 27 1006 300 CD
+g4.9 28 37 1007 prisoners NNS
+g4.9 38 42 1008 took VBD
+g4.9 43 52 1009 advantage NN
+g4.9 53 55 1010 of IN
+g4.9 56 62 1011 Sunday NNP
+g4.9 62 64 1012 's VBZ
+g4.9 65 72 1013 massive JJ
+g4.9 73 83 1014 earthquake NN
+g4.9 84 86 1015 to TO
+g4.9 87 91 1016 make VB
+g4.9 92 97 1017 their PRP$
+g4.9 98 104 1018 escape NN
+g4.9 105 109 1019 from IN
+g4.9 110 111 1020 a DT
+g4.9 112 125 1021 high-security NN
+g4.9 126 130 1022 jail NN
+g4.9 130 131 1023 . .
+g4.9 132 143 2001 Authorities NNS
+g4.9 144 147 2002 say VBP
+g4.9 148 151 2003 the DT
+g4.9 152 159 2004 inmates NNS
+g4.9 160 164 2005 fled VBD
+g4.9 165 170 2006 after IN
+g4.9 171 172 2007 a DT
+g4.9 173 178 2008 tidal NN
+g4.9 179 183 2009 wave NN
+g4.9 184 190 2010 caused VBD
+g4.9 191 193 2011 by IN
+g4.9 194 197 2012 the DT
+g4.9 198 203 2013 quake NN
+g4.9 204 213 2014 destroyed VBD
+g4.9 214 219 2015 their PRP$
+g4.9 220 226 2016 prison NN
+g4.9 226 227 2017 , ,
+g4.9 228 229 2018 a DT
+g4.9 230 234 2019 16th JJ
+g4.9 235 242 2020 century NN
+g4.9 243 254 2021 Dutch-built JJ
+g4.9 255 259 2022 fort NN
+g4.9 260 262 2023 in IN
+g4.9 263 264 2024 a DT
+g4.9 265 273 2025 southern NN
+g4.9 274 281 2026 coastal JJ
+g4.9 282 286 2027 town NN
+g4.9 287 293 2028 Matara NNP CIT https://en.wikipedia.org/wiki/Matara,_Sri_Lanka
+g4.9 293 294 2029 . .
+g4.9 295 302 3001 Reuters NNP ORG http://en.wikipedia.org/wiki/Reuters
+g4.9 303 307 3002 news NN
+g4.9 308 314 3003 agency NN
+g4.9 315 322 3004 reports NNS
+g4.9 323 324 3005 a DT
+g4.9 325 332 3006 similar JJ
+g4.9 333 339 3007 prison NN
+g4.9 340 345 3008 break NN
+g4.9 346 348 3009 in IN
+g4.9 349 358 3010 Indonesia NNP COU http://en.wikipedia.org/wiki/Indonesia
+g4.9 358 360 3011 's VBZ
+g4.9 361 365 3012 Aceh NNP COU http://en.wikipedia.org/wiki/Aceh
+g4.9 366 374 3013 province NN COU http://en.wikipedia.org/wiki/Aceh
+g4.9 374 375 3014 . .
+g4.9 376 382 4001 Police NNP
+g4.9 383 388 4002 there EX
+g4.9 389 392 4003 say VBP
+g4.9 393 396 4004 200 CD
+g4.9 397 406 4005 prisoners NNS
+g4.9 407 411 4006 fled VBD
+g4.9 412 417 4007 after IN
+g4.9 418 419 4008 a DT
