@@ -124,6 +124,7 @@ def ngramTagger(l):
     for i in l:
         ngram_ner = i[0] + " " + i[1]
         ngram_wn = i[0] + "_" + i[1]
+        print(ngram_ner)
         bigrams.append((ngram_ner, ngram_wn))
 
     class3 = NERTagger('stanford-ner/classifiers/english.all.3class.distsim.crf.ser.gz',
