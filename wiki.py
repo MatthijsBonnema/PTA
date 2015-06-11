@@ -15,7 +15,8 @@ def main():
         for line in filedata:
             l = line.split()
             print(l)
-            text.append([l[0], l[1], l[2], l[3], l[4]])
+            if len(l) >=6:
+                text.append([l[0], l[1], l[2], l[3], l[4]])
 
     posTagger(text)
     entityTagger()
@@ -46,7 +47,7 @@ def posTagger(text_data):
     :param text_data: raw data from files
     """
     # Take the 5th column, the word
-    tokens = [token_data[4] for token_data in text_data]
+    tokens = [token_data[4].decode('utf-8') for token_data in text_data]
     tagged_tokens = nltk.pos_tag(tokens)
     for i in range(len(text_data)):
         text_data[i].append(tagged_tokens[i][1])
