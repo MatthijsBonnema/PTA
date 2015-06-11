@@ -13,7 +13,8 @@ def main():
     text = []
     with open("en.tok.off.test", 'r') as filedata:
         for line in filedata:
-            text.append(line.split(" "))
+            l = line.split(" ")
+            text.append([l[0], l[1], l[2], l[3], l[4]])
 
     posTagger(text)
     entityTagger()
@@ -50,8 +51,7 @@ def posTagger(text_data):
         text_data[i].append(tagged_tokens[i][1])
     output = open("pos.tagged", "w")
     for i in text_data:
-        data = ("{:8}{:8}{:8}{:8}{:20}{:6}".format(i[0], i[1], i[2], i[3], i[4], i[5]))
-        print(data)
+        data = "{:6}{:6}{:6}{:6}{:20}{:6}".format(i[0], i[1], i[2], i[3], i[4], i[5])
         output.write(data+"\n")
     output.close()
 
@@ -70,22 +70,23 @@ def entityTagger():
             # If words is a noun, go tag it!
             print(line)
             if line[5] == "NN" or line[5] == "NNP":
-                ner_tagged = class3.tag([line[3]])
+                ner_tagged = class3.tag([line[4]])
                 for t in ner_tagged[0]:
                     # No nertag? Check wordnet tagging
                     if len(t[1]) < 3:
                         tag = wordNetTagger(t[0])
-                        data = ("{:4}{:4}{:4}{:6}{:20}{:6}{:10}".format(line[0], line[1], line[2], line[3], line[4],
+                        data = ("{:6}{:6}{:6}{:6}{:20}{:6}{:10}".format(line[0], line[1], line[2], line[3], line[4],
                                                                         line[5], tag))
                         output.write(data+"\n")
                     else:
-                        data = ("{:4}{:4}{:4}{:6}{:20}{:6}{:10}".format(line[0], line[1], line[2], line[3], line[4],
+                        data = ("{:6}{:6}{:6}{:6}{:20}{:6}{:10}".format(line[0], line[1], line[2], line[3], line[4],
                                                                         line[5], t[1]))
                         output.write(data+"\n")
             else:
-                data = ("{:4}{:4}{:4}{:6}{:20}{:6}{:10}".format(line[0], line[1], line[2], line[3], line[4], line[5],
+                data = ("{:6}{:6}{:6}{:6}{:20}{:6}{:10}".format(line[0], line[1], line[2], line[3], line[4], line[5],
                                                                 "-"))
                 output.write(data+"\n")
+            print(data)
     output.close()
 
 
@@ -202,14 +203,15 @@ def locationCheck():
     with open("tag.checked", "r") as inp_f:
         for line in inp_f:
             l = line.split()
+            print(l, "lcoation check")
             if l[6] == "LOCATION":
                 tag = extraWordNetTagger(l[4])
-                data = "{:4}{:4}{:4}{:6}{:20}{:6}{:10}".format(l[0], l[1], l[2], l[3], l[4], l[5], tag)
-            elif len(l) > 6:
-                data = "{:4}{:4}{:4}{:6}{:20}{:6}{:10}{:90}{:90}{:90}".format(l[0], l[1], l[2], l[3], l[4], l[5],
+                data = "{:6}{:6}{:6}{:6}{:20}{:6}{:10}".format(l[0], l[1], l[2], l[3], l[4], l[5], tag)
+            elif len(l) > 7:
+                data = "{:6}{:6}{:6}{:6}{:20}{:6}{:10}{:90}{:90}{:90}".format(l[0], l[1], l[2], l[3], l[4], l[5],
                                                                           l[6], l[7], l[8], l[9])
             else:
-                data = "{:4}{:4}{:4}{:6}{:20}{:6}{:10}".format(l[0], l[1], l[2], l[3], l[4], l[5], l[6])
+                data = "{:6}{:6}{:6}{:6}{:20}{:6}{:10}".format(l[0], l[1], l[2], l[3], l[4], l[5], l[6])
 
             output.write(data+"\n")
 
@@ -229,13 +231,14 @@ def tagChecker(tagged_bigrams):
             # Check if word in our tagged ngram list, if so replace tag with new tag.
             condition = bigramCheck(l[4], tagged_bigrams)
             if condition[0] == "yes":
-                data = "{:4}{:4}{:4}{:6}{:20}{:6}{:10}{:90}{:90}{:90}".format(l[0], l[1], l[2], l[3], l[4], l[5],
+                data = "{:6}{:6}{:6}{:6}{:20}{:6}{:10}{:90}{:90}{:90}".format(l[0], l[1], l[2], l[3], l[4], l[5],
                                                                               condition[1],
                                                                                 tagged_bigrams[condition[2]][2][0],
                                                                                 tagged_bigrams[condition[2]][2][1],
                                                                                 tagged_bigrams[condition[2]][2][2])
             elif condition[0] == "no":
-                data = "{:4}{:4}{:4}{:6}{:20}{:6}{:10}".format(l[0], l[1], l[2], l[3], l[4], l[5], l[6])
+                print(l)
+                data = "{:6}{:6}{:6}{:6}{:20}{:6}{:10}".format(l[0], l[1], l[2], l[3], l[4], l[5], l[6])
             output.write(data+"\n")
 
 
@@ -265,7 +268,7 @@ def wikification():
     with open("location.checked", "r") as inp_f:
         for line in inp_f:
             l = line.split()
-            if len(l) <= 6:
+            if len(l) <= 7:
                 if l[6] != "-":
                     links = wiki_lookup(l[4], l[6])
                     data = "{:4}{:4}{:4}{:6}{:20}{:6}{:10}{:90}{:90}{:90}".format(l[0], l[1], l[2], l[3], l[4], l[5],
