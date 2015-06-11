@@ -53,6 +53,7 @@ def wiki_lookup(search_pass, tag_pass):
                 wiki_results.append([result_e, wikipedia.summary(result, sentences=2)])
         except wikipedia.exceptions.PageError:
             pass
+    print(search_results)
 
     for result in wiki_results:
         result_words = result[0].split(" ")
@@ -102,8 +103,8 @@ def wiki_lookup(search_pass, tag_pass):
 
 
 if __name__ == "__main__":
-    search = "The Godfather"
-    tag = ""
+    search = "President"
+    tag = "PERSON"
     test = wiki_lookup(search, tag)
 
     print(test[0], test[1], test[2])
