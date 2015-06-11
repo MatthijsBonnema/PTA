@@ -78,33 +78,32 @@ def wiki_lookup(search_pass, tag_pass):
         url_list.append(page.url)
 
     print(type(search_syn))
-
-    if search_syn != None:
-        if search_syn in result_syns:
-            print("Synset Found")
-            for result in wiki_results:
-                if result[2] == search_syn:
-                    to_return = [result[3], "-", "-"]
-        else:
-            print("Synset not Found")
-            to_return = [url_list[0], "-", "-"]
-    elif tag in tagcheck:
-        print("Tag Used")
-        to_return = [url_list[0], "-", "-"]
+    if len(url_list) == 0:
+        to_return = ["-", "-", "-"]
     else:
-        if len(url_list) >= 3:
-            to_return = ([url_list[0], url_list[1], url_list[2]])
-        elif len(url_list) == 2:
-            to_return = ([url_list[0], url_list[1], "-"])
+        if search_syn != None:
+            if search_syn in result_syns:
+                for result in wiki_results:
+                    if result[2] == search_syn:
+                        to_return = [result[3], "-", "-"]
+            else:
+                to_return = [url_list[0], "-", "-"]
+        elif tag in tagcheck:
+            to_return = [url_list[0], "-", "-"]
         else:
-            to_return = ([url_list[0], "-", "-"])
+            if len(url_list) >= 3:
+                to_return = [url_list[0], url_list[1], url_list[2]]
+            elif len(url_list) == 2:
+                to_return = [url_list[0], url_list[1], "-"]
+            else:
+                to_return = [url_list[0], "-", "-"]
 
-    return(to_return)
+    return to_return
 
 
 if __name__ == "__main__":
-    search = "Billy Elliot"
-    tag = "ENTERTAINMENT"
+    search = "The Godfather"
+    tag = ""
     test = wiki_lookup(search, tag)
 
-    print(test)
+    print(test[0], test[1], test[2])
