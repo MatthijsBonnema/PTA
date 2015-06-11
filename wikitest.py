@@ -103,7 +103,7 @@ def wiki_lookup(search_pass, tag_pass):
 
 
 if __name__ == "__main__":
-    search = "President"
+    search = "Paige Kollock"
     tag = "PERSON"
     test = wiki_lookup(search, tag)
 

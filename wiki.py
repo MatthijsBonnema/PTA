@@ -307,59 +307,62 @@ def wiki_lookup(search_pass, tag_pass):
         else:
             search_results = wikipedia.search(search)
 
-        for result in search_results:
-            try:
-                wiki_results.append([result, wikipedia.summary(result, sentences=2)])
-            except wikipedia.exceptions.DisambiguationError as e:
-                for result_e in e:
-                    wiki_results.append([result_e, wikipedia.summary(result, sentences=2)])
-            except wikipedia.exceptions.PageError:
-                pass
+        if len(search_results) != 0:
 
-        for result in wiki_results:
-            result_words = result[0].split(" ")
-            if len(result_words) >= 1:
-                result_clean = "_".join(result_words)
-                ss = lesk(result[1], result_clean, "n")
+            for result in search_results:
                 try:
-                    if ss == None:
+                    wiki_results.append([result, wikipedia.summary(result, sentences=2)])
+                except wikipedia.exceptions.DisambiguationError as e:
+                    for result_e in e:
+                        wiki_results.append([result_e, wikipedia.summary(result, sentences=2)])
+                except wikipedia.exceptions.PageError:
+                    pass
+
+            for result in wiki_results:
+                result_words = result[0].split(" ")
+                if len(result_words) >= 1:
+                    result_clean = "_".join(result_words)
+                    ss = lesk(result[1], result_clean, "n")
+                    try:
+                        if ss == None:
+                            result.append("-")
+                            # result_syns.append("-")
+                        else:
+                            result.append(str(ss))
+                            result_syns.append(str(ss))
+                    except AttributeError:
                         result.append("-")
-                        # result_syns.append("-")
-                    else:
-                        result.append(str(ss))
-                        result_syns.append(str(ss))
-                except AttributeError:
+                        result_syns.append("-")
+
+                else:
                     result.append("-")
-                    result_syns.append("-")
 
-            else:
-                result.append("-")
+                page = wikipedia.page(result[0])
+                result.append(page.url)
+                url_list.append(page.url)
 
-            page = wikipedia.page(result[0])
-            result.append(page.url)
-            url_list.append(page.url)
+            print(search, search_results, url_list)
 
-        print(search, search_results, url_list)
-
-        if search_syn != None:
-            if search_syn in result_syns:
-                for result in wiki_results:
-                    if result[2] == search_syn:
-                        to_return = [result[3], "-", "-"]
-            else:
+            if search_syn != None:
+                if search_syn in result_syns:
+                    for result in wiki_results:
+                        if result[2] == search_syn:
+                            to_return = [result[3], "-", "-"]
+                else:
+                    to_return = [url_list[0], "-", "-"]
+            elif tag in tagcheck:
                 to_return = [url_list[0], "-", "-"]
-        elif tag in tagcheck:
-            to_return = [url_list[0], "-", "-"]
+            else:
+                if len(url_list) >= 3:
+                    to_return = [url_list[0], url_list[1], url_list[2]]
+                elif len(url_list) == 2:
+                    to_return = [url_list[0], url_list[1], "-"]
+                else:
+                    to_return = [url_list[0], "-", "-"]
         else:
-            if len(url_list) >= 3:
-                to_return = [url_list[0], url_list[1], url_list[2]]
-            elif len(url_list) == 2:
-                to_return = [url_list[0], url_list[1], "-"]
-            else:
-                to_return = [url_list[0], "-", "-"]
+            to_return = ["-", "-", "-"]
     else:
         to_return = ["-", "-", "-"]
-
 
     return to_return
 
