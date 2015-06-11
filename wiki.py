@@ -33,7 +33,7 @@ def main():
     print(list(bigram_list))
 
     entityTagger()
-    tagged_bigrams = ngramTagger(bigram_list)
+    tagged_bigrams = ngramTagger(list(bigram_list))
     tagChecker(tagged_bigrams)
     locationCheck()
     wikification()
