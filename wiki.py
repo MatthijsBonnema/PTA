@@ -1,7 +1,6 @@
 #!/usr/bin/python
 # Date: 5/28/15
 
-import sys
 import wikipedia
 from nltk.corpus import wordnet
 import nltk
@@ -9,27 +8,27 @@ from nltk.tag.stanford import NERTagger
 from nltk.wsd import lesk
 
 
-def main(argv):
+def main():
 
-    text = []
+    words = []
     with open("en.tok.off.test", 'r') as filedata:
         for line in filedata:
-            text.append(line.split())
-        words = [token_data[3] for token_data in text]
-
+            if line[4] == "NN" or line[4] == "NNP":
+                words.append(line[3])
         bigram_list = nltk.ngrams(words, 2)
+    print(bigram_list)
     # print(wiki_lookup("Barack Obama", "PERSON"))
     # class3 = NERTagger('stanford-ner/classifiers/english.all.3class.distsim.crf.ser.gz',
     #                    'stanford-ner/stanford-ner.jar')
     # print(class3.tag(["Barack Obama"]))
     # print(wordNetTagger("Barack Obama"))
 
-    posTagger(text)
-    entityTagger()
-    tagged_bigrams = ngramTagger(bigram_list)
-    tagChecker(tagged_bigrams)
-    locationCheck()
-    wikification()
+    # posTagger(text)
+    # entityTagger()
+    # tagged_bigrams = ngramTagger(bigram_list)
+    # tagChecker(tagged_bigrams)
+    # locationCheck()
+    # wikification()
 
 
 def posTagger(text_data):
@@ -130,7 +129,7 @@ def ngramTagger(l):
 
     for t in ner_bigrams:
         links = wiki_lookup(t[0], t[1])
-        words = t[0].split()
+        words = t[0].split(" ")
         tagged_bigrams.extend([(words[0], t[1], links), (words[1], t[1], links)])
     print(tagged_bigrams)
     return tagged_bigrams
@@ -351,4 +350,4 @@ def wiki_lookup(search_pass, tag_pass):
 
 
 if __name__ == "__main__":
-    main(sys.argv)
+    main()
