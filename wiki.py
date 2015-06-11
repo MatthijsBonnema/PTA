@@ -51,6 +51,7 @@ def posTagger(text_data):
     output = open("pos.tagged", "w")
     for i in text_data:
         data = ("{:4}{:4}{:4}{:6}{:20}{:3}".format(i[0], i[1], i[2], i[3], i[4], i[5]))
+        print(data)
         output.write(data+"\n")
     output.close()
 
@@ -69,7 +70,7 @@ def entityTagger():
             # If words is a noun, go tag it!
             print(line)
             if line[5] == "NN" or line[5] == "NNP":
-                ner_tagged = class3.tag([line[4]])
+                ner_tagged = class3.tag([line[3]])
                 for t in ner_tagged[0]:
                     # No nertag? Check wordnet tagging
                     if len(t[1]) < 3:
