@@ -30,6 +30,7 @@ def main():
         for line in filedata:
             l = line.split(" ")
             if l[5] == "NN" or l[5] == "NNP":
+                print(l)
                 words.append(l[4])
         bigram_list = nltk.ngrams(words, 2)
 
@@ -68,7 +69,6 @@ def entityTagger():
         for l in inp_file:
             line = l.split()
             # If words is a noun, go tag it!
-            print(line)
             if line[5] == "NN" or line[5] == "NNP":
                 ner_tagged = class3.tag([line[4]])
                 for t in ner_tagged[0]:
@@ -86,7 +86,6 @@ def entityTagger():
                 data = ("{:6}{:6}{:6}{:6}{:20}{:6}{:10}".format(line[0], line[1], line[2], line[3], line[4], line[5],
                                                                 "-"))
                 output.write(data+"\n")
-            print(data)
     output.close()
 
 
@@ -125,13 +124,12 @@ def ngramTagger(l):
     ("Salvador", "LOCATION")]
     """
     print("checking ngrams")
-    print(l)
     bigrams = []
     tagged_bigrams = []
     for i in l:
         ngram_ner = i[0] + " " + i[1]
         ngram_wn = i[0] + "_" + i[1]
-        print(ngram_ner)
+        print(ngram_ner, "ngram ner")
         bigrams.append((ngram_ner, ngram_wn))
 
     class3 = NERTagger('stanford-ner/classifiers/english.all.3class.distsim.crf.ser.gz',
@@ -153,9 +151,7 @@ def ngramTagger(l):
 
 def bgWordNetTagger(ner_word, wn_word, tagger):
     tag_bigram = tagger.tag([ner_word])
-    print(tag_bigram[0][0][1])
     if tag_bigram[0][0][1] == "LOCATION":
-        print("LOC")
         if len(wordnet.synsets(wn_word, pos="n")) > 0:
             word = wordnet.synsets(wn_word, pos="n")[0]
 
@@ -173,7 +169,6 @@ def bgWordNetTagger(ner_word, wn_word, tagger):
 
             return (ner_word, sorted_scores[0][0])
     elif tag_bigram[0][0][1] == "PERSON" or tag_bigram[0][0][1] == "ORGANIZATION":
-        print("PERS ORG")
         return (ner_word, tag_bigram[0][0][1])
     return (ner_word, "-")
 
@@ -203,7 +198,6 @@ def locationCheck():
     with open("tag.checked", "r") as inp_f:
         for line in inp_f:
             l = line.split()
-            print(l, "lcoation check")
             if l[6] == "LOCATION":
                 tag = extraWordNetTagger(l[4])
                 data = "{:6}{:6}{:6}{:6}{:20}{:6}{:10}".format(l[0], l[1], l[2], l[3], l[4], l[5], tag)
@@ -237,7 +231,6 @@ def tagChecker(tagged_bigrams):
                                                                                 tagged_bigrams[condition[2]][2][1],
                                                                                 tagged_bigrams[condition[2]][2][2])
             elif condition[0] == "no":
-                print(l)
                 data = "{:6}{:6}{:6}{:6}{:20}{:6}{:10}".format(l[0], l[1], l[2], l[3], l[4], l[5], l[6])
             output.write(data+"\n")
 

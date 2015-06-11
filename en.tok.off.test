@@ -1,3 +1,5 @@
+g7.2 0 9 1001 President NNP PER http://en.wikipedia.org/wiki/George_W._Bush
+g7.2 10 14 1002 Bush NNP PER http://en.wikipedia.org/wiki/George_W._Bush
 g7.2 209 212 3001 Mr. NNP PER http://en.wikipedia.org/wiki/George_W._Bush
 g7.2 213 217 3002 Bush NNP PER http://en.wikipedia.org/wiki/George_W._Bush
 g7.2 218 222 3003 also RB s
