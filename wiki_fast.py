@@ -75,7 +75,7 @@ def asdf(l):
 def entityTaggertest(l):
     tagged = []
     class3 = NERTagger('stanford-ner/classifiers/english.all.3class.distsim.crf.ser.gz',
-                       'stanford-ner/stanford-ner.jar', errors='ignore')
+                       'stanford-ner/stanford-ner.jar')
     ner_tagged = class3.tag(l)
     for l in ner_tagged:
         for t in l:
