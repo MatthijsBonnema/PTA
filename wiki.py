@@ -31,9 +31,11 @@ def main():
             if l[4] == "NN" or l[4] == "NNP":
                 words.append(l[3])
         bigram_list = nltk.ngrams(words, 2)
-    print(list(bigram_list), "hoi")
 
-    tagged_bigrams = ngramTagger(list(bigram_list))
+
+    print(bigram_list)
+    tagged_bigrams = ngramTagger(bigram_list)
+
     tagChecker(tagged_bigrams)
     locationCheck()
     wikification()
