@@ -16,6 +16,7 @@ def main():
             text.append(line.split())
 
     posTagger(text)
+    entityTagger()
 
     # print(wiki_lookup("Barack Obama", "PERSON"))
     # class3 = NERTagger('stanford-ner/classifiers/english.all.3class.distsim.crf.ser.gz',
@@ -32,7 +33,6 @@ def main():
         bigram_list = nltk.ngrams(words, 2)
     print(list(bigram_list), "hoi")
 
-    entityTagger()
     tagged_bigrams = ngramTagger(list(bigram_list))
     tagChecker(tagged_bigrams)
     locationCheck()
