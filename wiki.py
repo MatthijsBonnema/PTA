@@ -74,15 +74,15 @@ def entityTagger():
                     # No nertag? Check wordnet tagging
                     if len(t[1]) < 3:
                         tag = wordNetTagger(t[0])
-                        data = ("{:6}{:6}{:6}{:6}{:20}{:6}{:10}".format(line[0], line[1], line[2], line[3], line[4],
+                        data = ("{:6}{:6}{:6}{:6}{:20}{:6}{:13}".format(line[0], line[1], line[2], line[3], line[4],
                                                                         line[5], tag))
                         output.write(data+"\n")
                     else:
-                        data = ("{:6}{:6}{:6}{:6}{:20}{:6}{:10}".format(line[0], line[1], line[2], line[3], line[4],
+                        data = ("{:6}{:6}{:6}{:6}{:20}{:6}{:13}".format(line[0], line[1], line[2], line[3], line[4],
                                                                         line[5], t[1]))
                         output.write(data+"\n")
             else:
-                data = ("{:6}{:6}{:6}{:6}{:20}{:6}{:10}".format(line[0], line[1], line[2], line[3], line[4], line[5],
+                data = ("{:6}{:6}{:6}{:6}{:20}{:6}{:13}".format(line[0], line[1], line[2], line[3], line[4], line[5],
                                                                 "-"))
                 output.write(data+"\n")
     output.close()
@@ -197,14 +197,15 @@ def locationCheck():
             l = line.split()
             if l[6] == "LOCATION":
                 tag = extraWordNetTagger(l[4])
-                data = "{:6}{:6}{:6}{:6}{:20}{:6}{:10}".format(l[0], l[1], l[2], l[3], l[4], l[5], tag)
+                data = "{:6}{:6}{:6}{:6}{:20}{:6}{:13}".format(l[0], l[1], l[2], l[3], l[4], l[5], tag)
             elif len(l) > 7:
-                data = "{:6}{:6}{:6}{:6}{:20}{:6}{:10}{:90}{:90}{:90}".format(l[0], l[1], l[2], l[3], l[4], l[5],
+                data = "{:6}{:6}{:6}{:6}{:20}{:6}{:13}{:90}{:90}{:90}".format(l[0], l[1], l[2], l[3], l[4], l[5],
                                                                           l[6], l[7], l[8], l[9])
             else:
-                data = "{:6}{:6}{:6}{:6}{:20}{:6}{:10}".format(l[0], l[1], l[2], l[3], l[4], l[5], l[6])
+                data = "{:6}{:6}{:6}{:6}{:20}{:6}{:13}".format(l[0], l[1], l[2], l[3], l[4], l[5], l[6])
 
             output.write(data+"\n")
+    output.close()
 
 
 def tagChecker(tagged_bigrams):
@@ -222,14 +223,15 @@ def tagChecker(tagged_bigrams):
             # Check if word in our tagged ngram list, if so replace tag with new tag.
             condition = bigramCheck(l[4], tagged_bigrams)
             if condition[0] == "yes":
-                data = "{:6}{:6}{:6}{:6}{:20}{:6}{:10}{:90}{:90}{:90}".format(l[0], l[1], l[2], l[3], l[4], l[5],
+                data = "{:6}{:6}{:6}{:6}{:20}{:6}{:13}{:90}{:90}{:90}".format(l[0], l[1], l[2], l[3], l[4], l[5],
                                                                               condition[1],
                                                                                 tagged_bigrams[condition[2]][2][0],
                                                                                 tagged_bigrams[condition[2]][2][1],
                                                                                 tagged_bigrams[condition[2]][2][2])
             elif condition[0] == "no":
-                data = "{:6}{:6}{:6}{:6}{:20}{:6}{:10}".format(l[0], l[1], l[2], l[3], l[4], l[5], l[6])
+                data = "{:6}{:6}{:6}{:6}{:20}{:6}{:13}".format(l[0], l[1], l[2], l[3], l[4], l[5], l[6])
             output.write(data+"\n")
+    output.close()
 
 
 def bigramCheck(w, l):
@@ -261,17 +263,16 @@ def wikification():
             if len(l) <= 7:
                 if l[6] != "-":
                     links = wiki_lookup(l[4], l[6])
-                    data = "{:6}{:6}{:6}{:6}{:20}{:6}{:10}{:90}{:90}{:90}".format(l[0], l[1], l[2], l[3], l[4], l[5],
+                    data = "{:6}{:6}{:6}{:6}{:20}{:6}{:13}{:90}{:90}{:90}".format(l[0], l[1], l[2], l[3], l[4], l[5],
                                                                                   l[6], links[0], links[1], links[2])
-                    output.write(data+"\n")
                 else:
-                    data = "{:6}{:6}{:6}{:6}{:20}{:6}{:10}{:90}{:90}{:90}".format(l[0], l[1], l[2], l[3], l[4], l[5],
+                    data = "{:6}{:6}{:6}{:6}{:20}{:6}{:13}{:90}{:90}{:90}".format(l[0], l[1], l[2], l[3], l[4], l[5],
                                                                                   l[6], "-", "-", "-")
-                    output.write(data+"\n")
             else:
-                data = "{:6}{:6}{:6}{:6}{:20}{:6}{:10}{:90}{:90}{:90}".format(l[0], l[1], l[2], l[3], l[4], l[5], l[6],
+                data = "{:6}{:6}{:6}{:6}{:20}{:6}{:13}{:90}{:90}{:90}".format(l[0], l[1], l[2], l[3], l[4], l[5], l[6],
                                                                               l[7], l[8], l[9])
-                output.write(data+"\n")
+            output.write(data+"\n")
+    output.close()
 
 
 def wiki_lookup(search_pass, tag_pass):
