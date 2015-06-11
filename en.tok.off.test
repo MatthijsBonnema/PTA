@@ -1,9 +1,44 @@
 g7.2 0 9 1001 President NNP PER http://en.wikipedia.org/wiki/George_W._Bush
 g7.2 10 14 1002 Bush NNP PER http://en.wikipedia.org/wiki/George_W._Bush
+g7.2 15 19 1003 said VBD
+g7.2 20 27 1004 nations NNS
+g7.2 28 34 1005 around IN
+g7.2 35 38 1006 the DT
+g7.2 39 44 1007 world NN
+g7.2 45 49 1008 need VBP
+g7.2 50 52 1009 to TO
+g7.2 53 58 1010 stand VB
+g7.2 59 63 1011 with IN
+g7.2 64 72 1012 moderate JJ
+g7.2 73 82 1013 reformers NNS
+g7.2 83 85 1014 in IN
+g7.2 86 89 1015 the DT
+g7.2 90 96 1016 MIddle NNP 
+g7.2 97 101 1017 East NNP 
+g7.2 101 102 1018 . .
+g7.2 103 105 2001 He PRP
+g7.2 106 110 2002 said VBD
+g7.2 111 114 2003 the DT
+g7.2 115 120 2004 world NN
+g7.2 121 125 2005 must MD
+g7.2 126 130 2006 seek VB
+g7.2 131 140 2007 stability NN
+g7.2 141 143 2008 in IN
+g7.2 144 147 2009 the DT
+g7.2 148 154 2010 region NN
+g7.2 155 162 2011 through IN
+g7.2 163 166 2012 the DT
+g7.2 167 180 2013 establishment NN
+g7.2 181 183 2014 of IN
+g7.2 184 188 2015 free JJ
+g7.2 189 192 2016 and CC
+g7.2 193 197 2017 just RB
+g7.2 198 207 2018 societies NNS
+g7.2 207 208 2019 . .
 g7.2 209 212 3001 Mr. NNP PER http://en.wikipedia.org/wiki/George_W._Bush
 g7.2 213 217 3002 Bush NNP PER http://en.wikipedia.org/wiki/George_W._Bush
-g7.2 218 222 3003 also RB s
-g7.2 223 230 3004 pledged VBD s
+g7.2 218 222 3003 also RB
+g7.2 223 230 3004 pledged VBD
 g7.2 231 233 3005 to TO
 g7.2 234 242 3006 continue VB
 g7.2 243 245 3007 to TO
@@ -13,3 +48,53 @@ g7.2 258 268 3010 government NN ORG http://en.wikipedia.org/wiki/Federal_governm
 g7.2 269 271 3011 of IN
 g7.2 272 276 3012 Iraq NNP COU http://en.wikipedia.org/wiki/Iraq
 g7.2 277 279 3013 in IN
+g7.2 280 283 3014 its PRP$
+g7.2 284 292 3015 struggle NN
+g7.2 293 297 3016 with IN
+g7.2 298 308 3017 terrorists NNS
+g7.2 308 309 3018 . .
+g7.2 310 312 4001 In IN
+g7.2 313 321 4002 addition NN
+g7.2 321 322 4003 , ,
+g7.2 323 326 4004 the DT PER http://en.wikipedia.org/wiki/George_W._Bush
+g7.2 327 336 4005 president NN PER http://en.wikipedia.org/wiki/George_W._Bush
+g7.2 337 341 4006 said VBD
+g7.2 342 346 4007 Iran NNP COU http://en.wikipedia.org/wiki/Iran
+g7.2 347 351 4008 must MD
+g7.2 352 359 4009 abandon VB
+g7.2 360 364 4010 what WP
+g7.2 365 367 4011 he PRP
+g7.2 368 374 4012 called VBD
+g7.2 375 378 4013 its PRP$
+g7.2 379 387 4014 ambition NN
+g7.2 388 391 4015 for IN
+g7.2 392 399 4016 nuclear JJ
+g7.2 400 407 4017 weapons NNS
+g7.2 407 408 4018 . .
+g7.2 409 411 5001 He PRP
+g7.2 412 416 5002 said VBD
+g7.2 417 420 5003 the DT COU
+g7.2 421 427 5004 United NNP COU http://en.wikipedia.org/wiki/United_States
+g7.2 428 434 5005 States NNPS COU http://en.wikipedia.org/wiki/United_States
+g7.2 435 437 5006 is VBZ
+g7.2 438 445 5007 working VBG
+g7.2 446 449 5008 for IN
+g7.2 450 451 5009 a DT
+g7.2 452 462 5010 diplomatic JJ
+g7.2 463 471 5011 solution NN
+g7.2 472 474 5012 to TO
+g7.2 475 478 5013 the DT
+g7.2 479 484 5014 issue NN
+g7.2 484 485 5015 , ,
+g7.2 486 489 5016 and CC
+g7.2 490 494 5017 said VBD
+g7.2 495 498 5018 the DT
+g7.2 499 503 5019 U.S. NNP COU http://en.wikipedia.org/wiki/United_States
+g7.2 504 508 5020 does VBZ
+g7.2 509 512 5021 not RB
+g7.2 513 519 5022 oppose VB
+g7.2 520 521 5023 a DT
+g7.2 522 527 5024 truly RB
+g7.2 528 536 5025 peaceful JJ
+g7.2 537 544 5026 nuclear JJ
+g7.2 545 552 5027 program NN
