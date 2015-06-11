@@ -119,6 +119,7 @@ def ngramTagger(l):
     :return: returns a list with words that are tagged. (For example, "El Salvador" would be [("El", "LOCATION"),
     ("Salvador", "LOCATION")]
     """
+    print("checking ngrams")
     bigrams = []
     tagged_bigrams = []
     for i in l:
