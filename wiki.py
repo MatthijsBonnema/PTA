@@ -339,6 +339,8 @@ def wiki_lookup(search_pass, tag_pass):
             result.append(page.url)
             url_list.append(page.url)
 
+        print(search, search_results, url_list)
+
         if search_syn != None:
             if search_syn in result_syns:
                 for result in wiki_results:
