@@ -271,7 +271,7 @@ def wikification():
                     output.write(data+"\n")
             else:
                 data = "{:6}{:6}{:6}{:6}{:20}{:6}{:10}{:90}{:90}{:90}".format(l[0], l[1], l[2], l[3], l[4], l[5], l[6],
-                                                                              l[6], l[7], l[8])
+                                                                              l[7], l[8], l[9])
                 output.write(data+"\n")
 
 
