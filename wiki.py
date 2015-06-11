@@ -30,7 +30,7 @@ def main():
             if l[4] == "NN" or l[4] == "NNP":
                 words.append(l[3])
         bigram_list = nltk.ngrams(words, 2)
-    print(list(bigram_list))
+    print(list(bigram_list), "hoi")
 
     entityTagger()
     tagged_bigrams = ngramTagger(list(bigram_list))
