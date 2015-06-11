@@ -11,7 +11,7 @@ from nltk.wsd import lesk
 def main():
 
     text = []
-    with open("en.tok.off.test", 'r') as filedata:
+    with open("development.set", 'r') as filedata:
         for line in filedata:
             l = line.split()
             text.append([l[0], l[1], l[2], l[3], l[4]])
