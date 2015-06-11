@@ -13,7 +13,7 @@ def main():
     text = []
     with open("en.tok.off.test", 'r') as filedata:
         for line in filedata:
-            text.append(line.split())
+            text.append(line.split(" "))
 
     posTagger(text)
     entityTagger()
@@ -27,7 +27,7 @@ def main():
     words = []
     with open("pos.tagged", 'r') as filedata:
         for line in filedata:
-            l = line.split()
+            l = line.split(" ")
             if l[5] == "NN" or l[5] == "NNP":
                 words.append(l[4])
         bigram_list = nltk.ngrams(words, 2)
