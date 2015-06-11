@@ -120,6 +120,7 @@ def ngramTagger(l):
     ("Salvador", "LOCATION")]
     """
     print("checking ngrams")
+    print(l)
     bigrams = []
     tagged_bigrams = []
     for i in l:
