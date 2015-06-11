@@ -138,7 +138,9 @@ def ngramTagger(l):
 
 def bgWordNetTagger(ner_word, wn_word, tagger):
     tag_bigram = tagger.tag([ner_word])
+    print(tag_bigram[0][0][1])
     if tag_bigram[0][0][1] == "LOCATION":
+        print("LOC")
         if len(wordnet.synsets(wn_word, pos="n")) > 0:
             word = wordnet.synsets(wn_word, pos="n")[0]
 
@@ -155,8 +157,9 @@ def bgWordNetTagger(ner_word, wn_word, tagger):
             sorted_scores = sorted(results, key=lambda tup: tup[1], reverse=True)
 
             return (ner_word, sorted_scores[0][0])
-    # elif tag_bigram[0][0][1] != "-":
-    #     return (ner_word, tag_bigram[0][0][1])
+    elif tag_bigram[0][0][1] == "PERSON" or tag_bigram[0][0][1] == "ORGANIZATION":
+        print("PERS ORG")
+        return (ner_word, tag_bigram[0][0][1])
     return (ner_word, "-")
 
 
