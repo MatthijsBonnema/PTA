@@ -70,6 +70,7 @@ def entityTagger():
         for l in inp_file:
             line = l.split()
             # If words is a noun, go tag it!
+            print(line)
             if line[5] == "NN" or line[5] == "NNP":
                 ner_tagged = class3.tag([line[4]])
                 for t in ner_tagged[0]:
