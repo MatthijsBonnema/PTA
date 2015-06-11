@@ -14,7 +14,6 @@ def main():
     with open("development.set", 'r') as filedata:
         for line in filedata:
             l = line.split()
-            print(l)
             if len(l) >=6:
                 text.append([l[0], l[1], l[2], l[3], l[4]])
 
