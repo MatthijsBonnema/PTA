@@ -10,33 +10,25 @@ from nltk.wsd import lesk
 
 def main():
 
-    text = []
+    words = []
     with open("en.tok.off.test", 'r') as filedata:
         for line in filedata:
-            text.append(line.split())
-
-    posTagger(text)
-
+            if line[4] == "NN" or line[4] == "NNP":
+                words.append(line[3])
+        bigram_list = nltk.ngrams(words, 2)
+    print(bigram_list)
     # print(wiki_lookup("Barack Obama", "PERSON"))
     # class3 = NERTagger('stanford-ner/classifiers/english.all.3class.distsim.crf.ser.gz',
     #                    'stanford-ner/stanford-ner.jar')
     # print(class3.tag(["Barack Obama"]))
     # print(wordNetTagger("Barack Obama"))
 
-    words = []
-    with open("pos.tagged", 'r') as filedata:
-        for line in filedata:
-            l = line.split()
-            if l[4] == "NN" or l[4] == "NNP":
-                words.append(l[3])
-        bigram_list = nltk.ngrams(words, 2)
-    print(list(bigram_list))
-
-    entityTagger()
-    tagged_bigrams = ngramTagger(bigram_list)
-    tagChecker(tagged_bigrams)
-    locationCheck()
-    wikification()
+    # posTagger(text)
+    # entityTagger()
+    # tagged_bigrams = ngramTagger(bigram_list)
+    # tagChecker(tagged_bigrams)
+    # locationCheck()
+    # wikification()
 
 
 def posTagger(text_data):
