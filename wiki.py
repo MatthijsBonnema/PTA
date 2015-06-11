@@ -29,7 +29,7 @@ def main():
     with open("pos.tagged", 'r') as filedata:
         for line in filedata:
             l = line.split()
-            if l[5] != ".":
+            if l[5] == "NN" or l[5] == "NNP":
                 words.append(l[4])
         bigram_list = nltk.ngrams(words, 2)
 
