@@ -13,7 +13,7 @@ def main():
     text = []
     with open("en.tok.off.test", 'r') as filedata:
         for line in filedata:
-            l = line.split(" ")
+            l = line.split()
             text.append([l[0], l[1], l[2], l[3], l[4]])
 
     posTagger(text)
@@ -28,9 +28,8 @@ def main():
     words = []
     with open("pos.tagged", 'r') as filedata:
         for line in filedata:
-            l = line.split(" ")
+            l = line.split()
             if l[5] == "NN" or l[5] == "NNP":
-                print(l)
                 words.append(l[4])
         bigram_list = nltk.ngrams(words, 2)
 
@@ -129,7 +128,6 @@ def ngramTagger(l):
     for i in l:
         ngram_ner = i[0] + " " + i[1]
         ngram_wn = i[0] + "_" + i[1]
-        print(ngram_ner, "ngram ner")
         bigrams.append((ngram_ner, ngram_wn))
 
     class3 = NERTagger('stanford-ner/classifiers/english.all.3class.distsim.crf.ser.gz',
