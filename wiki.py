@@ -143,7 +143,6 @@ def ngramTagger(l):
         links = wiki_lookup(t[0], t[1])
         words = t[0].split(" ")
         tagged_bigrams.extend([(words[0], t[1], links), (words[1], t[1], links)])
-    print(tagged_bigrams)
     return tagged_bigrams
 
 
