@@ -71,7 +71,7 @@ def posTagger(text_data):
 
 def getNouns():
     nouns = []
-    with open("en.tok.off.test", "r") as inp_file:
+    with open("wiki.final", "r") as inp_file:
         for l in inp_file:
             line = l.split()
             # If words is a noun, go tag it!
@@ -285,7 +285,7 @@ def tagChecker(tagged_bigrams):
     """
     output = open("tag.checked", "w")
     print("checking Tags")
-    with open("en.tok.off.test", "r") as inp_file:
+    with open("wiki.final", "r") as inp_file:
         for line in inp_file:
             l = line.split()
             # Check if word in our tagged ngram list, if so replace tag with new tag.
