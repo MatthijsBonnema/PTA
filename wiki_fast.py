@@ -43,7 +43,7 @@ def nounsAndTags():
             line = l.split()
             # If words is a noun, go tag it!
             if (line[5] == "NN" or line[5] == "NNP") and line[6] != "-":
-                nNt.append((line[4], line[6]))
+                nNt.append((unicode(str(line[4])), (unicode(str(line[6])))))
     return nNt
 
 
@@ -77,7 +77,7 @@ def getNouns():
             line = l.split()
             # If words is a noun, go tag it!
             if line[5] == "NN" or line[5] == "NNP" or line[5] == "NNPS":
-                nouns.append(line[4])
+                nouns.append(unicode(str(line[4])))
     return nouns
 
 
