@@ -27,7 +27,6 @@ def main():
 
     bigrams = makeBigrams(nouns, 2)
     tagged_bigrams = ngramTagger(bigrams)
-    print(tagged_bigrams)
     tagChecker(tagged_bigrams)
     #
     # tagged_bigrams = ngramTagger(bigram_list)
@@ -45,14 +44,6 @@ def nounsAndTags():
             if (line[5] == "NN" or line[5] == "NNP") and line[6] != "-":
                 nNt.append((line[4], line[6]))
     return nNt
-
-
-
-def testTag(w):
-    class3 = NERTagger('stanford-ner/classifiers/english.all.3class.distsim.crf.ser.gz',
-                       'stanford-ner/stanford-ner.jar')
-    return class3.tag([w])
-
 
 
 def posTagger(text_data):
@@ -87,12 +78,6 @@ def getNouns():
             if line[5] == "NN" or line[5] == "NNP" or line[5] == "NNPS":
                 nouns.append(line[4])
     return nouns
-
-
-def asdf(l):
-    for i in l:
-        unicode(str(i), errors='ignore')
-    return l
 
 
 def entityTaggertest(l):
@@ -212,7 +197,6 @@ def checkBGTag(word):
 
 def nerToBG(l):
     bg = []
-    print("nerTOBG", l)
     while len(l[0]) > 1:
         bigram = l[0][0][0] + " " + l[0][1][0]
         bg.append([bigram, l[0][0][1], l[0][1][1]])
@@ -240,14 +224,12 @@ def ngramTagger(l):
                        'stanford-ner/stanford-ner.jar')
     testje = class3.tag(nerts)
     bigramsAndTags = nerToBG(testje)
-    print("Bigrams and Tags before:", bigramsAndTags)
     for t in bigramsAndTags:
         if t[1] == "LOCATION" or t[2] == "LOCATION":
             wn_bg = t[0].split()[0] + "_" + t[0].split()[1]
             wAndTag = getRidOfLocation(wn_bg)
             t[1] = wAndTag[1]
             t[2] = wAndTag[1]
-    print("Bigrams and Tag after:", bigramsAndTags)
 
     final_list = []
     a = 0
@@ -268,7 +250,6 @@ def ngramTagger(l):
             links = wiki_lookup(bgs[0], bgs[1])
             words = bgs[0].split(" ")
             taglink_bigrams.extend([(words[0], bgs[1], links), (words[1], bgs[1], links)])
-    print("LINKED", taglink_bigrams)
 
     return taglink_bigrams
 
