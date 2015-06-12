@@ -302,7 +302,7 @@ def wiki_lookup(search_pass, tag_pass):
                 search_syn = str(search_syn)
             except IndexError:
                 search_syn = None
-        # If the seach contains multiple words, replace the spaces with _
+        # If the search contains multiple words, replace the spaces with _
         else:
             search_clean = search.split(" ")
             search_clean = "_".join(search_clean)
