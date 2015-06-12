@@ -18,7 +18,6 @@ def main():
     #             text.append([l[0], l[1], l[2], l[3], l[4]])
 
     # posTagger(text)
-    print(locationTagger("Afghanistan"))
     nouns = getNouns()
     # print(nouns)
     # tagged = entityTaggertest(nouns)
@@ -38,7 +37,7 @@ def main():
 
 def nounsAndTags():
     nNt = []
-    with open("en.tok.off.test", "r") as inp_file:
+    with open("wiki.final", "r") as inp_file:
         for l in inp_file:
             line = l.split()
             # If words is a noun, go tag it!
@@ -72,7 +71,7 @@ def posTagger(text_data):
 
 def getNouns():
     nouns = []
-    with open("en.tok.off.test", "r") as inp_file:
+    with open("wiki.final", "r") as inp_file:
         for l in inp_file:
             line = l.split()
             # If words is a noun, go tag it!
@@ -252,7 +251,6 @@ def ngramTagger(l):
             words = bgs[0].split(" ")
             taglink_bigrams.extend([(words[0], bgs[1], links), (words[1], bgs[1], links)])
 
-    print(taglink_bigrams)
     return taglink_bigrams
 
 
@@ -285,9 +283,9 @@ def tagChecker(tagged_bigrams):
     :param bl: must be a list of words which are tagged (preferably bigrams)
     :return:
     """
-    output = open("tag.checked.test", "w")
+    output = open("hopelijk.de.laatste", "w")
     print("checking Tags")
-    with open("en.tok.off.test", "r") as inp_file:
+    with open("wiki.final", "r") as inp_file:
         for line in inp_file:
             l = line.split()
             # Check if word in our tagged ngram list, if so replace tag with new tag.
