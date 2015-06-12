@@ -72,7 +72,7 @@ def posTagger(text_data):
 
 def getNouns():
     nouns = []
-    with open("wiki.final", "r") as inp_file:
+    with open("en.tok.off.test", "r") as inp_file:
         for l in inp_file:
             line = l.split()
             # If words is a noun, go tag it!
