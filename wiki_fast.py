@@ -252,6 +252,7 @@ def ngramTagger(l):
             words = bgs[0].split(" ")
             taglink_bigrams.extend([(words[0], bgs[1], links), (words[1], bgs[1], links)])
 
+    print(taglink_bigrams)
     return taglink_bigrams
 
 
