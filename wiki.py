@@ -278,18 +278,31 @@ def wikification():
 
 
 def wiki_lookup(search_pass, tag_pass):
+    """
+    This function looks up a word or bigram with a tag on wikipedia and returns the best possible results
+    :param search_pass: the word or bigram to lookup
+    :param tag_pass: The tag that belongs to the search_pass
+    :return: Returns a list with 3 elements, 3 links or less.
+    """
+
     search = search_pass
     tag = tag_pass
     search_lower = search.lower()
 
+    # These tags will return one link
     tagcheck = ["COUNTRY", "STATE", "CITY", "TOWN", "NATURAL_PLACE", "PERSON", "ORGANISATION", "ANIMAL", "SPORT"]
+
+    # Since the link returned with president, is wrong often. This prevents president from being linked.
     if search_lower != "president":
+        # If the search contains just one word.
         if len(search.split(" ")) == 1:
+            # Try to get synset of the search, if not possible set synset to None
             try:
                 search_syn = wordnet.synsets(search, pos="n")[0]
                 search_syn = str(search_syn)
             except IndexError:
                 search_syn = None
+        # If the search contains multiple words, replace the spaces with _
         else:
             search_clean = search.split(" ")
             search_clean = "_".join(search_clean)
@@ -304,14 +317,17 @@ def wiki_lookup(search_pass, tag_pass):
         result_syns = []
         to_return = []
 
+
+        # These tags wont be added to the wiki lookup
         if tag != "NATURAL_PLACE" and tag != "ANIMAL" and tag != "ENTERTAINMENT" and tag != "COUNTRY" and tag != "CITY":
             search = search+" "+tag
             search_results = wikipedia.search(search)
         else:
             search_results = wikipedia.search(search)
 
+        # If search results are found.
         if len(search_results) != 0:
-
+            # Get a summary of all the results found.
             for result in search_results:
                 try:
                     wiki_results.append([result, wikipedia.summary(result, sentences=2)])
@@ -320,16 +336,17 @@ def wiki_lookup(search_pass, tag_pass):
                         wiki_results.append([result_e, wikipedia.summary(result, sentences=2)])
                 except wikipedia.exceptions.PageError:
                     pass
-
+            # Cleanup the search results, so a synset can be created
             for result in wiki_results:
                 result_words = result[0].split(" ")
                 if len(result_words) >= 1:
+                    # Cleanup the search results
                     result_clean = "_".join(result_words)
+                    # Lookup the synset of the search result, using the summary of the search word
                     ss = lesk(result[1], result_clean, "n")
                     try:
                         if ss == None:
                             result.append("-")
-                            # result_syns.append("-")
                         else:
                             result.append(str(ss))
                             result_syns.append(str(ss))
@@ -340,21 +357,26 @@ def wiki_lookup(search_pass, tag_pass):
                 else:
                     result.append("-")
 
+                # Create a url for all the search results
                 page = wikipedia.page(result[0])
                 result.append(page.url)
                 url_list.append(page.url)
 
             print(search, search_results, url_list)
 
+            # If a synset was found, compare the found synset with the synset of the search.
             if search_syn != None:
                 if search_syn in result_syns:
                     for result in wiki_results:
                         if result[2] == search_syn:
                             to_return = [result[3], "-", "-"]
+                # Else return the first link
                 else:
                     to_return = [url_list[0], "-", "-"]
+            # If the tag is in the list with tags that return one link, return one link
             elif tag in tagcheck:
                 to_return = [url_list[0], "-", "-"]
+            # Else return up to 3 links, if possible
             else:
                 if len(url_list) >= 3:
                     to_return = [url_list[0], url_list[1], url_list[2]]
