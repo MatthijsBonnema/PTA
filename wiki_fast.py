@@ -17,33 +17,18 @@ def main():
     #         if len(l) > 4:
     #             text.append([l[0], l[1], l[2], l[3], l[4]])
 
+    # Pos & Entity Tagging + finding wikipedia links of normal words
     # posTagger(text)
     nouns = getNouns()
-    # print(nouns)
     # tagged = entityTaggertest(nouns)
     # writeTags(tagged)
     # locationCheck()
     # wikification()
 
+    # Entity tagging and finding wikipedia links of bigrams
     bigrams = makeBigrams(nouns, 2)
     tagged_bigrams = ngramTagger(bigrams)
     tagChecker(tagged_bigrams)
-    #
-    # tagged_bigrams = ngramTagger(bigram_list)
-    # tagChecker(tagged_bigrams)
-    # locationCheck()
-    # wikification()
-
-
-def nounsAndTags():
-    nNt = []
-    with open("wiki.final", "r") as inp_file:
-        for l in inp_file:
-            line = l.split()
-            # If words is a noun, go tag it!
-            if (line[5] == "NN" or line[5] == "NNP") and line[6] != "-":
-                nNt.append((line[4].encode("utf-8"), (line[6].encode("utf-8"))))
-    return nNt
 
 
 def posTagger(text_data):
@@ -70,6 +55,10 @@ def posTagger(text_data):
 
 
 def getNouns():
+    """
+    function that makes a list of all the nouns in the development set.
+    :return: list of all the nouns
+    """
     nouns = []
     with open("wiki.final", "r") as inp_file:
         for l in inp_file:
@@ -81,16 +70,24 @@ def getNouns():
 
 
 def entityTaggertest(l):
+    """
+    function that entity tags a list of nouns
+    :param l: list of nouns
+    :return: list of tagged nouns, tuples (word, tag)
+    """
     tagged = []
     class3 = NERTagger('stanford-ner/classifiers/english.all.3class.distsim.crf.ser.gz',
                        'stanford-ner/stanford-ner.jar')
     ner_tagged = class3.tag(l)
     for l in ner_tagged:
         for t in l:
+            # If the word is tagged via NERTagger
             if len(t[1]) > 3:
                 tagged.append(t)
+            # If the words is not tagged, try to tag it via Word Net
             if len(t[1]) < 3:
                 tag = wordNetTagger(t[0])
+                # If even Word Net cant tag it, return without tag.
                 if tag != "-":
                     tagged.append((t[0], tag))
     return tagged
@@ -124,10 +121,16 @@ def wordNetTagger(w):
 
 
 def writeTags(tagged_words):
+    """
+    this function writes away the entity tags to a given file
+    :param tagged_words:
+    :return: nothing
+    """
     output = open("entities.tagged", "w")
     with open("pos.tagged", "r") as inp_file:
         for line in inp_file:
             l = line.split()
+            # Check if word in this line is tagged, if so, add tag to line
             result = inList(l[4], tagged_words)
             if result[0] == "yes":
                 data = "{} {} {} {} {} {} {}".format(l[0], l[1], l[2], l[3], l[4], l[5], result[1])
@@ -138,6 +141,12 @@ def writeTags(tagged_words):
 
 
 def inList(w, l):
+    """
+    function that check if a word is in the tagged words list. if so, it returns the tag
+    :param w: words
+    :param l: list of tuples with (word, tag)
+    :return: yes or no, followed by the tag or none
+    """
     for t in l:
         if t[0] == w:
             return "yes", t[1]
@@ -145,10 +154,15 @@ def inList(w, l):
 
 
 def locationCheck():
+    """
+    function that checks if any words are tagged as location. if so, this is converted to city, state, country or town
+    :return:
+    """
     output = open("loc.checked", "w")
     with open("entities.tagged", "r") as inp_f:
         for line in inp_f:
             l = line.split()
+            # If words is tagged location, tag again via locationTagger()
             if l[6] == "LOCATION":
                 tag = locationTagger(l[4])
                 data = "{} {} {} {} {} {} {}".format(l[0], l[1], l[2], l[3], l[4], l[5], tag)
@@ -163,6 +177,11 @@ def locationCheck():
 
 
 def locationTagger(w):
+    """
+    function that tags words which are tagged with LOCATION, via wordnet similarity.
+    :param w: word
+    :return:
+    """
     if len(wordnet.synsets(w, pos="n")) > 0:
         word = wordnet.synsets(w, pos="n")[0]
 
@@ -182,49 +201,29 @@ def locationTagger(w):
     return "-"
 
 
-def makeBigrams(l, n):
-    bgs = nltk.ngrams(l, n)
-    return bgs
-
-
-def checkBGTag(word):
-    nAndT = nounsAndTags()
-    for t in nAndT:
-        if t[0] == word:
-            return t[1]
-    return "-"
-
-
-def nerToBG(l):
-    bg = []
-    while len(l[0]) > 1:
-        bigram = l[0][0][0] + " " + l[0][1][0]
-        bg.append([bigram, l[0][0][1], l[0][1][1]])
-        l[0].pop(0)
-        l[0].pop(0)
-    return bg
-
 def ngramTagger(l):
     """
-    This function takes a list of ngrams, creates bigrams and entity tags them.
+    this function creates bigrams, tags them via Stanford NER or Word Net, and searches links for wiki pages.
     :param l: input must be a list of bigrams, formed in tuples
-    :return: returns a list with words that are tagged. (For example, "El Salvador" would be [("El", "LOCATION"),
-    ("Salvador", "LOCATION")]
+    :return: returns a list with words that are tagged and linked to wikipedia.
     """
     print("checking ngrams")
-    bigrams = []
     nerts = []
+
+    # First, create words which are suited as input for NERTagger.
     for i in l:
         ngram_ner = i[0] + " " + i[1]
         nerts.append(ngram_ner)
-        ngram_wn = i[0] + "_" + i[1]
-        bigrams.append((ngram_ner, ngram_wn))
 
+    # Input the list of suitable bigrams in the NERTagger, and form the output to a wanted format with nerToBG()
     class3 = NERTagger('stanford-ner/classifiers/english.all.3class.distsim.crf.ser.gz',
                        'stanford-ner/stanford-ner.jar')
-    testje = class3.tag(nerts)
-    bigramsAndTags = nerToBG(testje)
+    ner_result = class3.tag(nerts)
+    bigramsAndTags = nerToBG(ner_result)
+
     for t in bigramsAndTags:
+        # If tagged as location, get rid of location via the same technique as locationTagger(), but then for bigrams,
+        # using getRidOfLocation()
         if t[1] == "LOCATION" or t[2] == "LOCATION":
             wn_bg = t[0].split()[0] + "_" + t[0].split()[1]
             wAndTag = getRidOfLocation(wn_bg)
@@ -234,19 +233,26 @@ def ngramTagger(l):
     final_list = []
     a = 0
     for j in range(len(bigramsAndTags)):
+        # If the 2 words of the bigram are tagged the same, append them to final_list.
         if bigramsAndTags[a][1] == bigramsAndTags[a][2]:
             final_list.extend([(bigramsAndTags[a][0], bigramsAndTags[a][1])])
+        # If word 1 isn't tagged and word 2 is, check if word 1 is tagged in the development set.
+        # If this tag is the same as the tag of word 2, append to final_list.
         elif checkBGTag(bigramsAndTags[a][0].split()[0]) == bigramsAndTags[a][2]:
             final_list.extend([(bigramsAndTags[a][0], bigramsAndTags[a][2])])
+        # If word 2 isn't tagged and word 1 is, check if word 2 is tagged in the single word tagged development set.
+        # If this tag is the same as the tag of word 1, append to final_list.
         elif checkBGTag(bigramsAndTags[a][0].split()[1]) == bigramsAndTags[a][1]:
             final_list.extend([(bigramsAndTags[a][0], bigramsAndTags[a][1])])
         a += 1
 
     taglink_bigrams = []
     for bgs in final_list[:]:
+        # If bigrams are still not tagged, remove them from the list.
         if len(bgs[1]) < 4:
             final_list.remove(bgs)
         else:
+            # If they are tagged, look up wikipedia links.
             links = wiki_lookup(bgs[0], bgs[1])
             words = bgs[0].split(" ")
             taglink_bigrams.extend([(words[0], bgs[1], links), (words[1], bgs[1], links)])
@@ -254,7 +260,67 @@ def ngramTagger(l):
     return taglink_bigrams
 
 
+def makeBigrams(l, n):
+    """
+    simple function that return bigrams, but can also make other n grams if wanted
+    :param l: list of words
+    :param n: n for n grams (2 for bigrams)
+    :return: list with tuples with 2 words, which are the bigrams.
+    """
+    bgs = nltk.ngrams(l, n)
+    return bgs
+
+
+def nounsAndTags():
+    """
+    function that gets the nouns + entity tag from a wanted file.
+    :return:
+    """
+    nNt = []
+    with open("wiki.final", "r") as inp_file:
+        for l in inp_file:
+            line = l.split()
+            # If words is a noun, go tag it!
+            if (line[5] == "NN" or line[5] == "NNP") and line[6] != "-":
+                nNt.append((line[4].encode("utf-8"), (line[6].encode("utf-8"))))
+    return nNt
+
+
+def checkBGTag(word):
+    """
+    function that checks if a word is in the list created by the nounsAndTags() function.
+    :param word: word
+    :return: tag of that word, or - if no tag is found
+    """
+    nAndT = nounsAndTags()
+    for t in nAndT:
+        if t[0] == word:
+            return t[1]
+    return "-"
+
+
+def nerToBG(l):
+    """
+    function that converts the output of the nertagger to a list with lists,
+    which are formed like this: [bigram, tag_word_1, tag_word_2]
+    :param l: output of NERTagger
+    :return: list bigrams plus tags
+    """
+    bg = []
+    while len(l[0]) > 1:
+        bigram = l[0][0][0] + " " + l[0][1][0]
+        bg.append([bigram, l[0][0][1], l[0][1][1]])
+        l[0].pop(0)
+        l[0].pop(0)
+    return bg
+
+
 def getRidOfLocation(wn_word):
+    """
+    function that tags bigrams which are tagged with LOCATION, via wordnet similarity.
+    :param wn_word: bigrams, with _ instead of space
+    :return: word + tag
+    """
     if len(wordnet.synsets(wn_word, pos="n")) > 0:
         word = wordnet.synsets(wn_word, pos="n")[0]
 
@@ -278,9 +344,8 @@ def getRidOfLocation(wn_word):
 
 def tagChecker(tagged_bigrams):
     """
-    This function adds entity tags to ngrams.
-    :param fname: input must be a filename
-    :param bl: must be a list of words which are tagged (preferably bigrams)
+    function that adds the tagged words from bigrams and the wikipedia links to a given file.
+    :param tagged_bigrams: list of bigrams, formed: [bigram, tag, links]
     :return:
     """
     output = open("hopelijk.de.laatste", "w")
@@ -291,17 +356,25 @@ def tagChecker(tagged_bigrams):
             # Check if word in our tagged ngram list, if so replace tag with new tag.
             condition = bigramCheck(l[4], tagged_bigrams)
             if condition[0] == "yes":
+                # Add tag + links to line
                 data = "{} {} {} {} {} {} {} {} {} {}".format(l[0], l[1], l[2], l[3], l[4], l[5], condition[1],
                                                               tagged_bigrams[condition[2]][2][0],
                                                               tagged_bigrams[condition[2]][2][1],
                                                               tagged_bigrams[condition[2]][2][2])
             elif condition[0] == "no":
+                # Leave line like it is
                 data = "{} {} {} {} {} {} {} {} {} {}".format(l[0], l[1], l[2], l[3], l[4], l[5], l[6], l[7], l[8], l[9])
             output.write(data+"\n")
     output.close()
 
 
 def bigramCheck(w, l):
+    """
+    Checks if a word is in a list
+    :param w: word
+    :param l: list of tagged words from bigrams
+    :return: yes or no + the tag and if yes the index of the tag in the list
+    """
     for t in l:
         if t[0] == w:
             return ("yes", t[1], l.index(t))
@@ -323,11 +396,16 @@ def hypernymOf(synset1, synset2):
 
 
 def wikification():
+    """
+    function that searches wikipedia pages by words.
+    :return:
+    """
     output = open("wiki.final", "w")
     with open("loc.checked", "r") as inp_f:
         for line in inp_f:
             l = line.split()
             if len(l) <= 7:
+                # If file is tagged, than look up wikipedia links
                 if l[6] != "-":
                     links = wiki_lookup(l[4], l[6])
                     data = "{} {} {} {} {} {} {} {} {} {}".format(l[0], l[1], l[2], l[3], l[4], l[5],
