@@ -304,7 +304,7 @@ def wiki_lookup(search_pass, tag_pass):
         result_syns = []
         to_return = []
 
-        if tag != "NATURAL_PLACE" and tag != "ANIMAL" and tag != "ENTERTAINMENT" and tag != "COUNTRY":
+        if tag != "NATURAL_PLACE" and tag != "ANIMAL" and tag != "ENTERTAINMENT" and tag != "COUNTRY" and tag != "CITY":
             search = search+" "+tag
             search_results = wikipedia.search(search)
         else:

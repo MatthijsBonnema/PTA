@@ -40,7 +40,7 @@ def wiki_lookup(search_pass, tag_pass):
         result_syns = []
         to_return = []
 
-        if tag != "NATURAL_PLACE" and tag != "ANIMAL" and tag != "ENTERTAINMENT" and tag != "COUNTRY" and tag != "SPORT":
+        if tag != "NATURAL_PLACE" and tag != "ANIMAL" and tag != "ENTERTAINMENT" and tag != "COUNTRY" and tag != "SPORT" and tag != "CITY":
             search = search+" "+tag
             search_results = wikipedia.search(search)
         else:
@@ -108,8 +108,8 @@ def wiki_lookup(search_pass, tag_pass):
 
 
 if __name__ == "__main__":
-    search = "Football"
-    tag = "SPORT"
+    search = "Chicago CITY  "
+    tag = "CITY"
     test = wiki_lookup(search, tag)
 
     print(test[0], test[1], test[2])
