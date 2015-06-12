@@ -28,7 +28,7 @@ def main():
     bigrams = makeBigrams(nouns, 2)
     tagged_bigrams = ngramTagger(bigrams)
     print(tagged_bigrams)
-    #tagChecker(tagged_bigrams)
+    tagChecker(tagged_bigrams)
     #
     # tagged_bigrams = ngramTagger(bigram_list)
     # tagChecker(tagged_bigrams)
@@ -84,7 +84,7 @@ def getNouns():
         for l in inp_file:
             line = l.split()
             # If words is a noun, go tag it!
-            if line[5] == "NN" or line[5] == "NNP":
+            if line[5] == "NN" or line[5] == "NNP" or line[5] == "NNPS":
                 nouns.append(line[4])
     return nouns
 
@@ -310,12 +310,12 @@ def tagChecker(tagged_bigrams):
             # Check if word in our tagged ngram list, if so replace tag with new tag.
             condition = bigramCheck(l[4], tagged_bigrams)
             if condition[0] == "yes":
-                data = "{} {} {} {} {} {} {} {} {} {}".format(l[0], l[1], l[2], l[3], l[4], l[5],condition[1],
+                data = "{} {} {} {} {} {} {} {} {} {}".format(l[0], l[1], l[2], l[3], l[4], l[5], condition[1],
                                                               tagged_bigrams[condition[2]][2][0],
                                                               tagged_bigrams[condition[2]][2][1],
                                                               tagged_bigrams[condition[2]][2][2])
             elif condition[0] == "no":
-                data = "{} {} {} {} {} {} {} {} {} {}".format(l[0], l[1], l[2], l[3], l[4], l[5], l[6], l[7], "-", "-")
+                data = "{} {} {} {} {} {} {} {} {} {}".format(l[0], l[1], l[2], l[3], l[4], l[5], l[6], l[7], l[8], l[9])
             output.write(data+"\n")
     output.close()
 
