@@ -17,6 +17,9 @@ def main():
     #         if len(l) > 4:
     #             text.append([l[0], l[1], l[2], l[3], l[4]])
 
+    print(testTag("President Bush"))
+    print(wordNetTagger("President_Bush"))
+
     # posTagger(text)
     nouns = getNouns()
     # print(nouns)
@@ -34,6 +37,13 @@ def main():
     # tagChecker(tagged_bigrams)
     # locationCheck()
     # wikification()
+
+
+def testTag(w):
+    class3 = NERTagger('stanford-ner/classifiers/english.all.3class.distsim.crf.ser.gz',
+                       'stanford-ner/stanford-ner.jar')
+    return class3.tag([w])
+
 
 
 def posTagger(text_data):
@@ -318,13 +328,13 @@ def tagChecker(tagged_bigrams):
             # Check if word in our tagged ngram list, if so replace tag with new tag.
             condition = bigramCheck(l[4], tagged_bigrams)
             if condition[0] == "yes":
-                data = "{:6}{:6}{:6}{:6}{:20}{:6}{:13}{:90}{:90}{:90}".format(l[0], l[1], l[2], l[3], l[4], l[5],
+                data = "{} {} {} {} {} {} {} {} {} {}".format(l[0], l[1], l[2], l[3], l[4], l[5],
                                                                               condition[1],
                                                                                 tagged_bigrams[condition[2]][2][0],
                                                                                 tagged_bigrams[condition[2]][2][1],
                                                                                 tagged_bigrams[condition[2]][2][2])
             elif condition[0] == "no":
-                data = "{:6}{:6}{:6}{:6}{:20}{:6}{:13}".format(l[0], l[1], l[2], l[3], l[4], l[5], l[6])
+                data = "{} {} {} {} {} {} {} {} {} {}".format(l[0], l[1], l[2], l[3], l[4], l[5], l[6], l[7], "-", "-")
             output.write(data+"\n")
     output.close()
 
