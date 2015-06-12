@@ -5907,7 +5907,7 @@ g8.12 24 30 1003 Poland NNP ORGANIZATION http://en.wikipedia.org/wiki/Powiat - -
 g8.12 30 32 1004 's POS - - - -
 g8.12 33 46 1005 parliamentary JJ - - - -
 g8.12 47 54 1006 speaker NN PERSON http://en.wikipedia.org/wiki/DIY_audio - -
-g8.12 55 66 1007 Włodzimierz NN - - - -
+g8.12 55 66 1007 Wlodzimierz NN - - - -
 g8.12 67 78 1008 Cimoszewicz NNP ORGANIZATION http://en.wikipedia.org/wiki/Ministries_of_Poland http://en.wikipedia.org/wiki/Polish_presidential_election,_2005 http://en.wikipedia.org/wiki/Chancellery_of_the_Prime_Minister_of_Poland
 g8.12 79 83 1009 says VBZ - - - -
 g8.12 84 86 1010 he PRP - - - -
