@@ -425,7 +425,7 @@ def wiki_lookup(search_pass, tag_pass):
     tag = tag_pass
     search_lower = search.lower()
 
-    tagcheck = ["COUNTRY", "STATE", "CITY", "TOWN", "NATURAL_PLACE", "PERSON", "ORGANISATION", "ANIMAL", "SPORT"]
+    tagcheck = ["COUNTRY", "STATE", "CITY", "TOWN", "NATURAL_PLACE", "PERSON", "ANIMAL", "SPORT"]
     if search_lower != "president":
         if len(search.split(" ")) == 1:
             try:
@@ -447,7 +447,7 @@ def wiki_lookup(search_pass, tag_pass):
         result_syns = []
         to_return = []
 
-        if tag != "NATURAL_PLACE" and tag != "ANIMAL" and tag != "ENTERTAINMENT" and tag != "COUNTRY":
+        if tag != "NATURAL_PLACE" and tag != "ANIMAL" and tag != "ENTERTAINMENT" and tag != "COUNTRY" and tag != "STATE" and tag != "ORGANIZATION":
             search = search+" "+tag
             search_results = wikipedia.search(search)
         else:

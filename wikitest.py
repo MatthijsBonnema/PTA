@@ -18,7 +18,7 @@ def wiki_lookup(search_pass, tag_pass):
     tag = tag_pass
     search_lower = search.lower()
 
-    tagcheck = ["COUNTRY", "STATE", "CITY", "TOWN", "NATURAL_PLACE", "PERSON", "ORGANISATION", "ANIMAL"]
+    tagcheck = ["COUNTRY", "STATE", "CITY", "TOWN", "NATURAL_PLACE", "PERSON", "ANIMAL"]
     if search_lower != "president":
         if len(search.split(" ")) == 1:
             try:
@@ -40,7 +40,7 @@ def wiki_lookup(search_pass, tag_pass):
         result_syns = []
         to_return = []
 
-        if tag != "NATURAL_PLACE" and tag != "ANIMAL" and tag != "ENTERTAINMENT" and tag != "COUNTRY" and tag != "SPORT" and tag != "CITY":
+        if tag != "NATURAL_PLACE" and tag != "ANIMAL" and tag != "ENTERTAINMENT" and tag != "COUNTRY" and tag != "SPORT" and tag != "CITY" and tag != "ORGANIZATION":
             search = search+" "+tag
             search_results = wikipedia.search(search)
         else:
@@ -108,8 +108,8 @@ def wiki_lookup(search_pass, tag_pass):
 
 
 if __name__ == "__main__":
-    search = "Chicago CITY  "
-    tag = "CITY"
+    search = "Iran ORGANIZATION"
+    tag = "COUNTRY"
     test = wiki_lookup(search, tag)
 
     print(test[0], test[1], test[2])
