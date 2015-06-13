@@ -348,7 +348,7 @@ def tagChecker(tagged_bigrams):
     :param tagged_bigrams: list of bigrams, formed: [bigram, tag, links]
     :return:
     """
-    output = open("hopelijk.de.laatste", "w")
+    output = open("hopelijk.echt.de.laatste", "w")
     print("checking Tags")
     with open("wiki.final", "r") as inp_file:
         for line in inp_file:
