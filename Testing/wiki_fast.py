@@ -11,7 +11,7 @@ from nltk.wsd import lesk
 def main():
 
     text = []
-    with open("en.tok.off.test", 'r') as filedata:
+    with open("test.set", 'r') as filedata:
         for line in filedata:
             l = line.split()
             if len(l) > 4:
@@ -20,10 +20,10 @@ def main():
     # Pos & Entity Tagging + finding wikipedia links of normal words
     posTagger(text)
     nouns = getNouns()
-    # tagged = entityTaggertest(nouns)
-    # writeTags(tagged)
-    # locationCheck()
-    # wikification()
+    tagged = entityTaggertest(nouns)
+    writeTags(tagged)
+    locationCheck()
+    wikification()
 
     # Entity tagging and finding wikipedia links of bigrams
     bigrams = makeBigrams(nouns, 2)
@@ -60,7 +60,7 @@ def getNouns():
     :return: list of all the nouns
     """
     nouns = []
-    with open("wiki.final", "r") as inp_file:
+    with open("test.set", "r") as inp_file:
         for l in inp_file:
             line = l.split()
             # If words is a noun, go tag it!
@@ -277,7 +277,7 @@ def nounsAndTags():
     :return:
     """
     nNt = []
-    with open("wiki.final", "r") as inp_file:
+    with open("test.set", "r") as inp_file:
         for l in inp_file:
             line = l.split()
             # If words is a noun, go tag it!
@@ -348,9 +348,9 @@ def tagChecker(tagged_bigrams):
     :param tagged_bigrams: list of bigrams, formed: [bigram, tag, links]
     :return:
     """
-    output = open("hopelijk.echt.de.laatste", "w")
+    output = open("wiki.final", "w")
     print("checking Tags")
-    with open("wiki.final", "r") as inp_file:
+    with open("wikified.single.words", "r") as inp_file:
         for line in inp_file:
             l = line.split()
             # Check if word in our tagged ngram list, if so replace tag with new tag.
@@ -400,7 +400,7 @@ def wikification():
     function that searches wikipedia pages by words.
     :return:
     """
-    output = open("wiki.final", "w")
+    output = open("wikified.single.words", "w")
     with open("loc.checked", "r") as inp_f:
         for line in inp_f:
             l = line.split()
