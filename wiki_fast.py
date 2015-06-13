@@ -354,7 +354,7 @@ def tagChecker(tagged_bigrams):
         for line in inp_file:
             l = line.split()
             # Check if word in our tagged ngram list, if so replace tag with new tag.
-            condition = bigramCheck(l[4], tagged_bigrams)
+            condition = bigramCheck(unicode(l[4]), tagged_bigrams)
             if condition[0] == "yes":
                 # Add tag + links to line
                 data = "{} {} {} {} {} {} {} {} {} {}".format(l[0], l[1], l[2], l[3], l[4], l[5], condition[1],
