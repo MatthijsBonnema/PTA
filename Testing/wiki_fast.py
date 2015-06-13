@@ -11,7 +11,7 @@ from nltk.wsd import lesk
 def main():
 
     text = []
-    with open("test.set", 'r') as filedata:
+    with open("test.set.dashes", 'r') as filedata:
         for line in filedata:
             l = line.split()
             if len(l) > 4:
@@ -60,7 +60,7 @@ def getNouns():
     :return: list of all the nouns
     """
     nouns = []
-    with open("test.set", "r") as inp_file:
+    with open("test.set.dashes", "r") as inp_file:
         for l in inp_file:
             line = l.split()
             # If words is a noun, go tag it!
@@ -277,7 +277,7 @@ def nounsAndTags():
     :return:
     """
     nNt = []
-    with open("test.set", "r") as inp_file:
+    with open("test.set.dashes", "r") as inp_file:
         for l in inp_file:
             line = l.split()
             # If words is a noun, go tag it!
