@@ -12,7 +12,6 @@ def makeList(f):
 
 golden_set = makeList("development.set.underscore")
 our_set = makeList("development.set.our")
-our_set.extend(["-","-","-","-","-","-"])
 print(len(golden_set), len(our_set))
 
 cm = ConfusionMatrix(golden_set, our_set)
