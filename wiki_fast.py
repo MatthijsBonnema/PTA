@@ -282,7 +282,7 @@ def nounsAndTags():
             line = l.split()
             # If words is a noun, go tag it!
             if (line[5] == "NN" or line[5] == "NNP") and line[6] != "-":
-                nNt.append((line[4].encode("utf-8"), (line[6].encode("utf-8"))))
+                nNt.append((unicode(line[4]), unicode(line[6])))
     return nNt
 
 
