@@ -20,7 +20,7 @@ def main():
     # Pos & Entity Tagging + finding wikipedia links of normal words
     posTagger(text)
     nouns = getNouns()
-    # tagged = entityTaggertest(nouns)
+    # tagged = gertest(nouns)
     # writeTags(tagged)
     # locationCheck()
     # wikification()
