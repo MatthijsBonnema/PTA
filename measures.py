@@ -7,7 +7,7 @@ def makeList(f):
     tagged = []
     with open(f, 'r') as fname:
         for line in fname:
-            tagged.append(line.split()[7][5:])
+            tagged.append(line.split()[6])
     return tagged
 
 golden_set = makeList("development.set.underscore")

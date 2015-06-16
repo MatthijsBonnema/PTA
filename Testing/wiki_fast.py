@@ -10,25 +10,29 @@ from nltk.wsd import lesk
 
 def main():
 
-    # text = []
-    # with open("test.set.dashes", 'r') as filedata:
-    #     for line in filedata:
-    #         l = line.split()
-    #         if len(l) > 4:
-    #             text.append([l[0], l[1], l[2], l[3], l[4]])
+    text = []
+    with open("test.set.dashes", 'r') as filedata:
+        for line in filedata:
+            l = line.split()
+            if len(l) > 4:
+                text.append([l[0], l[1], l[2], l[3], l[4]])
 
-    # Pos & Entity Tagging + finding wikipedia links of normal words
-    # posTagger(text)
+    #Pos & Entity Tagging + finding wikipedia links of normal words
+    print("Pos Tagging")
+    posTagger(text)
     nouns = getNouns()
-    # tagged = entityTaggertest(nouns)
-    # writeTags(tagged)
-    # locationCheck()
-    # wikification()
+    print('Entity Taggin')
+    tagged = entityTaggertest(nouns)
+    writeTags(tagged)
+    print("Location Check")
+    locationCheck()
+    print("Wikification")
+    wikification()
 
     # Entity tagging and finding wikipedia links of bigrams
-    bigrams = makeBigrams(nouns, 2)
-    tagged_bigrams = ngramTagger(bigrams)
-    tagChecker(tagged_bigrams)
+    # bigrams = makeBigrams(nouns, 2)
+    # tagged_bigrams = ngramTagger(bigrams)
+    # tagChecker(tagged_bigrams)
 
 
 def posTagger(text_data):
@@ -60,7 +64,7 @@ def getNouns():
     :return: list of all the nouns
     """
     nouns = []
-    with open("wikified.single.words", "r") as inp_file:
+    with open("test.set.dashes", "r") as inp_file:
         for l in inp_file:
             line = l.split()
             # If words is a noun, go tag it!
@@ -131,7 +135,7 @@ def writeTags(tagged_words):
         for line in inp_file:
             l = line.split()
             # Check if word in this line is tagged, if so, add tag to line
-            result = inList(l[4], tagged_words)
+            result = inList(l[4].decode("utf-8"), tagged_words)
             if result[0] == "yes":
                 data = "{} {} {} {} {} {} {}".format(l[0], l[1], l[2], l[3], l[4], l[5], result[1])
             else:
