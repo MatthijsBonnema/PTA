@@ -10,20 +10,20 @@ from nltk.wsd import lesk
 
 def main():
 
-    text = []
-    with open("test.set.dashes", 'r') as filedata:
-        for line in filedata:
-            l = line.split()
-            if len(l) > 4:
-                text.append([l[0], l[1], l[2], l[3], l[4]])
+    # text = []
+    # with open("test.set.dashes", 'r') as filedata:
+    #     for line in filedata:
+    #         l = line.split()
+    #         if len(l) > 4:
+    #             text.append([l[0], l[1], l[2], l[3], l[4]])
 
     # Pos & Entity Tagging + finding wikipedia links of normal words
-    posTagger(text)
+    # posTagger(text)
     nouns = getNouns()
-    tagged = entityTaggertest(nouns)
-    writeTags(tagged)
-    locationCheck()
-    wikification()
+    # tagged = entityTaggertest(nouns)
+    # writeTags(tagged)
+    # locationCheck()
+    # wikification()
 
     # Entity tagging and finding wikipedia links of bigrams
     bigrams = makeBigrams(nouns, 2)
@@ -60,7 +60,7 @@ def getNouns():
     :return: list of all the nouns
     """
     nouns = []
-    with open("test.set.dashes", "r") as inp_file:
+    with open("wikified.single.words", "r") as inp_file:
         for l in inp_file:
             line = l.split()
             # If words is a noun, go tag it!
@@ -277,7 +277,7 @@ def nounsAndTags():
     :return:
     """
     nNt = []
-    with open("test.set.dashes", "r") as inp_file:
+    with open("wikified.single.words", "r") as inp_file:
         for l in inp_file:
             line = l.split()
             # If words is a noun, go tag it!
